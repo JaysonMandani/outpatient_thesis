@@ -1,0 +1,270 @@
+@charset "UTF-8";
+
+html, body {
+	margin : 0;
+	padding: 0;
+}
+body {
+	text-align:center;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	background: #EEE;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	color:#333;
+}
+
+a {
+	color: #995522;
+	text-decoration: none;
+}
+
+#wrapper {
+	position: relative;
+	padding: 0;
+	width: 930px;
+	margin: 0 auto 0;
+	margin-top: -15px;
+	background: #FFF;
+	text-align: left;
+}
+
+/* ^5 --------------------- top-level region layout styles ------------------- */
+/* top-level regions are header, mainNav, mainContent, sidebar, & footer */
+
+/* header */
+#logo {
+	width: 270px;
+	height: 125px;
+	position: absolute;
+	top: 50px;
+	left: 35px;
+}
+/* mainNav */
+#mainNav {
+	float: left;
+	width: 300px;
+	margin-top: 233px;
+}
+/* mainContent */
+div#mainContent {
+	padding-right: 5px;
+	padding-left: 5px;
+	float: right;
+	margin-bottom: 45px;
+}
+/* aside */
+div#sidebar {
+	float: left;
+	clear:left;
+	width: 320px;
+	height: 62px;
+	background: url(../images/searchbg.png) repeat-x;
+	padding: 10 20 5 30;
+	margin-top: 1em;
+	margin-left: 5px;
+	display: block;
+}
+#sidebar ul li {
+	list-style: none;
+	font-size: 12px;
+	float: left;
+	color: #416bbb;
+	margin-top: 1px;
+}
+#sidebar .searchimg {
+	margin-top: 3px;
+}
+#sidebar .textsearch {
+	margin-top: -2px;
+}
+#sidebar ul {
+	padding-left: 35px;
+	margin-top: 20px;
+}
+div#aside {
+	float: left;
+	clear:left;
+	width: 320px;
+	background: url(../images/aside.png) repeat-x;
+	padding: 10 20 100 30;
+	margin-top: 1em;
+	margin-left: 5px;
+	display: block;
+}
+#aside a {
+	color: #416bbb;
+}
+#aside a:hover {
+	color: #f7573c;
+	font-size: 18px;
+}
+#aside ul li {
+	list-style: none;
+	height: 35px;
+	margin-left: -1em;
+	font-size: 13px;
+}
+div#regist {
+	float: left;
+	clear:left;
+	width: 320px;
+	height: 260px;
+	background: url(../images/regist.png) repeat-x;
+	padding: 10 20 60 30;
+	margin-top: 2em;
+	margin-left: 5px;
+	display: block;
+}
+#regist ul li {
+	list-style: none;
+	height: 20px;
+	margin-left: -3.5em;
+	font-size: 13px;
+	color: #3661b7;
+}
+#regist a:hover {
+	text-decoration: underline;
+}
+#regist h3 {
+	text-align: center;
+}
+#regist h4 {
+	text-align: center;
+}
+#footernav {
+	background:url(../images/footerNav.png) repeat-x;
+	clear: both;
+	padding: 45px 30px 30px;
+	margin: 0;
+}
+
+/* logo and photo style */
+#mainHeader #logo p{
+	text-indent: -1000em;
+}
+
+
+#mainHeader #logo {
+	background:url(../images/logo.png) no-repeat;
+	position: absolute;
+}
+
+#mainHeader #logo a:hover {
+	border: none;
+}
+
+#mainHeader #photo p{
+	text-indent: -1000em;
+}
+
+#mainHeader #photo {
+	width: 520px;
+	height: 200px;
+	position: absolute;
+	top: 15px;
+	right: -0.6em;
+}
+
+#mainHeader #photo {
+	background:url(../images/image1.png) no-repeat;
+}
+
+#mainHeader #photo a:hover {
+	border: none;
+}
+
+/* home page navigation */
+#mainHeader #mainNav {
+	margin-top: 215px;
+	width: 930px;
+	height: 40px;
+	background:url(../images/nav.png) repeat-x;
+}
+#mainHeader #mainNav a {
+	padding: 0 50px 0 50px;
+	color:#FFF;
+}
+#mainHeader #mainNav li a:hover {
+	color: #919191;
+}
+#mainHeader #mainNav ul {
+	list-style: none;
+	margin-top: 10px;
+	padding: 0;
+	width: 100%;
+	float: left;
+}
+#mainHeader #mainNav li {
+	float: left;
+	margin-left: 20px;
+	padding:0;
+	display: block;
+}
+/* animation */
+
+#mainArticle img.gallery {
+	padding: 5px 5px 10px 5px;
+	border: 1px solid #aaa;
+	cursor: pointer;
+}
+#photoShow {
+    position:relative;
+    height:330px;
+    width:550px;
+    margin-top: 15px;
+    margin-left: auto;
+}
+#photoShow div {
+    position:absolute;
+    z-index: 0;
+}
+#photoShow div.previous {
+    z-index: 1;
+}
+#photoShow div.current {
+    z-index: 2;
+}
+
+
+/* main article */
+div#mainArticle {
+	float: right;
+	width: 565px;
+	height: 700px;
+}
+#mainContent #mainArticle {
+	margin-top: 5px;
+}
+#mainContent #mainArticle ul{
+	width: 550px;
+	float: right;
+	margin-top: 10px;
+	list-style: none;
+}
+#mainContent #mainArticle p {
+	color: #00417d;
+}
+
+/* footer region */
+#footernav a {
+	color:#FFF;
+	font-size: 11px;
+	padding-left: 1px;
+	border: 0;
+}
+#footernav a:hover {
+	text-decoration: underline;
+}
+ul#footernav {
+	list-style: none;
+}
+ul#footernav li{
+	float: left;
+	color:#FFF;
+	font-size: 11px;
+	margin-top: -1em;
+}
+	

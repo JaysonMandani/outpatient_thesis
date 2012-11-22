@@ -1,0 +1,469 @@
+ /* Admin stylesheet */
+/* loads after pubic.css */
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+	padding: 0.833em; /* 10/16 */
+	display: inline-block;
+	background-repeat: no-repeat;
+}
+
+.image-left {
+	background-position: 0.833em center; /* 10/16 */
+	padding-left: 3em; /* 36/12 */
+}
+.image-right {
+	background-position: right center;
+	padding-right: 3em; /* 36/12 */
+
+}
+
+
+.ic-right-arrow { background-image: url("../assets/icons/ic_right.png"); }
+.ic-menu-user { background-image: url("../assets/icons/menu/ic-menu-user.png"); }
+.ic-menu-logout { background-image: url("../assets/icons/menu/ic-menu-log-out.png"); }
+.ic-search { background-image: url("../assets/icons/ic_search.png"); }
+.ic-delete { background-image: url("../assets/icons/ic_delete.png"); }
+
+
+.ic-table-edit { background-image: url("../assets/icons/table/ic-table-edit.png"); }
+.ic-table-delete { background-image: url("../assets/icons/table/ic-table-delete.png"); }
+.ic-table-show { background-image: url("../assets/icons/table/ic-table-show.png"); }
+.ic-table-immunization { background-image: url("../assets/icons/table/ic-table-immunization.png"); }
+
+
+
+
+/* ---------- MENU ---------- */
+
+ul#nav {
+	list-style-type: none;
+}
+ul#nav li {
+	float: left;
+	position: relative;
+	margin-right: 0.3125em; /* 5/16 */
+}
+ul#nav li:hover ul {
+	left: 0;
+}
+ul#nav li:hover a {
+	background-color: #5d6677;
+	color: white;
+}
+ul#nav li.v-zap {
+	border-right: 1px solid #3a404b;
+	margin-right: 0.625em; /* 10/16 */
+	padding-right: 0.625em; /* 10/16 */
+}
+
+
+
+/* ---------- TABS ---------- */
+
+ul#tabs { list-style-type: none; margin-right: 30px; }
+	
+ul#tabs li { float: left; }
+
+ul#tabs li a.inactive-tab:hover {
+	background-color: #f8f9fa;
+}
+
+ul#tabs li a {
+	display: block;
+	padding: 1.66em 0.833em; /* 20/12 10/12 */
+	margin: 0 0.416em -1px 0; /* 5/12 */
+	border: 1px solid #eeefef;
+	border-bottom: none;
+	color: #9498a1;
+}
+ul#tabs li a:hover {
+	color: #2a2e36;
+}
+
+ul#tabs li a.home-tab {
+	background: transparent url(../assets/icons/tabs/home-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.ortho-tab {
+	background: transparent url(../assets/icons/tabs/ortho-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.pedia-tab {
+	background: transparent url(../assets/icons/tabs/pedia-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.inventory-tab {
+	background: transparent url(../assets/icons/tabs/inventory-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.users-tab {
+	background: transparent url(../assets/icons/tabs/users-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.schedule-tab {
+	background: transparent url(../assets/icons/tabs/schedule-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.billing-tab {
+	background: transparent url(../assets/icons/tabs/billing-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+ul#tabs li a.analytics-tab {
+	background: transparent url(../assets/icons/tabs/analytics-tab.png) no-repeat 0.833em center;
+	padding-left: 3em; /* 36/12 */
+}
+
+ul#tabs li a.active-tab {
+	background-color: #f8f9fa;
+	font-weight: bold;
+	color: #2a2e36;
+}
+
+.company-logo-small { width: 160px; height: 40px; background-image: url("../assets/logo_stlukes.png"); }
+
+
+/* ---------- CONTENT ---------- */
+div.side-menu-option {
+	background-color: #f8f9fa;
+	border: 1px solid #e8e9e9;
+}
+div.side-menu-calendar {
+	margin-top: 1em;
+}
+div.side-menu h3 {
+	text-transform: uppercase;
+	background-color: #2a2e36;
+	color: white;
+	font-weight: bold;
+	padding: 1.2em;
+}
+div.side-menu ul li { list-style-type: none; }
+
+div.side-menu ul li a:hover {
+	background-color: #f2f3f4;
+}
+div.side-menu ul li a {
+	background: white url("../assets/list-item-bullet.png") no-repeat right;
+	display: block;
+	padding: 15px; /* 15/12 */
+	border-top: 1px solid #eeefef;
+}
+div.side-menu ul li a.active-tab {
+	background-color: #f2f3f4;
+}
+
+
+
+div.user-image p { margin-top: 0.833em; }
+
+div.info { width: 65%; }
+
+
+
+div.sub-heading {
+	background-color: #5d6677;
+	color: white;
+	padding: 0.833em; /*15/12*/
+}
+div.sub-heading h4 {
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;
+}
+
+
+/* ---------- FORM ---------- */
+
+form label {
+	display: inline-block;
+	margin-left: 0.625em; /* 10/16 */
+	color: #2a2e36;
+	margin-bottom: 0.416em; /* 5/12 */
+}
+
+form input[type="text"], textarea,  form input[type="password"] {
+	margin-bottom: 0.416em; /* 15/12 */ 
+	padding: 0.666em; /* 9/12 */
+	border: 1px solid #e7e8e9;
+	outline: none;
+	display: inline-block;
+}
+
+form input[type="text"]:hover,
+form input[type="text"]:focus{
+	border: 1px solid #bbbdbe;
+}
+form input[type="submit"]{
+	border: none;
+	font-weight: bold;
+}
+form select {
+	padding: 0.583em; /* 9/12 */
+	border: 1px solid #e7e8e9;
+	display: inline-block;
+	margin-bottom: 0.416em; /* 15/16 */ 
+}
+form li textarea {
+	margin-left: 0.416em; /*5/12*/
+}
+form#search-form {
+	margin: 6px 0 0 0; /*5/12*/
+}
+form#search-form input[type="text"] {
+	border: none;
+}
+	form#search-form label {
+		font-size: 12px;
+		color: #9498a1;
+	}
+
+/* ---------- TABLES ---------- */
+
+
+table th {
+	background-color: #5d6677;
+	color: white;
+	text-transform: uppercase;
+	border-left: 1px solid #838ea2;
+	padding: 12px; /*15/12*/
+}
+
+table td:first-child {
+	padding-right: 10px;
+}
+
+table.patients-record {
+	color: #2a2e36;
+	width: 100%;
+}
+
+table.patients-record td:first-child, table th:first-child {
+	width: 2em; /*24/12*/
+	text-align: center;
+}
+table.patients-record td:last-child, th:last-child {
+	width: 12em;
+	text-align: center;
+}
+table.patients-record tbody td {
+	padding: 8px 15px; /* 10/12 15/12 */
+	border-bottom: 1px solid #f8f9fa;
+	border-left: 1px solid white;
+}
+
+table.birth-history td:nth-child(3) {
+	padding-right: 10px;
+}
+table.birth-history td:nth-child(5) {
+	padding-right: 10px;
+}
+table.birth-history tr:first-child td:nth-child(5) {
+	padding-left: 100px;
+}
+
+table.birthHistory-andDevelopment {
+	line-height: 20px;
+	color: #2a2e36;
+}
+	table.birthHistory-andDevelopment tr td:nth-child(3),
+	table.birthHistory-andDevelopment tr td:nth-child(4),
+	table.birthHistory-andDevelopment tr td:nth-child(5),
+	table.birthHistory-andDevelopment tr td:nth-child(6){
+		padding-left: 20px;
+	}
+
+a.table-edit-button, a.table-delete-button, 
+a.table-show-details {
+	width: 1.333em; /* 16/12 */
+	height: 1.333em; /* 16/12 */
+	display: inline-block;
+	background-position: center center;
+}
+a.table-immunization-button {
+	width: 21px; /* 16/12 */
+	height: 19px; /* 16/12 */
+	display: inline-block;
+}
+	a.table-edit-button:hover {
+		background-image: url("../assets/icons/table/ic-table-edit-hover.png");
+	}
+	a.table-delete-button:hover {
+		background-image: url("../assets/icons/table/ic-table-delete-hover.png");
+	}
+	a.table-show-details:hover {
+		background-image: url("../assets/icons/table/ic-table-show-hover.png");
+	}
+	a.table-immunization-button:hover {
+		background-image: url("../assets/icons/table/ic-table-immunization-hover.png");
+	}
+
+
+.odd { background: #f8f9fa; cursor: default;}
+.even { background: none;}
+
+.odd:hover {
+	background: #e4e6e6;
+	cursor: default;
+}
+
+.even:hover {
+	background: #e4e6e6;
+	cursor: default;
+}
+
+
+/*Ortho forms*/
+#ortho_age, #ortho_sex, #ortho_status,
+#ortho_birth_date_2i, #ortho_birth_date_1i, #ortho_birth_date_3i,
+#ortho_examination_date_1i, #ortho_examination_date_2i, #ortho_examination_date_3i{
+	border-radius: 0.3125em; /* 5/16 */
+	-webkit-border-radius: 0.3125em; /* 5/16 */
+	-moz-border-radius: 0.3125em; /* 5/16 */
+}
+
+
+/* ---------- WIDTHS ---------- */
+
+.full-size-input {
+	width: 94%;
+}
+.default-size-input {
+	width: 200px;
+}
+.address-size-input {
+	width: 400px;
+}
+.medium-size-input {
+	width: 168px;
+}
+.small-size-input {
+	width: 130px;
+}
+.supersmall-size-input {
+	width: 1500px;
+}
+.page-full-width {
+	padding: 0 1.875em; /* 30/16 */
+}
+
+
+/*Pagination*/
+.pagination {
+	margin-top: 20px;
+	background: white;
+
+}
+.pagination a, .pagination span, .pagination em {
+	padding: 3px 6px;
+	display: block;
+	float: left;
+	margin-right: 1px;
+}
+.pagination .disabled {
+	color: #999999;
+	border: 1px solid #dddddd;
+}
+.pagination .current {
+	font-style: normal;
+	font-weight: bold;
+	background: #2e6ab1;
+	color: white;
+	border: 1px solid #2e6ab1;
+}
+.pagination a {
+	text-decoration: none;
+	color: #105cb6;
+	border: 1px solid #9aafe5;
+}
+.pagination a:hover, .pagination a:focus {
+	color: #000033;
+	border-color: #000033;
+}
+.pagination:after {
+	content: ".";
+	display: block;
+	height:  0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* Errors */
+#error { width: 400px; padding: 0; margin: 0 auto 1.5em; 
+border: 1px solid #AA0000; background-color: #FFFFFF; font-size: 12px; }
+#error h2 { font-weight: bold; font-size: 12px;
+padding: 5px 5px 5px 15px; margin: 0; width: 380px;
+background-color: #AA0000; color: #FFFFFF; }
+#error p { color: #333333; margin: 0; padding: 3px 0.5em; }
+#error ul { margin-top: 0; }
+#error ul li { list-style: square; }
+
+/* Calendar */
+#calendar table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%;
+}
+
+#calendar td {
+  background: #FFF;
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar .today {
+  background-color: #D7F2FF;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+
+
+
+

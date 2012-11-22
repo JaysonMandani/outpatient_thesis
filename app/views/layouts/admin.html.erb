@@ -1,0 +1,54 @@
+<!DOCTYPE html Public "-//W#C//DTD HTML 4.01 Transitional//EN
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Outpatient Thesis <%= "| #{@page_title}" if @page_title %></title>
+    <meta name="author" content="JsonManz">
+    <link rel="icon" href="../assets/rails.png">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag('http://fonts.googleapis.com/css?family=Droid+Sansc') %>
+    <%= stylesheet_link_tag('public', 'admin', '960_24_col', 'reset') %>
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
+    <%= javascript_include_tag %>
+  </head>
+  <body>
+	<header>
+		<div id="top-bar" class="container_24">
+			<ul id="nav" class="grid_9 suffix_1">
+				<li class="v-zap"><a href="#" class="button round dark image-left ic-menu-user">Logged in as: <strong><%= session[:username] %></strong></a></li>
+				<li><%=  link_to('Logout', {:controller => 'admin', :action => 'logout'}, :class => 'button round dark image-left ic-menu-logout')  %></li>
+			</ul>
+			<% if !flash[:notification].blank? %>
+    			<%= link_to(flash[:notification], {:controller => 'schedules', :action => 'show'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
+    			<% elsif !flash[:greetings].blank? %>
+    			<%= link_to(flash[:greetings], {:controller => 'pediatrics'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
+			<% end %>
+		</div> <!-- end of top bar -->
+	</header>
+
+	<div id="header-width-tabs" class="container_24">
+        <%= render(:partial => 'layouts/navigation') %>
+	</div> <!-- end of tabs -->
+	
+	 <% if !flash[:notice].blank? %>
+  		<div id="login-notice">
+    		<%= flash[:notice] %>
+  		</div>
+	<% end %>
+
+	<div id="content-wrapper">
+		<div id="content" class="container_24">
+			<%= yield %>
+		</div>
+	</div>
+
+	<footer>
+		<div id="foot" class="container_24">
+			<p class="push_7">&copy; Copyright 2012 <a href="#">St. Lukes Medical Center</a>. All rights reserved</p>
+			<p class="push_8"><strong>Admin Page</strong> by <a href="#">thesis group - Boys Over Flowers</a></p>
+		</div>
+	</footer> <!-- end of footer -->
+
+</body>
+</html>

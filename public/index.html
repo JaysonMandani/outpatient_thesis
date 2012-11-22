@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>St. Luke's Medical Center</title>
+<link href="stylesheets/main.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="stylesheets/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+    media="screen, projection" />
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="javascripts/modernizr-1.7.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // create the image rotator
+            setInterval("rotateImages()", 2000);
+        });
+
+        function rotateImages() {
+            var oCurPhoto = $('#photoShow div.current');
+            var oNxtPhoto = oCurPhoto.next();
+            if (oNxtPhoto.length == 0)
+                oNxtPhoto = $('#photoShow div:first');
+
+            oCurPhoto.removeClass('current').addClass('previous');
+            oNxtPhoto.css({ opacity: 0.0 }).addClass('current').animate({ opacity: 1.0 }, 1000,
+                function() {
+                    oCurPhoto.removeClass('previous');
+                });
+        }
+    </script>
+</head>
+<body class="no-js">
+<div id="wrapper">
+    <div id="mainHeader">
+            <div id="logo">
+                <ul>
+                <p><a href="index.htm" title="Return to the home page">Welcome to St.Luke's Medical Center</a></p>
+                </ul>
+            </div>
+            <div id="photo">
+                <p>PHOTO</p>
+            </div>
+        <div id="mainNav">
+            <ul>
+                <li><a href="index.htm" title="" class="home">HOME</a></li>
+                <li><a href="about.htm" title="" class="about">ABOUT US</a></li>
+                <li><a href="index.htm" title="" class="home">HEALTHCARE SERVICES</a></li>
+                <li><a href="contact.htm" title="" class="contact">CONTACT US</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="mainContent">
+        <div id="mainArticle">
+        <div id="photoShow">
+                <div class="current">
+                    <a href="index.htm">
+                        <img src="images/image.png" alt="Photo Gallery" width="520" height="315"
+                            class="gallery" /></a>
+                </div>
+                <div>
+                    <a href="index.htm">
+                        <img src="images/Hydrangeas.jpg" alt="Photo Gallery" width="520" height="315"
+                            class="gallery" /></a></div>
+                <div>
+                    <a href="index.htm">
+                        <img src="images/Chrysanthemum.jpg" alt="Photo Gallery" width="520" height="315"
+                            class="gallery" /></a></div>
+                <div>
+                    <a href="index.htm">
+                        <img src="images/Tulips.jpg" alt="Photo Gallery" width="520" height="315"
+                            class="gallery" /></a></div>
+        </div>
+        <ul>
+        <li><p>St. Luke's Medical Center's legacy of excellence surpasses all expectations. For over a century, St. Luke's superior brand of healthcare service has made it truly world class.</p></li>
+        <li><p>With astounding success anchored on five pillars of expertise-expert doctors, state-of-the-art technology, guaranteed patient safety, excellent success rate and passionate customer service, St Luke's Medical Center is the first hospital in the country to be accredited by the Joint Commission International (JCI).</p></li>
+        <li><p>With its undisputed leadership in virtually all medical specialties, including cardiovascular medicine,neurology and neurosurgery, cancer, ophthalmology, and digestive and liver diseases,St Luke's Medical Center brings its commitment to the south as it opens another modern facility at the Fort Bonifacio Global City. St. Luke's continuous passion for healthcare innovation makes it the best hospital in the Philippines and the first choice of medical and health-related practitioners and patients for executive check-ups.</p></li>
+        </ul>
+        </div>
+    </div>
+    <div id="sidebar">
+        <ul>
+        <li><label>Search</label></li>
+        <li><input type="text" name="search" class="textsearch" /></li>
+        <li><img src="images/search.png" width="20" height="15" class="searchimg" /></li>
+        </ul>
+    </div>
+    <div id="aside">
+        <ul>
+            <li><a href="#" title="" class="">SMLC Global City</a></li>
+            <li><a href="#" title="" class="">St. Luke's eHealth</a></li>
+            <li><a href="#" title="" class="">Patients and Visitors</a></li>
+            <li><a href="#" title="" class="">Centers of Exellence</a></li>
+            <li><a href="#" title="" class="">Health Professionals</a></li>
+            <li><a href="#" title="" class="">PACS</a></li>
+            <li><a href="#" title="" class="">International Patient Care Center</a></li>
+            <li><a href="#" title="" class="">International Accreditation</a></li>
+            <li><a href="#" title="" class="">Executive Check-up Programs</a></li>
+            <li><a href="#" title="" class="">International Affiliation and Networking</a></li>
+            <li><a href="#" title="" class="">Healthline</a></li>
+            <li><a href="#" title="" class="">Corporate Ads</a></li>
+        </ul>
+    </div>
+    <div id="regist">
+        <ul>
+        <li><h3>See your</h3></li>
+        <li><h4>SCHEDULE ONLINE</h4></li>
+        <center><li><input type="submit" name="submit" class="regist" value="REGISTER HERE!" /></li></center>
+        <li><h4>Already Registered</h4></li>
+        <li><h3>SIGN HERE!</h3></li>
+        <center><li><a href="#" title="" class="faq">Frequently Asked Questions (FAQ's)</a></li></center>
+        </ul>
+    </div>
+    <div id="footer">
+        <ul id="footernav">
+            <li>Copyright St. Luke's Medical Center</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li><a href="index.htm" title="" class="home">Home |</a></li>
+            <li><a href="about.htm" title="" class="about">About Us |</a></li>
+            <li><a href="index.htm" title="" class="home">Healthcare Services |</a></li>
+            <li><a href="contact.htm" title="" class="contact">Contact Us</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

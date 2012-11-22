@@ -1,0 +1,61 @@
+<% @page_title = "Create Immunization" %>
+<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<h3> Options </h3>
+			<ul>
+				<li><%=  link_to('Pediatrics List', {:action => 'list', :id => @immunization.id, :pediatric_id => @pediatric.id}) %></li>
+			</ul>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu --> 
+<div class="side-content grid_19">
+<div class="content-module">
+		<div class="content-module-heading cf">
+		<h3>Patient's Form</h3>
+	</div> <!-- end of side-content-heading -->
+	<div class="content-module-main cf">
+	<div class="sub-heading">
+		<h4>Feeding History and Immunization</h4>
+	</div>
+	<div class="birthHistory-andDevelopment">
+		<%= form_for(:immune, :url => {:action => 'add_new', :pediatric_id => @immunization.id}) do |f| %>
+
+		<br />
+		<table cols="5" class="birth-history">
+		<tr>
+			<td>Pedia Name:</td>
+			<td><%=  @pediatrics.full_name %></td>
+		</tr>
+		<tr><td><br></td></tr>	
+		<tr>
+			<td><%= f.label(:pediatric_id, "ID") %></td>
+			<td><%= f.select(:pediatric_id, [@pediatrics.id]) %></td>
+		</tr>
+		<tr>
+			<td><%= f.label(:vaccination_name, "Vaccine Name") %></td>
+			<td><%= f.select(:vaccination_name, %w{Bcg DPT OPV Measles MMR Typhoid Hib Hepatitis_A Hepatitis_B Chickenpox Meningococcal Pneumomcoccal}) %></td>
+		</tr>
+
+			<tr>
+				<td><%= f.label(:vaccination_session, "Vaccination Session") %></td>
+				<td><%= f.select(:vaccination_session, %w{none 1st 2nd 3rd}) %></td>
+			</tr>
+
+			<tr>
+				<td><%= f.label(:booster_session, "Booster Session") %></td>
+				<td><%= f.select(:booster_session, %w{none 1st 2nd}) %></td>
+			</tr>
+
+			<tr>
+				<td><%= f.label(:vaccination_type, "Type of Vaccination") %></td>
+				<td><%= f.text_field(:vaccination_type, :class=>'round half-size-input') %></td>
+			</tr>
+		</table>
+	</div>
+	<%= submit_tag("SUBMIT", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+		<% end -%>
+			</div> <!-- end of content-module-main -->
+		</div> <!-- end of content-module -->
+	</div> <!-- end of side-content -->

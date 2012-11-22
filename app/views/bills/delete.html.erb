@@ -1,0 +1,57 @@
+<% @page_title = "Delete Immunization" %>
+<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<h3> Options </h3>
+			<ul>
+				<li><%= link_to("Back to Pediatrics List", {:action => 'list', :id => @immunization.id, :pediatric_id => @pediatric.id}) %></li>
+			</ul>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->  
+<div class="side-content grid_19">
+<div class="content-module">
+		<div class="content-module-heading cf">
+		<h3>DELETE VACCINATION RECORD</h3>
+	</div> <!-- end of side-content-heading -->
+	<div class="content-module-main cf">
+	<div class="sub-heading">
+		<h4>Immunization</h4>
+	</div>
+	<div class="birthHistory-andDevelopment">
+		<%= form_for(:immune, :url => {:action => 'destroy', :id => @immunization.id, :pediatric_id => @pediatric.id}) do |f| %>
+		<table>
+			<tr>
+				<td>
+					<%= label(:vaccination_name, "Vaccine Name: ") %>
+					<%= @immunization.vaccination_name %>
+				<td/>
+			</tr>
+			<tr>
+				<td>
+					<%= label(:vaccination_session, "Vaccination Session: ") %>
+					<%= @immunization.vaccination_session %>
+				<td/>
+			</tr>
+			<tr>
+				<td>
+					<%= label(:booster_session, "Booster Session: ") %>
+					<%= @immunization.booster_session %>
+				<td/>
+			</tr>
+			<tr>
+				<td>
+					<%= label(:vaccination_type, "Type of Vaccination: ") %>
+					<%= @immunization.vaccination_type %>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<span>Are you sure you want to permanently delete this IMMUNO?</span><br />
+	<br />
+	<%= submit_tag("DELETE", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+		<% end -%>
+			</div> <!-- end of content-module-main -->
+		</div> <!-- end of content-module -->
+	</div> <!-- end of side-content -->

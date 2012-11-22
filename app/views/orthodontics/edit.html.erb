@@ -1,0 +1,37 @@
+<% @page_title = "Edit Ortho Details" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<%= render(:partial => 'sidenav') %>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+	
+	<div class="side-content grid_19">
+
+		<div class="content-module grid_19">
+
+			<div class="content-module-heading cf">
+				<h3> Patient's Form </h3>
+			</div> <!-- end of content-module-heading -->
+
+	<div class="content-module-main">
+
+		<div class="form">
+		<%= form_for(:orthodontic, :url => {:action => 'update', :id => @orthodontic.id}) do |f| %>
+		
+			<%= render(:partial => "form", :locals => {:f => f}) %>
+
+			<%= submit_tag("SUBMIT", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+			</div>
+		<% end %>
+					</div> <!-- end of form -->
+
+				</div> <!-- end of content-module-main -->
+
+			</div> <!-- end of content-module -->
+		
+		</div> <!-- end of side-content -->
+

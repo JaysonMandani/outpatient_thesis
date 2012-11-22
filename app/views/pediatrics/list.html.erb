@@ -1,0 +1,56 @@
+<% @page_title = "List Pediatrics" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<%= render(:partial => 'pediatrics/sidenav') %>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+	<div class="side-content grid_19">
+		
+		<div class="content-module">
+
+			<div class="content-module-heading cf">
+				<h3 class="grid_6">PEDIATRICS LIST OF RECORDS</h3>
+				<%= render(:partial => 'shared/search') %>
+			</div> <!-- end of side-content-heading -->
+			
+			<div class="content-module-main cf">
+			
+				<table class="patients-record">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>name</th>
+							<th>address</th>
+							<th>sex</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+						<% @pediatrics.each do |pedia| %>
+					<tbody>
+						<tr class="<%= cycle('odd', 'even')%>">
+							<td><%= pedia.id %></td>
+							<td><%= pedia.full_name %></td>
+							<td><%= pedia.address %></td>
+							<td><%= pedia.sex %></td>
+							<td>
+								<%= link_to("", {:controller => 'immunizations', :action => 'list', :pediatric_id => pedia.id }, :class => 'table-immunization-button ic-table-immunization', :title => "immunization") %>
+								<%= link_to("", {:action => 'show', :id => pedia.id }, :class => 'table-show-details ic-table-show', :title => "show") %>
+								<%= link_to("", {:action => 'edit', :id => pedia.id }, :class => 'table-edit-button ic-table-edit', :title => "edit") %>
+								<%= link_to("", {:action => 'delete', :id => pedia.id }, :class => 'table-delete-button ic-table-delete', :title => "delete") %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<div class="pagination">	
+				<%= will_paginate @pediatrics, :container => false %>
+			</div>
+			</div> <!-- end of content-module-main -->
+
+		</div> <!-- end of content-module -->
+
+	</div> <!-- end of side-content -->

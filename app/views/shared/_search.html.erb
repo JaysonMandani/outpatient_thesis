@@ -1,0 +1,5 @@
+<%= form_tag('', :method => "get", :id=> 'search-form', :class=> 'grid_6 push_7') do %>
+	<%= label(:search, "Search") %>
+	<%= text_field_tag(:search, params[:search], :placeholder => "Search for name", :class=> 'button round dark image-right ic-search ')%>
+	<%= hidden_field_tag("Search", :name => nil) %>
+<% end %>

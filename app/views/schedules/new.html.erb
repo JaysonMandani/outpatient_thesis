@@ -1,0 +1,35 @@
+<% @page_title = "Create New Schedule" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<%= render(:partial => 'sidenav') %>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+
+	<div class="side-content grid_19">
+
+		<div class="content-module">
+			<div class="content-module-heading cf">
+				<h3> SCHEDULE FORM </h3>
+			</div> <!-- end of content-module-heading -->
+		
+			<%= form_for(:schedule, :url => {:action => 'create'}) do |f| %>
+
+				<%= render(:partial => "form", :locals => {:f => f}) %>
+
+				<%= submit_tag("set schedule", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+
+				</div> <!-- end of personal-information -->
+
+			<% end %>
+
+				</div> <!-- end of content-module-main -->
+
+			</div> <!-- end of content-module -->
+
+	</div> <!-- end of page full width -->
+
+

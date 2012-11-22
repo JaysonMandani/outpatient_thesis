@@ -1,0 +1,69 @@
+<% @page_title = "Delete Ortho Record" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<%= render(:partial => 'orthodontics/sidenav') %>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+	<div class="side-content grid_19">
+		<div class="content-module">
+			<div class="content-module-heading cf">
+				<h3> DELETE PATIENT RECORD </h3>
+			</div> <!-- end of content-module-heading -->
+	<div class="content-module-main cf">
+		<div class="form">
+			<div class="sub-heading">
+				<h4>Personal Information</h4>
+			</div>
+		<%= form_for(:ortho, :url => {:action => 'destroy', :id => @orthodontic.id}) do |f| %>
+			<div class="personal-information-delete">
+				
+				<p>
+					<%= label(:full_name, "Full Name: ") %>
+					<%= @orthodontic.full_name %><br />
+									
+					<%= label(:age, "Age: ") %>
+					<%= @orthodontic.age %><br />
+										
+					<%= label(:sex, "Sex: ") %>
+					<%= @orthodontic.sex %><br />
+									
+					<%= label(:status, "Status: ") %>
+					<%= @orthodontic.status %><br />
+									
+					<%= label(:address, "Address: ") %>
+					<%= @orthodontic.address %><br />
+									
+					<%= label(:occupation, "Occupation: ") %>
+					<%= @orthodontic.occupation %><br />
+									
+					<%= label(:mobile_no, "Mobile no.: ") %>
+					<%= @orthodontic.mobile_no %><br />
+										
+					<%= label(:resident_tel, "Resident Tel.: ") %>
+					<%= @orthodontic.resident_tel %><br />
+										
+					<%= label(:reffered_by, "Reffered By: ") %>
+					<%= @orthodontic.reffered_by %><br />
+									
+					<%= label(:birth_date, "Birth Date: ") %>
+					<%= @orthodontic.birth_date %><br />
+				</p>
+
+			</div> <!-- end of personal-information -->
+			
+			<%= submit_tag("DELETE", {:class => 'button round blue text-upper image-right ic-delete', :onclick=> "return confirm('Are you sure?')"}) %>
+		<% end %>
+					</div> <!-- end of form -->
+
+				</div> <!-- end of content-module-main -->
+
+			</div> <!-- end of content-module -->
+		
+		</div> <!-- end of side-content -->
+
+	</div> <!-- end of page full width -->
+

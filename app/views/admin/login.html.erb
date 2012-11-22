@@ -1,0 +1,21 @@
+<%= form_tag({:action => 'attempt_login'}, :id => 'login-form', :class => 'container_24')  do %>
+  <fieldset>
+
+    <p>
+      <%= label_tag(:username, "USERNAME") %>
+      <%= text_field_tag(:username) %>
+    </p>
+    <br />
+
+    <p>
+      <%= label_tag(:password, "PASSWORD") %>
+      <%= password_field_tag(:password) %>
+    </p>
+    <br />
+
+    <p><%= link_to("Forgot your password?", {:action => 'forgot_password'}) %></p>
+    <br />
+    
+    <%= submit_tag("Log In", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+  </fieldset>
+<% end %>

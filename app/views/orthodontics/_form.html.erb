@@ -1,0 +1,93 @@
+<%= error_messages_for(@orthodontic) %>
+<div class="sub-heading">
+	<h4>Personal Information</h4>
+</div>
+<div class="sub-heading">
+	<h4>Personal Information</h4>
+</div>
+<div class="personal-information">
+	<table cols="5">
+		<tr>
+			<td>
+				<%= f.label(:full_name) %>
+			</td>
+			<td>
+				<%= f.text_field(:full_name, :class=>'round default-size-input') %>
+			</td>
+
+			<td>
+				<%= f.label(:age) %>
+				<%= f.select(:age, 1..90, :class=>'round dropdown') %>
+			</td>
+
+			<td>
+				<%= f.label(:sex) %>
+				<%= f.select(:sex, %w{Male Female}, :class => 'round dropdown') %>
+			</td>
+
+			<td>
+				<%= f.label(:status) %>
+				<%= f.select(:status, %w{Single Married}, :class => 'round dropdown') %>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<%= f.label(:address) %>
+			</td>
+			<td colspan="5">
+				<%= f.text_field(:address, :class=> 'round address-size-input') %>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<%= f.label(:occupation) %>
+			</td>
+			<td>
+				<%= f.text_field(:occupation, :class=> 'round default-size-input') %>
+			</td>
+
+			<td colspan="3">
+				<%= f.label(:mobile_no) %>&nbsp;&nbsp;&nbsp;
+				<%= f.text_field(:mobile_no, :class=> 'round default-size-input') %>
+			</td>
+
+		</tr>
+		<tr>	
+			<td>
+				<%= f.label(:resident_tel) %>
+			</td>
+			<td>
+				<%= f.text_field(:resident_tel, :class=> 'round default-size-input') %>
+			</td>
+			<td colspan="3">
+				<%= f.label(:reffered_by) %>
+				<%= f.text_field(:reffered_by, :class=> 'round default-size-input') %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= f.label(:birth_date) %>
+			</td>
+			<td colspan="5">
+				<%= f.date_select(:birth_date, :order => [:month, :day, :year], :start_year => 1960) %>
+			</td>
+		</tr>
+</table>
+</div> <!-- end of personal-information -->
+
+<div class="sub-heading">
+	<h4>Examination</h4>
+</div>
+	<div class="examination">
+		<table summary="Orthodontics form fields">
+			<tr>
+				<td><%= f.label(:examination_date) %></td>
+				<td colspan="5">
+					<%= f.date_select(:examination_date, :order => [:month, :day, :year]) %>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1"><%= f.label(:examination_result) %></td>
+				<td colspan="1"><%= f.text_area(:examination_result, :size => '40x5', :class=> 'round') %></td>
+			</tr>
+</table>

@@ -1,0 +1,59 @@
+<% @page_title = "List of Inventories" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<%= render(:partial => 'sidenav') %>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+	<div class="side-content grid_19">
+		<div class="content-module">
+			<div class="content-module-heading cf">
+				<h3 class="grid_6"> LIST OF INVENTORIES </h3>
+
+				<%= render(:partial => 'shared/search') %>
+
+			</div> <!-- end of content-module-heading -->
+			<div class="content-module-main">
+
+				<table class="patients-record">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Name</th>
+							<th>Medical Name</th>
+							<th>Type</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+						<% @inventories.each do |inventory| %>
+					<tbody>
+						<tr class="<%= cycle('odd', 'even')%>">
+							<td><%= inventory.id %></td>
+							<td><%= inventory.brand_name %></td>
+							<td><%= inventory.medical_name %></td>
+							<td><%= inventory.medical_type %></td>
+							<td><%= inventory.quantity %></td>
+							<td><center><%= inventory.price %></center></td>
+							<td>
+								<%= link_to("", {:action => 'edit', :id => inventory.id }, :class => 'table-edit-button ic-table-edit', :title => "edit") %>
+								<%= link_to("", {:action => 'delete', :id => inventory.id }, :class => 'table-delete-button ic-table-delete', :title => "delete") %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>	
+					<div class="pagination">	
+						<%= will_paginate @inventories, :container => false %>
+				</div>
+			</div> <!-- end of personal-information -->
+		</div> <!-- end of content-module-main -->
+
+	</div> <!-- end of content-module -->
+
+</div> <!-- end of page full width -->
+

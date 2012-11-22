@@ -1,0 +1,60 @@
+<% @page_title = "Create New User" %>
+
+	<div class="side-menu grid_5">
+		<div class="side-menu-option">
+			<h3> Options </h3>
+			<ul>
+				<li><%=  link_to('Users Record', {:controller => 'admin_users', :action => 'list'}, :class=> 'active-tab') %></li>
+				<li><%=  link_to('Add Record', {:controller => 'admin_users', :action => 'new'}) %></li>
+			</ul>
+		</div> <!-- end of side-menu-option -->
+		<div class="side-menu-calendar">
+			<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+		</div>
+	</div> <!-- end of side-menu -->
+	
+	<div class="side-content grid_19">
+		<div class="content-module">
+			<div class="content-module-heading cf">
+				<h3> ADMIN USER FORM </h3>
+			</div> <!-- end of content-module-heading -->
+	
+		<%= form_for(:admin_user, :url => {:action => 'destroy', :id => @admin_user.id}) do |f| %>
+			<div class="personal-information-delete">
+			<table>
+				<tr>	
+					<p><%= label(:first_name, "Name: ") %>
+						<%= @admin_user.first_name %>
+											
+						<%= @admin_user.last_name %><br />
+									
+						<%= label(:address, "Address: ") %>
+						<%= @admin_user.address %><br />
+						
+						<%= label(:username, "Username: ") %>
+						<%= @admin_user.username %><br />
+											
+						<%= label(:sex, "Gender: ") %>
+						<%= @admin_user.sex %><br />
+											
+						<%= label(:age, "Age: ") %>
+						<%= @admin_user.age %><br />
+										
+						<%= label(:mobile, "Contact no.: ") %>
+						<%= @admin_user.mobile %>
+					</p>
+				</tr>
+			</table><br />
+			<%= submit_tag("DELETE", {:class => 'button round blue text-upper image-right ic-delete', :onclick=> "return confirm('Are you sure?')"}) %>
+		</div> <!-- end of personal-information -->
+			
+		<% end %>
+
+				</div> <!-- end of content-module-main -->
+
+			</div> <!-- end of content-module -->
+
+	</div> <!-- end of page full width -->
+
+
+

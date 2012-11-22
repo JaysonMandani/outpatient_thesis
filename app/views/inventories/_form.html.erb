@@ -1,0 +1,27 @@
+<%= error_messages_for(@inventory) %>
+
+<div class="personal-information-show">
+
+<table>
+	<tr>	
+		<td><%= f.label(:brand_name, "Name") %></td>
+		<td><%= f.text_field(:brand_name, :class=> 'round') %></td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:medical_name, "Medical Name") %></td>
+		<td><%= f.text_field(:medical_name, :class=> 'round') %></td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:medical_type) %></td>
+		<td><%= f.text_field(:medical_type, :class=> 'round') %></td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:quantity) %></td>
+		<td><%= f.select(:quantity, 1..100) %></td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:price) %></td>
+		<td><%= f.text_field(:price, :class=> 'round') %></td>
+	</tr>
+</table>
+<br />

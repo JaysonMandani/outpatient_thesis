@@ -1,0 +1,77 @@
+<%= error_messages_for(@admin_user) %>
+<div class="personal-information">
+
+<table>
+	<tr>	
+		<td><%= f.label(:first_name) %></td>
+		<td>
+			<%= f.text_field(:first_name, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:last_name) %></td>
+		<td>
+			<%= f.text_field(:last_name, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:address) %></td>
+		<td>
+			<%= f.text_field(:address, :class=> 'round address-size-input') %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:sex) %></td>
+		<td>
+			<%= f.select(:sex, %w{Male Female}) %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:age) %></td>
+		<td>
+			<%= f.text_field(:age, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:mobile, "Contact no.") %></td>
+		<td>
+			<%= f.text_field(:mobile, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label(:birthdate) %></td>
+		<td>
+			<%= f.date_select(:birthdate, :order => [:month, :day, :year]) %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:email) %></td>
+		<td>
+			<%= f.text_field(:email, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label(:username) %></td>
+		<td>
+			<%= f.text_field(:username, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:password, "Password") %></td>
+		<td>
+			<%= f.password_field(:password, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label(:secret_q, "Secret Question") %></td>
+		<td>
+			<%= f.select(:secret_q, ['What is your mothers maiden name?', 'What is your pets name?', 'What was your first school?']) %>
+		</td>
+	</tr>
+	<tr>	
+		<td><%= f.label(:secret_a, "Secret Answer") %></td>
+		<td>
+			<%= f.password_field(:secret_a, :class=> 'round default-size-input') %>
+		</td>
+	</tr>
+</table>	

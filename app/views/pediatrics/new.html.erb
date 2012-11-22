@@ -1,0 +1,33 @@
+<% @page_title = "Create Pediatrics" %>
+
+		<div class="side-menu grid_5">
+			<div class="side-menu-option">
+				<%= render(:partial => 'pediatrics/sidenav') %>
+			</div> <!-- end of side-menu-option -->
+			<div class="side-menu-calendar">
+				<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+			</div>
+		</div> <!-- end of side-menu -->
+
+		<div class="side-content grid_19">
+			
+			<div class="content-module grid_19">
+
+				<div class="content-module-heading cf">
+					<h3>Patient's Form</h3>
+				</div> <!-- end of side-content-heading -->
+				
+				<div class="content-module-main">
+
+				<%= form_for(:pediatric, :url => {:action => 'create'}) do |f| %>
+
+					<%= render(:partial => "form", :locals => {:f => f}) %>
+
+						<%= submit_tag("SUBMIT", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+					</div> <!-- end of birthHistory-andDevelopment -->
+			    <% end -%>
+		</div> <!-- end of content-module-main -->
+
+	</div> <!-- end of content-module -->
+
+</div> <!-- end of side-content -->

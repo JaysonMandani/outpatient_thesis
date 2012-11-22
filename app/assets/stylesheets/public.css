@@ -1,0 +1,334 @@
+/* ---------- RESET ---------- */
+/* ---------- Based upon 'reset.css' in the 
+Yahoo! User Interface Library: 
+http://developer.yahoo.com/yui ---------- */
+*, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, 
+h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, img {	border: 0; }
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+caption, th { text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+q:before, q:after { content: ''; }
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+a img {	border: none; } /* Gets rid of IE's blue borders */
+
+a { text-decoration: none; }
+
+body { font-size: 1em; /* Prevents an IE bug where em's scale out of proportion */ }
+
+
+/* ---------- CLEARFIX ---------- */
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content: "";
+    display: table;
+}
+
+.cf:after { clear:both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf { zoom: 1; }
+
+
+/* ---------- TYPOGRAPHY ---------- */
+
+body {
+	font-family:  droid sans, Helvetica, Arial, sans-serif;
+}
+
+p, .button, ul#tabs, form ul li, div.side-menu ul li a, table, span { font-size: 12px; } /* 12/16 */
+
+
+h1 { font-size: 1.125em; } /* 18/16 */
+h3 { font-size: 0.75em } /* 12/16 */
+h4 { font-size: 0.66em } /* 8/16 */
+
+
+/* ---------- GENERAL ---------- */
+
+.round {
+	border-radius: 0.3125em; /* 5/16 */
+	-webkit-border-radius: 0.3125em; /* 5/16 */
+	-moz-border-radius: 0.3125em; /* 5/16 */
+}
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+.fl {float: left;}
+.fr {float: right;}
+
+p { 
+	line-height: 20px; /* 20/12 */
+} 
+
+.left-margin {
+	margin-left: 94px; /*10/16*/
+}
+.left-magin-1px {
+	margin-left: 0.083em;
+}
+.right-margin {
+	margin-right: 100px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+	padding: 0.833em; /* 10/16 */
+	display: inline-block;
+	background-repeat: no-repeat;
+}
+
+.image-left {
+	background-position: 0.833em center; /* 10/16 */
+	padding-left: 3em; /* 36/12 */
+}
+.image-right {
+	background-position: right center;
+	padding-right: 3em; /* 36/12 */
+
+}
+
+.ic-left-arrow { background-image: url("../assets/icons/ic_left.png"); }
+.ic-right-arrow { background-image: url("../assets/icons/ic_right.png"); }
+
+/* ---------- COLORS ---------- */
+
+.dark {
+	background-color: #3f4551;
+	color: white;
+}
+.dark:hover {
+	background-color: #5d6677;
+	color: white;
+}
+.blue {
+	background-color: #2069b4;
+	color: white;
+}
+.blue:hover {
+	background-color: #5081b3;
+	color: white;
+}
+
+a { color: #2069b4; }
+a:hover { color: #2a2e36; }
+p a { border-bottom: 1px dotted #2069b4; }
+p a:hover { border-bottom: 1px dotted #2a2e36; }
+
+
+/* ---------- TOP BAR & HEADER ---------- */
+
+header{
+	background-color: #2a2e36;
+	padding: 10px 0; /* 10/16 */
+	overflow: hidden;
+}
+div#top-bar {
+	padding: 10px 0; /* 10/16 */
+}
+
+
+div#login-intro {
+	background: transparent url("../assets/lock-icon.png") no-repeat left center;
+	padding: 0.625em 0 0.625em 3.125em; /* 10/16 50/16 */
+}
+div#login-intro h1 {
+	color: #2a2e36;
+}
+div#login-intro h5 {
+	color: #9498a1;
+}
+
+div#header-width-tabs {
+	padding: 1.25em 0 0 0; /* 10/16 */
+}
+
+
+/* ---------- MENU ---------- */
+
+ul#nav {
+	list-style-type: none;
+}
+ul#nav li {
+	float: left;
+	position: relative;
+	margin-right: 0.3125em; /* 5/16 */
+}
+ul#nav li:hover ul {
+	left: 0;
+}
+ul#nav li:hover a {
+	background-color: #5d6677;
+	color: white;
+}
+ul#nav li.v-zap {
+	border-right: 1px solid #3a404b;
+	margin-right: 0.625em; /* 10/16 */
+	padding-right: 0.625em; /* 10/16 */
+}
+
+
+/* ---------- CONTENT ---------- */
+
+
+div#header-width-tabs {
+	overflow: hidden;
+}
+div#content-wrapper {
+	background: #f8f9fa url("../assets/artwork-bg.png") repeat-x left bottom;
+	border: 1px solid #ebecec;
+	overflow: hidden;
+}
+div#content {
+	padding: 1.875em; /* 30/16 */
+}
+
+div.content-module {
+	background-color: white;
+	border: 1px solid #e2e3e4;
+	margin-bottom: 1em;
+}
+
+div.content-module-heading {
+	background-color: #2a2e36;
+}
+div.content-module-heading h3 {
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;
+	margin: 1.25em 1em; /* 15/12 */
+}
+
+div.user-image p { margin-top: 0.833em; }
+
+div.info { width: 65%; }
+
+div.user-information { padding: 1em; }
+div.personal-information { padding: 12px 0; }
+
+div.personal-information-show, div.birthHistory-andDevelopment-show, 
+div.personal-information-delete, div.examination-show, div.feeding-history-show,
+div.immunization { 
+	padding: 12px; 
+}
+
+div.feeding-history, div.examination, div.birthHistory-andDevelopment{ 
+	padding: 12px 0;
+}
+
+div.content-module-main {
+	padding: 1em; /* 16/16 */
+}
+div.content-module-main p {
+	color: #2a2e36;
+}
+
+
+/* ---------- FORM LOGIN ---------- */
+
+form#login-form {
+	width: 18.75em; /* 300/16 */
+	margin: 0 auto;
+}
+
+form {
+	width: 100%;
+	margin: 0;
+}
+form ul li {
+	list-style-type: none;
+}
+form label {
+	display: inline-block;
+	margin-left: 10px; /* 10/16 */
+	color: #2a2e36;
+	margin-bottom: 5px; /* 5/12 */
+}
+
+#username, #password{
+	margin-bottom: 0.416em; /* 15/12 */ 
+	padding: 0.666em; /* 9/12 */
+	border: 1px solid #e7e8e9;
+	outline: none;
+	display: inline-block;
+	width: 350px;
+	border-radius: 0.3125em; /* 5/16 */
+	-webkit-border-radius: 0.3125em; /* 5/16 */
+	-moz-border-radius: 0.3125em; /* 5/16 */
+}
+#username:hover,
+#password:hover{
+	border: 1px solid #bbbdbe;
+}
+form input[type="submit"]{
+	border: none;
+	font-weight: bold;
+}
+
+
+div#login-notice { 
+	width: 100%; 
+	height: 1.25em; 
+	padding: 0.5em; 
+	text-align: center; 
+	color: white; 
+	background-color: #2069b4;
+	font-size: 13px;
+}
+
+
+
+/* ---------- FOOTER ---------- */
+footer {
+	padding: 30px;
+	overflow: hidden;
+
+}
+footer p {
+	padding: 12px;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

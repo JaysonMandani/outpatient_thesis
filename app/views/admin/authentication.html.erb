@@ -1,0 +1,19 @@
+<%= form_tag({:action => 'retrieve_password', :id => @secrets.id}, :id => 'login-form', :class => 'container_24')  do %>
+  <fieldset>
+
+    <p>
+      <%= label_tag(:secret_q, "Secret question") %>
+      <%= text_field_tag(:secret_q, @secrets.secret_q) %>
+    </p>
+    <br />
+
+    <p>
+      <%= label_tag(:secret_a, "Secret answer") %>
+      <%= password_field_tag(:secret_a) %>
+    </p>
+    <br />
+    <br />
+    
+    <%= submit_tag("SUBMIT", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
+  </fieldset>
+<% end %>

@@ -11,56 +11,49 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921041214) do
+ActiveRecord::Schema.define(:version => 20121116052544) do
+
+  create_table "Immunizations", :force => true do |t|
+    t.integer  "pedia_id"
+    t.string   "vaccination_name"
+    t.string   "vaccination_session"
+    t.string   "booster_session"
+    t.string   "vaccination_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
     t.string   "last_name",       :limit => 50
-    t.string   "address",                                        :null => false
-    t.integer  "age",                                            :null => false
-    t.string   "sex",                                            :null => false
-    t.date     "birthdate",                                      :null => false
-    t.string   "mobile",          :limit => 15,                  :null => false
-    t.string   "email",           :limit => 100, :default => "", :null => false
-    t.string   "hashed_password", :limit => 40
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.string   "email",                         :default => "",    :null => false
+    t.string   "address"
+    t.integer  "age"
+    t.string   "sex"
+    t.string   "birthdate"
+    t.string   "mobile"
     t.string   "username",        :limit => 25
-    t.string   "salt",            :limit => 40
-    t.string   "secret_q",        :limit => 50
-    t.string   "secret_a",        :limit => 50
+    t.string   "salt"
+    t.string   "hashed_password", :limit => 40
+    t.string   "secret_q"
+    t.string   "hashed_secret_a", :limit => 40
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.boolean  "admin",                         :default => false
+    t.string   "remember_token"
   end
 
-  add_index "admin_users", ["username"], :name => "index_admin_users_on_username"
+  add_index "admin_users", ["remember_token"], :name => "index_admin_users_on_remember_token"
 
-  create_table "admin_users_inventories", :id => false, :force => true do |t|
-    t.integer "admin_user_id"
-    t.integer "inventory_id"
+  create_table "bills", :force => true do |t|
+    t.integer  "pedia_id"
+    t.string   "vaccination_name"
+    t.string   "vaccination_session"
+    t.string   "booster_session"
+    t.string   "vaccination_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
-
-  add_index "admin_users_inventories", ["admin_user_id", "inventory_id"], :name => "index_admin_users_inventories_on_admin_user_id_and_inventory_id"
-
-  create_table "admin_users_orthopedics", :id => false, :force => true do |t|
-    t.integer "admin_user_id"
-    t.integer "orthopedic_id"
-  end
-
-  add_index "admin_users_orthopedics", ["admin_user_id", "orthopedic_id"], :name => "index_admin_users_orthopedics_on_admin_user_id_and_orthopedic_id"
-
-  create_table "admin_users_pediatrics", :id => false, :force => true do |t|
-    t.integer "admin_user_id"
-    t.integer "pedia_id"
-  end
-
-  add_index "admin_users_pediatrics", ["admin_user_id", "pedia_id"], :name => "index_admin_users_pedias_on_admin_user_id_and_pedia_id"
-
-  create_table "admin_users_schedules", :id => false, :force => true do |t|
-    t.integer "admin_user_id"
-    t.integer "schedules_id"
-  end
-
-  add_index "admin_users_schedules", ["admin_user_id", "schedules_id"], :name => "index_admin_users_schedules_on_admin_user_id_and_schedules_id"
-  add_index "admin_users_schedules", ["schedules_id"], :name => "schedules_id"
 
   create_table "immunizations", :force => true do |t|
     t.integer  "pediatric_id"
@@ -77,9 +70,10 @@ ActiveRecord::Schema.define(:version => 20120921041214) do
   create_table "inventories", :force => true do |t|
     t.string   "brand_name"
     t.string   "medical_name"
+    t.string   "medical_type"
     t.string   "type"
-    t.integer  "quantity"
-    t.integer  "price"
+    t.string   "quantity"
+    t.string   "price"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -88,11 +82,11 @@ ActiveRecord::Schema.define(:version => 20120921041214) do
     t.string   "full_name"
     t.string   "address"
     t.string   "occupation"
-    t.string   "mobile_no"
+    t.integer  "mobile_no"
     t.integer  "resident_tel"
     t.integer  "age"
     t.date     "birth_date"
-    t.string   "status",             :null => false
+    t.string   "status"
     t.string   "sex"
     t.string   "reffered_by"
     t.string   "birthplace"
@@ -105,16 +99,14 @@ ActiveRecord::Schema.define(:version => 20120921041214) do
   create_table "pediatrics", :force => true do |t|
     t.string   "full_name"
     t.string   "address"
-    t.string   "contact_no"
     t.integer  "age"
     t.date     "birth_date"
-    t.string   "sex"
     t.string   "mother_name"
     t.string   "father_name"
     t.integer  "f_age"
     t.integer  "m_age"
-    t.string   "f_occupation"
-    t.string   "m_occupation"
+    t.integer  "f_occupation"
+    t.integer  "m_occupation"
     t.string   "term"
     t.string   "delivery"
     t.string   "birth_weight"
@@ -133,17 +125,48 @@ ActiveRecord::Schema.define(:version => 20120921041214) do
     t.date     "examination_date"
     t.text     "history_physical_exams"
     t.text     "physicians_instructions"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "contact_no",              :limit => nil
+    t.string   "sex",                     :limit => nil
   end
 
   create_table "schedules", :force => true do |t|
     t.string   "name"
+    t.string   "contact_no"
     t.string   "schedule_for"
-    t.date     "date"
+    t.date     "scheduled_on"
     t.time     "time"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "users_inventories", :id => false, :force => true do |t|
+    t.integer "admin_user_id"
+    t.integer "inventory_id"
+  end
+
+  add_index "users_inventories", ["admin_user_id", "inventory_id"], :name => "index_users_inventories_on_admin_user_id_and_inventory_id"
+
+  create_table "users_orthodontics", :id => false, :force => true do |t|
+    t.integer "admin_user_id"
+    t.integer "orthopedic_id"
+  end
+
+  add_index "users_orthodontics", ["admin_user_id", "orthopedic_id"], :name => "index_users_orthodontics_on_admin_user_id_and_orthopedic_id"
+
+  create_table "users_pediatrics", :id => false, :force => true do |t|
+    t.integer "admin_user_id"
+    t.integer "pedia_id"
+  end
+
+  add_index "users_pediatrics", ["admin_user_id", "pedia_id"], :name => "index_users_pediatrics_on_admin_user_id_and_pedia_id"
+
+  create_table "users_schedules", :id => false, :force => true do |t|
+    t.integer "admin_user_id"
+    t.integer "schedules_id"
+  end
+
+  add_index "users_schedules", ["admin_user_id", "schedules_id"], :name => "index_users_schedules_on_admin_user_id_and_schedules_id"
 
 end

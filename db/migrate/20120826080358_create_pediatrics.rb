@@ -1,4 +1,4 @@
-class CreatePediatrics < ActiveRecord::Migration
+kbclass CreatePediatrics < ActiveRecord::Migration
   def change
     create_table :pediatrics do |t|
       t.string "full_name"

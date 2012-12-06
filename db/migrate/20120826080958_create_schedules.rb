@@ -4,7 +4,7 @@ class CreateSchedules < ActiveRecord::Migration
       t.string "name"
       t.string "schedule_for"
       t.string "contact_no"
-      t.date "date"
+      t.date "scheduled_on"
       t.time "time"
       t.timestamps
     end

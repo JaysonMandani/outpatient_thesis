@@ -15,7 +15,7 @@ class AccessController < ApplicationController
     @user = AdminUser.find(user_id)
     birthdate = @user.birthdate
     birthday_today = Date.today
-    if birthdate.strftime("%B %e") == birthday_today.strftime("%B %e")
+    if birthdate.to_date.strftime("%B %d") == birthday_today.to_date.strftime("%B %d")
       update_age =  @user.age + 1
       flash[:greetings] = 'Notification'
     end

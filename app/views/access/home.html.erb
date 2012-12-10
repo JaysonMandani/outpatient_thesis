@@ -23,7 +23,7 @@
 								Address: <%= @user.address%><br />
 								Age: <%= @user.age %><br />
 								Sex: <%= @user.sex %><br />
-								Birthdate: <%= @user.birthdate.strftime("%B %e, %Y") %>
+								Birthdate: <%= @user.birthdate.to_date.strftime("%B %d, %Y") %>
 							</p>
 						</div>
 								

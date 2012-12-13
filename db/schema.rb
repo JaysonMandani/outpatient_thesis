@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116052544) do
-
-  create_table "Immunizations", :force => true do |t|
-    t.integer  "pedia_id"
-    t.string   "vaccination_name"
-    t.string   "vaccination_session"
-    t.string   "booster_session"
-    t.string   "vaccination_type"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121212081407) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -44,16 +34,6 @@ ActiveRecord::Schema.define(:version => 20121116052544) do
   end
 
   add_index "admin_users", ["remember_token"], :name => "index_admin_users_on_remember_token"
-
-  create_table "bills", :force => true do |t|
-    t.integer  "pedia_id"
-    t.string   "vaccination_name"
-    t.string   "vaccination_session"
-    t.string   "booster_session"
-    t.string   "vaccination_type"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
 
   create_table "immunizations", :force => true do |t|
     t.integer  "pediatric_id"
@@ -129,6 +109,14 @@ ActiveRecord::Schema.define(:version => 20121116052544) do
     t.datetime "updated_at",                             :null => false
     t.string   "contact_no",              :limit => nil
     t.string   "sex",                     :limit => nil
+  end
+
+  create_table "pendings", :force => true do |t|
+    t.string   "full_name"
+    t.string   "patient_status"
+    t.string   "pending_for"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "schedules", :force => true do |t|

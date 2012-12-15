@@ -1,0 +1,2 @@
+module PendingsHelper
+end

@@ -7,7 +7,7 @@ OutpatientThesis::Application.routes.draw do
   match 'admin_users' => 'admin_users#list'
   match 'immunizations' => 'immunizations#list'
   match 'inventories' => 'inventories#list'
-  match 'bills' => 'bills#new'
+  match 'pendings' => 'pendings#list'
   #resources :orthodontics
   
   match 'admin', :to => 'admin#login'

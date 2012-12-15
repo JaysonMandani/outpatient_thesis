@@ -106,7 +106,7 @@ ul#tabs li a.schedule-tab {
 	background: transparent url(../assets/icons/tabs/schedule-tab.png) no-repeat 0.833em center;
 	padding-left: 3em; /* 36/12 */
 }
-ul#tabs li a.billing-tab {
+ul#tabs li a.pending-tab {
 	background: transparent url(../assets/icons/tabs/billing-tab.png) no-repeat 0.833em center;
 	padding-left: 3em; /* 36/12 */
 }

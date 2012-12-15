@@ -35,8 +35,8 @@
 							<td><%= @schedules.name %></td>
 							<td><%= @schedules.contact_no %></td>
 							<td><%= @schedules.schedule_for %></td>
-							<td><%= @schedules.scheduled_on.strftime("%B %e, %Y") %></td>
-							<td><%= @schedules.time.strftime("%I:%M %p") %></td>
+							<td><%= @schedules.scheduled_on.to_date.strftime("%B %e, %Y") %></td>
+							<td><%= @schedules.time.to_date.strftime("%I:%M %p") %></td>
 							<td>
 								<%= link_to("", {:action => 'edit', :id => @schedules.id }, :class => 'table-edit-button ic-table-edit', :title => "edit") %>
 								<%= link_to("", {:action => 'delete', :id => @schedules.id, :method => :destroy, confirm: "Are you sure?" }, :class => 'table-delete-button ic-table-delete', :title => "delete") %>

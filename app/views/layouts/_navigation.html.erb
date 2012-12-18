@@ -6,6 +6,6 @@
 			<li><%=  link_to_unless_current('Users', {:controller => 'admin_users'}, :class => 'users-tab inactive-tab'){|link|content_tag 'a', link, :class => 'users-tab active-tab'} %></li>
 			<li><%=  link_to_unless_current('Schedules', {:controller => 'schedules'}, :class => 'schedule-tab inactive-tab'){|link|content_tag 'a', link, :class => 'schedule-tab active-tab'} %></li>
 			<li><%=  link_to_unless_current('Pending', {:controller => 'pendings'}, :class => 'pending-tab inactive-tab'){|link|content_tag 'a', link, :class => 'pending-tab active-tab'} %></li>
-			<li><a href="#" class="analytics-tab inactive-tab">Analytics</a></li>
+			<li><%=  link_to_unless_current('Analytics', {:controller => 'analytics'}, :class => 'analytics-tab inactive-tab'){|link|content_tag 'a', link, :class => 'analytics-tab active-tab'} %></li>
 		</ul>
 <ul class="company-logo-small fr"></ul>

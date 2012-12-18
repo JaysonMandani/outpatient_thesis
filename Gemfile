@@ -7,6 +7,7 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
 #gem 'bootstrap-will_paginate'
+#gem "highcharts-rails", "~> 2.3.0"
 
 group :development, :test do
   gem 'rspec-rails'

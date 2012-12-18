@@ -1,0 +1,52 @@
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "orders_chart"
+      },
+      title: {
+        text: "Orthodontics"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      yAxis: {
+        title: {
+          text: "Outpatient"
+        }
+      },
+      series: [
+      <% { "Download" => Analytic.download, "Shipping" => Analytic.shipping }.each do |name, orders| %>
+        { 
+        name: "<%= name %>",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 4.weeks.ago.to_i * 1000 %>,
+        data: [2, 6, 8, 5, 6, 9, 5, 6, 3, 4, 3]
+        },
+      <% end %>
+      ]
+    });
+  });
+</script>
+  <div class="side-content grid_20 prefix_2 suffix_2">
+  
+    <div class="content-module">
+  
+      <div class="content-module-heading cf">
+        <h3> Analytics </h3>
+      </div> <!-- end of content-module-heading -->
+  
+      <div class="content-module-main cf">
+        
+       <div id="orders_chart" style="width:750px; height:300px;"></div>
+  
+      </div> <!-- end of content-module-main -->
+  
+    </div> <!-- end of content-module -->
+  
+  </div> <!-- end of side-content -->
+  
+
+  
+
+

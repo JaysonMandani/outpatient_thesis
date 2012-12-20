@@ -2,7 +2,7 @@
   $(function() {
     new Highcharts.Chart({
       chart: {
-        renderTo: "orders_chart"
+        renderTo: "ortho_chart"
       },
       title: {
         text: "Orthodontics"
@@ -15,16 +15,48 @@
           text: "Outpatient"
         }
       },
-      series: [
-      <% { "Download" => Analytic.download, "Shipping" => Analytic.shipping }.each do |name, orders| %>
-        { 
-        name: "<%= name %>",
+      series: [{
+        name: "Summary",
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 4.weeks.ago.to_i * 1000 %>,
+        pointStart: <%= 3.weeks.ago.to_i * 1000 %>,
         data: [2, 6, 8, 5, 6, 9, 5, 6, 3, 4, 3]
-        },
-      <% end %>
-      ]
+      },
+      {
+        name: "Scheduled",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 3.weeks.ago.to_i * 1000 %>,
+        data: [1, 4, 6, 8, 3, 4, 9, 6, 8, 3, 6]
+      }]
+    });
+  });
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "pedia_chart"
+      },
+      title: {
+        text: "Pediatrics"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      yAxis: {
+        title: {
+          text: "Outpatient"
+        }
+      },
+      series: [{
+        name: "Summary",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 3.weeks.ago.to_i * 1000 %>,
+        data: [2, 6, 8, 5, 6, 9, 5, 6, 3, 4, 3]
+      },
+      {
+        name: "Scheduled",
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= 3.weeks.ago.to_i * 1000 %>,
+        data: [3 ,5 ,9 ,2 ,7 ,4 ,8 ,2 ,3 ,7 ,4]
+      }]
     });
   });
 </script>
@@ -38,7 +70,9 @@
   
       <div class="content-module-main cf">
         
-       <div id="orders_chart" style="width:750px; height:300px;"></div>
+       <div id="ortho_chart" style="width:750px; height:300px;"></div>
+
+       <div id="pedia_chart" style="width:750px; height:300px;"></div>
   
       </div> <!-- end of content-module-main -->
   

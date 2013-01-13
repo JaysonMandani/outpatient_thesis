@@ -19,7 +19,8 @@ class AdminController < ApplicationController
   	if authorized_user
   		session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
-      if session[:username] == "jsonmanz"
+      admin = authorized_user.admin == true
+      if admin
   		flash[:notice] = "Hello! administrator you are now logged in."
   		redirect_to(:controller => 'access', :action => 'home')
       else

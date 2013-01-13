@@ -11,29 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212081407) do
+ActiveRecord::Schema.define(:version => 20121217042449) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
     t.string   "last_name",       :limit => 50
     t.string   "email",                         :default => "",    :null => false
-    t.string   "address"
-    t.integer  "age"
-    t.string   "sex"
-    t.string   "birthdate"
-    t.string   "mobile"
-    t.string   "username",        :limit => 25
-    t.string   "salt"
     t.string   "hashed_password", :limit => 40
-    t.string   "secret_q"
+    t.string   "username",        :limit => 20
+    t.string   "salt",            :limit => 40
     t.string   "hashed_secret_a", :limit => 40
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
+    t.string   "secret_q"
     t.boolean  "admin",                         :default => false
     t.string   "remember_token"
+    t.string   "mobile"
+    t.date     "birthdate"
+    t.string   "sex"
+    t.string   "address"
+    t.integer  "age"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
   end
 
-  add_index "admin_users", ["remember_token"], :name => "index_admin_users_on_remember_token"
+  create_table "analytics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "immunizations", :force => true do |t|
     t.integer  "pediatric_id"
@@ -50,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
   create_table "inventories", :force => true do |t|
     t.string   "brand_name"
     t.string   "medical_name"
-    t.string   "medical_type"
     t.string   "type"
     t.string   "quantity"
     t.string   "price"
@@ -62,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
     t.string   "full_name"
     t.string   "address"
     t.string   "occupation"
-    t.integer  "mobile_no"
-    t.integer  "resident_tel"
+    t.string   "mobile_no"
+    t.string   "resident_no"
     t.integer  "age"
     t.date     "birth_date"
     t.string   "status"
@@ -79,8 +81,10 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
   create_table "pediatrics", :force => true do |t|
     t.string   "full_name"
     t.string   "address"
+    t.integer  "contact_no"
     t.integer  "age"
     t.date     "birth_date"
+    t.integer  "sex"
     t.string   "mother_name"
     t.string   "father_name"
     t.integer  "f_age"
@@ -105,10 +109,8 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
     t.date     "examination_date"
     t.text     "history_physical_exams"
     t.text     "physicians_instructions"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "contact_no",              :limit => nil
-    t.string   "sex",                     :limit => nil
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "pendings", :force => true do |t|
@@ -121,8 +123,8 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
 
   create_table "schedules", :force => true do |t|
     t.string   "name"
-    t.string   "contact_no"
     t.string   "schedule_for"
+    t.string   "contact_no"
     t.date     "scheduled_on"
     t.time     "time"
     t.datetime "created_at",   :null => false
@@ -138,10 +140,10 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
 
   create_table "users_orthodontics", :id => false, :force => true do |t|
     t.integer "admin_user_id"
-    t.integer "orthopedic_id"
+    t.integer "orthodontic_id"
   end
 
-  add_index "users_orthodontics", ["admin_user_id", "orthopedic_id"], :name => "index_users_orthodontics_on_admin_user_id_and_orthopedic_id"
+  add_index "users_orthodontics", ["admin_user_id", "orthodontic_id"], :name => "index_users_orthodontics_on_admin_user_id_and_orthodontic_id"
 
   create_table "users_pediatrics", :id => false, :force => true do |t|
     t.integer "admin_user_id"
@@ -152,9 +154,9 @@ ActiveRecord::Schema.define(:version => 20121212081407) do
 
   create_table "users_schedules", :id => false, :force => true do |t|
     t.integer "admin_user_id"
-    t.integer "schedules_id"
+    t.integer "schedule_id"
   end
 
-  add_index "users_schedules", ["admin_user_id", "schedules_id"], :name => "index_users_schedules_on_admin_user_id_and_schedules_id"
+  add_index "users_schedules", ["admin_user_id", "schedule_id"], :name => "index_users_schedules_on_admin_user_id_and_schedule_id"
 
 end

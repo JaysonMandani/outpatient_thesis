@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://gemcutter.org'
 
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
@@ -8,6 +8,8 @@ gem 'faker'
 gem 'will_paginate'
 #gem 'bootstrap-will_paginate'
 #gem "highcharts-rails", "~> 2.3.0"
+gem "prawn"
+gem "prawnto"
 
 group :development, :test do
   gem 'rspec-rails'

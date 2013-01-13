@@ -18,8 +18,11 @@ class ApplicationController < ActionController::Base
 
   # admin restrictions
   def confirm_admin
-    unless session[:username] == "jsonmanz"
+    adminuser = session[:user_id]
+    user = AdminUser.find(adminuser)
+    unless user.admin == true
       flash[:notice] = "You don't have permission to use this action"
+      redirect_to(:action => 'list')
       if params[:controller] == "immunizations"
         redirect_to(:action => 'list', :pediatric_id => @pediatric.id)
         return false

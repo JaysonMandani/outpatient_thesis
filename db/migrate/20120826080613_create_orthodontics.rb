@@ -8,6 +8,7 @@ class CreateOrthodontics < ActiveRecord::Migration
       t.string "resident_no"
       t.integer "age"
       t.date "birth_date"
+      t.string "status"
       t.string "sex"
       t.string "reffered_by"
       t.string "birthplace"

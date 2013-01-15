@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20121217042449) do
     t.integer  "contact_no"
     t.integer  "age"
     t.date     "birth_date"
-    t.integer  "sex"
+    t.string   "sex"
     t.string   "mother_name"
     t.string   "father_name"
     t.integer  "f_age"

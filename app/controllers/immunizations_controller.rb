@@ -4,7 +4,7 @@ class ImmunizationsController < ApplicationController
 
 before_filter :find_pediatric
 before_filter :confirm_logged_in
-before_filter :confirm_admin, :except => [:list, :new, :create, :show]
+before_filter :confirm_admin, :except => [:list, :new, :create, :create_new, :add_new, :show]
 
 def index
 
@@ -28,7 +28,7 @@ def create_new
   if @immunization.save
     redirect_to(:controller => 'pediatrics', :action => 'examination', :id => @immunization.pediatric_id)  
   else
-    render('new')
+    render 'new'
   end
 end
 
@@ -42,7 +42,7 @@ def add_new
   if @immunization.save
     redirect_to(:action => 'list', :pediatric_id => @immunization.pediatric_id )  
   else
-    render('new')
+    render 'new'
   end
 end
 

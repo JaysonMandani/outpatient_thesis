@@ -22,11 +22,8 @@ class ApplicationController < ActionController::Base
     user = AdminUser.find(adminuser)
     unless user.admin == true
       flash[:notice] = "You don't have permission to use this action"
-      redirect_to(:action => 'list')
       if params[:controller] == "immunizations"
         redirect_to(:action => 'list', :pediatric_id => @pediatric.id)
-        return false
-      else
         return false
       end
         redirect_to(:action => 'list')

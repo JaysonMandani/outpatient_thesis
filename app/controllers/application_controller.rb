@@ -16,6 +16,17 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def find_schedules
+    schedule = Date.today
+    @schedules = Schedule.scheduled_on(schedule)
+      if @schedules
+          flash[:notification] = 'Notification'
+          return true
+        else
+          return false
+      end
+   end
+
   # admin restrictions
   def confirm_admin
     adminuser = session[:user_id]
@@ -32,15 +43,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def find_schedules
-    schedule = Date.today
-    @schedules = Schedule.scheduled_on(schedule)
-      if @schedules
-          flash[:notification] = 'Notification'
-          return true
-        else
-          return false
-      end
-   end
+  def admin_restriction
+    
+  end
+
 
 end

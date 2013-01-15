@@ -11,7 +11,14 @@ class AdminUsersController < ApplicationController
   end
   
   def list
-    @admin_users = AdminUser.search(params[:search], params[:page])
+    adminuser = session[:user_id]
+    username = session[:username]
+    user = AdminUser.find(adminuser)
+    unless user.admin == true
+      @admin_users = AdminUser.where(:username => username)
+    else
+      @admin_users = AdminUser.search(params[:search], params[:page])
+    end
   end
 
   def new

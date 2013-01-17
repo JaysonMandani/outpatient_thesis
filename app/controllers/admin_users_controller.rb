@@ -28,7 +28,7 @@ class AdminUsersController < ApplicationController
   def create
     @admin_user = AdminUser.new(params[:admin_user])
     if @admin_user.save
-      flash[:notice] = 'Admin user created.'
+      flash[:notice] = 'Admin user has been created.'
       redirect_to(:action => 'list')
     else
       render("new")
@@ -42,7 +42,7 @@ class AdminUsersController < ApplicationController
   def update
     @admin_user = AdminUser.find(params[:id])
     if @admin_user.update_attributes(params[:admin_user])
-      flash[:notice] = 'Admin user updated.'
+      flash[:notice] = 'Admin user has been updated.'
       redirect_to(:action => 'list')
     else
       render("edit")

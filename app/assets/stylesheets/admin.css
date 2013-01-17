@@ -390,8 +390,7 @@ a.table-immunization-button {
 }
 
 /* Errors */
-#error { width: 400px; padding: 0; margin: 0 auto 1.5em; 
-border: 1px solid #AA0000; background-color: #FFFFFF; font-size: 12px; }
+#error { width: 400px; padding: 0; margin: 0 auto 1.5em; background-color: #FFFFFF; font-size: 12px; }
 #error h2 { font-weight: bold; font-size: 12px;
 padding: 5px 5px 5px 15px; margin: 0; width: 380px;
 background-color: #AA0000; color: #FFFFFF; }

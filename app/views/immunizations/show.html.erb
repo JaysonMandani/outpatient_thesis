@@ -1,0 +1,76 @@
+<% @page_title = "Show Ortho Details" %>
+
+<div class="side-menu grid_5">
+	<div class="side-menu-option">
+		<%= render(:partial => 'sidenav') %>
+		</ul>
+	</div> <!-- end of side-menu-option -->
+
+	<div class="side-menu-calendar">
+		<a href="#"><img src="../assets/calendar.png" alt="calendar"></a>
+	</div>
+</div> <!-- end of side-menu -->
+	<div class="side-content grid_19">
+		<div class="content-module">
+			<div class="content-module-heading cf">
+				<h3> ORTHODONTICS PATIENT PERSONAL INFORMATION </h3>
+			</div> <!-- end of content-module-heading -->
+		<div class="content-module-main cf">
+				<div class="form">
+					<div class="sub-heading">
+						<h4> Personal Information </h4>
+					</div>
+					<div class="personal-information-show">
+
+						<p>
+							<%= label(:full_name, "Full Name: ") %>
+							<strong><%= @orthodontic.full_name %></strong><br />
+											
+							<%= label(:age, "Age: ") %>
+							<strong><%= @orthodontic.age %></strong><br />
+												
+							<%= label(:sex, "Sex: ") %>
+							<strong><%= @orthodontic.sex %></strong><br />
+											
+							<%= label(:status, "Status: ") %>
+							<strong><%= @orthodontic.status %></strong><br />
+											
+							<%= label(:address, "Address: ") %>
+							<strong><%= @orthodontic.address %></strong><br />
+											
+							<%= label(:occupation, "Occupation: ") %>
+							<strong><%= @orthodontic.occupation %></strong><br />
+											
+							<%= label(:mobile_no, "Mobile no.: ") %>
+							<strong><%= @orthodontic.mobile_no %></strong><br />
+												
+							<%= label(:resident_tel, "Resident Tel.: ") %>
+							<strong><%= @orthodontic.resident_no %></strong><br />
+												
+							<%= label(:reffered_by, "Reffered By: ") %>
+							<strong><%= @orthodontic.reffered_by %></strong><br />
+											
+							<%= label(:birth_date, "Birth Date: ") %>
+							<strong><%= @orthodontic.birth_date %></strong><br />
+						</p>
+						
+					</div> <!-- end of personal-information -->
+
+					<div class="sub-heading">
+						<h4>Examination</h4>
+					</div>
+				<div class="examination-show">
+					<p>
+						<%= label(:examination_date, "Examination Date: ") %>
+						<strong><%= @orthodontic.examination_date %></strong><br />
+											
+						<%= label(:examination_result, "Examination Result: ") %>
+						<strong><%= @orthodontic.examination_result %></strong>
+					</p>	
+				</div>
+			</div> <!-- end of form -->
+		</div> <!-- end of content-module-main -->
+	</div> <!-- end of content-module -->
+</div> <!-- end of side-content -->
+
+

@@ -10,6 +10,7 @@ gem 'will_paginate'
 #gem "highcharts-rails", "~> 2.3.0"
 gem "prawn"
 gem "prawnto"
+gem 'turbolinks'
 
 group :development, :test do
   gem 'rspec-rails'

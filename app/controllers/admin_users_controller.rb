@@ -3,7 +3,7 @@ class AdminUsersController < ApplicationController
   layout 'admin'
   
   before_filter :confirm_logged_in
-  before_filter :confirm_admin, :except => [:list]
+  before_filter :confirm_admin, :except => [:list, :edit, :update]
   before_filter :find_schedules
   
   def index

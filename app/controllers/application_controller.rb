@@ -43,9 +43,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def admin_restriction
-    
-  end
-
-
 end

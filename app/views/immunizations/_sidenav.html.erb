@@ -2,4 +2,5 @@
 	<ul>
 		<li><%=  link_to('Add Immunization', {:action => 'create', :pediatric_id => @pediatric.id}) %></li>
 		<li><%=  link_to('List of Immunnization', {:action => 'list', :pediatric_id => @pediatric.id}) %></li>
+		<li><%=  link_to('View All Immunnization', {:action => 'show', :pediatric_id => @pediatric.id}) %></li>
 	</ul>

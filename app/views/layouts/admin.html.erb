@@ -21,8 +21,6 @@
 			</ul>
 			<% if !flash[:notification].blank? %>
     			<%= link_to(flash[:notification], {:controller => 'schedules', :action => 'show'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
-    			<% elsif !flash[:greetings].blank? %>
-    			<%= link_to(flash[:greetings], {:controller => 'pediatrics'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
 			<% end %>
 		</div> <!-- end of top bar -->
 	</header>

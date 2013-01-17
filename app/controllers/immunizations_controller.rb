@@ -15,7 +15,7 @@ def list
 end
 
 def show
-  @immunization = Immunization.find(params[:id])
+  @immunization = Immunization.where(:pediatric_id => @pediatric.id)
 end
 
 def new

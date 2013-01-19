@@ -8,40 +8,39 @@
 	<tr>
 		<td><%= f.label(:full_name, "Full Name") %></td>
 		<td>
-			<%= f.text_field(:full_name, :class=>'round default-size-input') %>
-	
-			<%= f.label(:birth_date, "Birth Date") %>
-			<%= f.date_select(:birth_date, :order => [:month, :day, :year]) %>
-	
-			<%= f.label(:sex) %>
-			<%= f.select(:sex, %w{Male Female}) %>
+			<%= f.text_field(:full_name, :class=>'round full-size-input') %>
 		</td>
 	</tr>
 
 	<tr>
 		<td><%= f.label(:address, "Address") %></td>
-		<td>
-			<%= f.text_field(:address, :class=>'round address-size-input') %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label>Parent's Occupation | Age</label>
-		</td>
+		<td><%= f.text_field(:address, :class=>'round address-size-input') %></td>
 	</tr>
 
 	<tr>
 		<td><%= f.label(:contact_no, "Tel. no.") %></td>
-		<td>
-			<%= f.text_field(:contact_no, :class=>'round small-size-input') %>
+		<td><%= f.text_field(:contact_no, :class=>'round small-size-input') %></td>
+	</tr>
 
+	<tr>
+		<td><%= f.label(:birth_date, "Birth Date") %></td>
+		<td><%= f.date_select(:birth_date, :order => [:month, :day, :year]) %></td>
+	</tr>
+
+	<tr>
+		<td><%= f.label(:sex, "Gender") %></td>
+		<td>
+			<%= f.select(:sex, %w{Male Female}) %>
 			<%= f.label(:mother_name, "Mother's Name") %>
 			<%= f.text_field(:mother_name, :class=>'round medium-size-input') %>
-	
 			<%= f.text_field(:m_occupation, :class=>'round medium-size-input', :placeholder => "Mother's Occupation") %>
-
+			<%= f.label(:age) %>
 			<%= f.select(:m_age, 15..90, :class=>'round dropdown') %>
 		</td>
 	</tr>
 
 	<tr>
-		<td><%= f.label(:age, "Age") %></td>
+		<td><%= f.label(:age) %></td>
 		<td colspan="4">
 			<%= f.select(:age, 1..15, :class=>'round dropdown right-margin') %>
 
@@ -49,7 +48,7 @@
 			<%= f.text_field(:father_name, :class=>'round medium-size-input') %>
 	
 			<%= f.text_field(:f_occupation, :class=>'round medium-size-input', :placeholder => "Father's Occupation") %>
-
+			<%= f.label(:age) %>
 			<%= f.select(:f_age, 15..90, :class=>'round dropdown') %>
 		</td>
 	</tr>

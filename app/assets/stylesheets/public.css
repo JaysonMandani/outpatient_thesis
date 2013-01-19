@@ -87,13 +87,16 @@ p {
 } 
 
 .left-margin {
-	margin-left: 94px; /*10/16*/
+	margin-left: 39px; /*10/16*/
 }
 .left-magin-1px {
 	margin-left: 0.083em;
 }
 .right-margin {
 	margin-right: 100px;
+}
+.margin-left {
+	margin-left: 64px;
 }
 
 

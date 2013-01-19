@@ -12,7 +12,7 @@ class Pediatric < ActiveRecord::Base
   	validates :contact_no, :presence => true, :length => {:maximum => 15}
 
 	def self.search(search, page)	
-		paginate :per_page => 10, :page => page,
+		paginate :per_page => 10 , :page => page,
 				 :conditions => ['full_name LIKE ?', "%#{search}%"],
 				 :order => 'full_name'
 	end

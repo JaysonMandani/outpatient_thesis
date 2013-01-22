@@ -8,7 +8,6 @@ class Pediatric < ActiveRecord::Base
   	# "sexy" validations
   	validates :full_name, :presence => true, :length => {:maximum => 50}
   	validates :address, :presence => true, :length => {:maximum => 80}
-  	validates :age, :presence => true
   	validates :contact_no, :presence => true, :length => {:maximum => 15}
 
 	def self.search(search, page)	

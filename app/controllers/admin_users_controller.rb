@@ -5,6 +5,7 @@ class AdminUsersController < ApplicationController
   before_filter :confirm_logged_in
   before_filter :confirm_admin, :except => [:list, :edit, :update]
   before_filter :find_schedules
+  before_filter :find_pendings
   
   def index
 

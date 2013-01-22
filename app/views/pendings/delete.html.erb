@@ -16,21 +16,21 @@
 			<div class="content-module-main">
 	
 					<%= form_for(:pending, :url => {:action => 'destroy', :id => @pending.id}) do |f| %>
-						<div class="personal-information">
+					<div class="personal-information">
 
 						<p>
 							<%= label(:full_name, "Name: ") %>
 							<%= @pending.full_name %><br />
 												
-							<%= label(:patient_status) %>
+							<%= label(:patient_status, "Patient Status: ") %>
 							<%= @pending.patient_status %><br />
 											
-							<%= label(:pending_for %>
+							<%= label(:pending_for, "Pending for: ") %>
 							<%= @pending.pending_for %><br />
 						</p>
 
 					</div> <!-- end of personal-information -->
-											<br />
+						<br />
 						<%= submit_tag("DELETE", {:class => 'button round blue text-upper image-right ic-delete'}) %>
 					<% end %>
 

@@ -14,7 +14,7 @@
 
 			<td>
 				<%= f.label(:age) %>
-				<%= f.select(:age, 1..90, :class=>'round dropdown') %>
+				<%= f.select(:age, 1..90, { :include_blank => true }, :class=>'round dropdown') %>
 			</td>
 
 			<td>

@@ -12,12 +12,12 @@
 		<td><%= f.text_field(:medical_name, :class=> 'round') %></td>
 	</tr>
 	<tr>	
-		<td><%= f.label(:type) %></td>
+		<td><%= f.label(:type, "Dose") %></td>
 		<td><%= f.text_field(:type, :class=> 'round') %></td>
 	</tr>
 	<tr>	
 		<td><%= f.label(:quantity) %></td>
-		<td><%= f.select(:quantity, 1..100) %></td>
+		<td><%= f.select(:quantity, 1..100, { :include_blank => true }) %></td>
 	</tr>
 	<tr>	
 		<td><%= f.label(:price) %></td>

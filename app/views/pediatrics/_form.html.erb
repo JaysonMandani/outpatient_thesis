@@ -35,13 +35,13 @@
 			<%= f.text_field(:mother_name, :class=>'round medium-size-input') %>
 			<%= f.text_field(:m_occupation, :class=>'round medium-size-input', :placeholder => "Mother's Occupation") %>
 			<%= f.label(:age) %>
-			<%= f.select(:f_age, 15..90, { :include_blank => true }, :class=>'round dropdown') %>
+			<%= f.select(:m_age, 15..90, { :include_blank => true }, :class=>'round dropdown') %>
 		</td>
 	</tr>
 
 	<tr>
 		<td><%= f.label(:age) %></td>
-		<td colspan="4">
+		<td>
 			<%= f.select(:age, 1..15, { :include_blank => true }, :class=>'round dropdown') %>
 
 			<%= f.label(:father_name, "Father's Name", :class=> 'left-margin') %>

@@ -20,10 +20,20 @@ class ApplicationController < ActionController::Base
     schedule = Date.today
     @schedules = Schedule.scheduled_on(schedule)
       if @schedules
-          flash[:notification] = 'Notification'
+          flash[:schedules] = 'Schedule'
           return true
         else
           return false
+      end
+   end
+
+  def find_pendings
+    @pendings = Pending.where(:created_at => (Time.now.midnight)..Time.now.midnight + 1.day)
+      if @pendings == []
+          return false
+        else
+          flash[:pendings] = 'Pending'
+          return true
       end
    end
 

@@ -6,4 +6,9 @@ class Pending < ActiveRecord::Base
 			 :conditions => ['full_name LIKE ?', "%#{search}%"],
 			 :order => 'full_name'
 	end
+
+	# find pendings
+	def self.pending_on
+		Pending.where(:created_at => (Date.today))
+	end
 end

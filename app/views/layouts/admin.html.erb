@@ -19,8 +19,11 @@
 				<li class="v-zap"><a href="#" class="button round dark image-left ic-menu-user">Logged in as: <strong><%= session[:username] %></strong></a></li>
 				<li><%=  link_to('Logout', {:controller => 'admin', :action => 'logout'}, :class => 'button round dark image-left ic-menu-logout')  %></li>
 			</ul>
-			<% if !flash[:notification].blank? %>
-    			<%= link_to(flash[:notification], {:controller => 'schedules', :action => 'show'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
+			<% if !flash[:schedules].blank? %>
+    			<%= link_to(flash[:schedules], {:controller => 'schedules', :action => 'show'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
+			<% end %>
+			<% if !flash[:pendings].blank? %>
+    			<%= link_to(flash[:pendings], {:controller => 'pendings'}, :class => 'button round dark image-left ic-left-arrow fr' ) %>
 			<% end %>
 		</div> <!-- end of top bar -->
 	</header>

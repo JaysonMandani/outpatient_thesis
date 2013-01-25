@@ -43,8 +43,8 @@
 						<% end %>
 					</tbody>
 				</table>
-			<div class="pagination">	
-				<%= will_paginate @pediatrics, :container => false %>
+			<div class="pagination">
+				<%= will_paginate(@pediatrics, :renderer => WillPaginate::ActionView::LinkRenderer) %>
 			</div>
 		</div> <!-- end of content-module-main -->
 	</div> <!-- end of content-module -->

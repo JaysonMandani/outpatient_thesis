@@ -2,7 +2,7 @@ source 'http://gemcutter.org'
 
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'

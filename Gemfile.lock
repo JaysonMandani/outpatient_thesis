@@ -194,7 +194,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
-  bootstrap-sass
+  bootstrap-sass (~> 2.2.2.0)
   capybara
   coffee-rails
   cucumber-rails

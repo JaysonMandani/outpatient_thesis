@@ -6,8 +6,8 @@
     <title>Outpatient Thesis <%= "| #{@page_title}" if @page_title %></title>
     <meta name="author" content="JsonManz">
     <link rel="icon" href="../assets/rails.png">
-    <%= stylesheet_link_tag('http://fonts.googleapis.com/css?family=Droid+Sansc') %>
-    <%= stylesheet_link_tag('public', '960_24_col', 'reset') %>
+	<%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag('public') %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
 
 	<link rel="shortcut icon" href="/favicon.ico" >
@@ -16,44 +16,75 @@
   </head>
 <body>
 
-	<header>
-		<div id="top-bar" class="container_24">
-			<%=  link_to('Return to website','/index.html', :class => 'button round dark image-left ic-left-arrow')  %>
-		</div> <!-- end of top bar -->
-	</header>
+	<header class="login">
+		<div class="container">
+			<h1>St. Lukes Medical Center <small>Admin Page</small></h1>
+		</div> 
+	</header><br><br>
 
-	<div id="header-width-tabs" class="container_24">
+	
 
-		<nav class="grid_20">
-			<div id="login-intro">
-				<h1 class="text-upper">LOGIN</h1>
-				<h5>Enter your credentials below</h5>
-			</div>
-		</nav>
-		
-		<div class="grid_4">
-			<img src="../assets/logo-company.png" id="company-logo" alt="St. Lukes Medical Center" />
-		</div>
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					<%= yield %>
+				</div> <!-- end of span4 -->
 
-	</div><!-- end of header -->
-	<% if !flash[:notice].blank? %>
-  		<div id="login-notice">
-    		<%= flash[:notice] %>
-  		</div>
-	<% end %>
+				<div class="span8">
+		            <div id="myCarousel" class="carousel slide">
+		              <!-- carousel items -->
+		              <div class="carousel-inner">
+		                  <!-- Main hero unit for a primary marketing message or call to action -->
+		                  <div class="hero-unit item active">
+		                    <h3>Oupatient Management System <small>of St Luke's Medical Center</small> </h3>
+		                    <p>Aid to tend to Ortho and Pediatrics Clinic of St. Lukes Medical Center for fast, hassle free and easy transactions.</p>
+		                    <a class="btn btn-primary">Learn more &raquo;</a>
+		                  </div>
+		                <div class="item">
+		                  <div class="hero-unit item active">
+		                    <h3>About Us</h3>
+		                    <p>St. Luke's Medical Center (SLMC) has provided high-quality healthcare for over a century. It was founded in 1903 with a mission to provide outstanding out-patient care. Today it is the foremost and most admired hospital in the Philippines and an acknowledged leader in Asia.</p>
+		                    <a class="btn btn-primary">Learn more &raquo;</a>
+		                  </div>
+		                </div>
+		              </div>
+		            
+		              <!-- carousel nav -->
+		              <a href="#myCarousel" class="carousel-control left" data-slide="prev">&lsaquo;</a>
+		              <a href="#myCarousel" class="carousel-control right" data-slide="next">&rsaquo;</a>
+		            </div>
+	            </div> <!-- end of span8 -->
+			</div> <!-- end of row -->
 
-	<div id="content-wrapper">
-		<div id="content" class="container_24"> 
-			<%= yield %>
-		</div> <!-- end of content -->
+			<div id="push"></div>
+		</div> <!-- end of container -->
+	</div> <!-- end of wrap -->
+
+
+	<div id="footer">
+	  <div class="container">
+	    <center>
+	      <p class="muted credit">&copy; Copyright 2013 <a href="#">St. Lukes Medical Center</a> All Rights Reserved.
+	        <br> Admin page by thesis group - <a href="#">Boys over Flowers</a></p>
+	    </center>
+	  </div>
 	</div>
 
-<footer>
-	<div id="foot" class="container_24">
-		<p class="push_7">&copy; Copyright 2012 <a href="#">St. Lukes Medical Center</a>. All rights reserved</p>
-		<p class="push_8"><strong>Admin Page</strong> by <a href="#">thesis group - Boys Over Flowers</a></p>
-	</div><!-- end of footer -->
-</footer>
+	 <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
-</body>
+
+
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+
+	</body>
 </html>

@@ -1,45 +1,80 @@
 
-	<div class="side-content grid_20 prefix_2 suffix_2">
-	
-		<div class="content-module">
-	
-			<div class="content-module-heading cf">
-				<h3> User Profile </h3>
-			</div> <!-- end of content-module-heading -->
-	
-			<div class="content-module-main cf">
-				
-				<div class="user-image fl">
-					<img src="../assets/profile-image.png" alt="profile-image" />
 
-				</div>
-	
-				<div class="info fr">
-					<div class="sub-heading cf">
-						<h4>Personal Information</h4>
-					</div>
-						<div class="user-information">
-							<p>Name: <%= @user.first_name %>&nbsp;<%= @user.last_name %><br />
-								Address: <%= @user.address%><br />
-								Age: <%= @user.age %><br />
-								Sex: <%= @user.sex %><br />
-								Birthdate: <%= @user.birthdate.to_date.strftime("%B %d, %Y") %>
-							</p>
-						</div>
-								
-					<div class="sub-heading cf">
-						<h4>Contact Information</h4>
-					</div>
-						<div class="user-information">
-							<p>Mobile: <%= @user.mobile %><br />
-								Email: <%= @user.email %><br />
-							</p>
-						</div>
-				</div>
-	
-			</div> <!-- end of content-module-main -->
-	
-		</div> <!-- end of content-module -->
-	
-	</div> <!-- end of side-content -->
-	
+			<div class="header">
+				<h1 class="left">Home <small>page</small> </h1>
+	      <%= image_tag("user.png", :alt => "user", :class => 'right') %>
+	      <p class="right">Logged in as <br><a href="#"><strong><%= session[:username] %></strong></a></p>
+			</div>
+
+			<div class="content both home">
+
+				<div class="row">
+						<div class="span12">
+							<p class="typehead">Admin Profile</p>
+							
+							<div class="row">
+								<div class="user-image span4">
+	                <%= image_tag("fb-dp.jpg", :alt => "user") %>
+	              </div>
+
+	              <div class="span8 user-profile">
+	              	<div class="row">
+
+	              		 <div class="span3">
+	              		 	<table class="table table-bordered">
+		                    <tr>
+		                      <td>Name:</td>
+		                      <td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td>
+		                    </tr>
+		                    <tr>
+		                      <td>Position:</td>
+		                      <td>Administrator</td>
+		                    </tr>
+		                  </table>
+		
+		                    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">View More</a>
+	              		 </div>
+	              	</div>
+
+	              	<div id="myModal" class="modal hide fade admin-profile">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3>User Profile</h3>
+                    </div>
+                
+                    <div class="modal-body">
+                      <h4>Personal Information</h4>
+                      <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd><%= @user.first_name %>&nbsp;<%= @user.last_name %></dd>
+                        <dt>Address</dt>
+                        <dd><%= @user.address%></dd>
+                        <dt>Age</dt>
+                        <dd><%= @user.age %></dd>
+                        <dt>Sex</dt>
+                        <dd><%= @user.sex %></dd>
+                        <dt>Birthdate</dt>
+                        <dd><%= @user.birthdate.to_date.strftime("%B %d, %Y") %></dd>
+                      </dl>
+                      <h4>Contact Information</h4>
+                      <dl class="dl-horizontal">
+                        <dt>Mobile</dt>
+                        <dd>09094448532</dd>
+                        <dt>Phone</dt>
+                        <dd>123456</dd>
+                        <dt>Email</dt>
+                        <dd>michael.dpoint@gmail.com</dd>
+                      </dl>
+                    </div>
+                
+                    <div class="modal-footer">
+                      <a href="#" class="btn" data-dismiss="modal">Close</a>
+                    </div>
+                  </div> <!-- end of modal -->
+
+	              </div> <!-- end of user-profile -->
+
+	            </div> <!-- end of row -->
+						</div> <!-- end of span12 -->
+				</div> <!-- end of row -->
+			</div> <!-- end of content -->

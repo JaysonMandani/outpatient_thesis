@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     schedule = Date.today
     @schedules = Schedule.scheduled_on(schedule)
       if @schedules
-          flash[:schedules] = 'Schedule'
+          flash[:schedules]
           return true
         else
           return false
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
       if @pendings == []
           return false
         else
-          flash[:pendings] = 'Pending'
+          flash[:pendings]
           return true
       end
    end

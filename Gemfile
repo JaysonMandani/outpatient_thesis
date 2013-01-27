@@ -2,7 +2,6 @@ source 'http://gemcutter.org'
 
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
-gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
@@ -11,6 +10,8 @@ gem 'will_paginate'
 gem "prawn"
 gem "prawnto"
 gem 'turbolinks'
+gem 'sass-rails'
+gem 'bootstrap-sass', '~> 2.2.2.0'
 
 group :development, :test do
   gem 'rspec-rails'

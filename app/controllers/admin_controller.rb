@@ -28,7 +28,7 @@ class AdminController < ApplicationController
         redirect_to(:controller => 'access', :action => 'home')
       end
   	else 
-  		flash[:notice] = "Incorrect username/password combination."
+  		flash[:notice] = "Incorrect username/password."
   		redirect_to(:action => 'login')
  	  end
   end

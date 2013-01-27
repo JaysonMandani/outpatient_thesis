@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require turbolinks
+//= require bootstrap-modal
+//= require bootstrap-alert
+//= require bootstrap-carousel
 

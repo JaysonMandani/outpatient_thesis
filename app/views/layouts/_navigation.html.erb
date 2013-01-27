@@ -1,11 +1,33 @@
-<ul id="tabs">
-	<li><%=  link_to_unless_current('Home', {:controller => 'access', :action => 'home'}, :class => 'home-tab inactive-tab'){|link|content_tag 'a', link, :class => 'home-tab active-tab'}  %></li>
-	<li><%=  link_to_unless_current('Ortho', {:controller => 'orthodontics'}, :class => 'ortho-tab inactive-tab'){|link|content_tag 'a', link, :class => 'ortho-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Pedia', {:controller => 'pediatrics'}, :class => 'pedia-tab inactive-tab'){|link|content_tag 'a', link, :class => 'pedia-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Inventories', {:controller => 'inventories'}, :class => 'inventory-tab inactive-tab'){|link|content_tag 'a', link, :class => 'inventory-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Users', {:controller => 'admin_users'}, :class => 'users-tab inactive-tab'){|link|content_tag 'a', link, :class => 'users-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Schedules', {:controller => 'schedules'}, :class => 'schedule-tab inactive-tab'){|link|content_tag 'a', link, :class => 'schedule-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Pending', {:controller => 'pendings'}, :class => 'pending-tab inactive-tab'){|link|content_tag 'a', link, :class => 'pending-tab active-tab'} %></li>
-	<li><%=  link_to_unless_current('Analytics', {:controller => 'analytics'}, :class => 'analytics-tab inactive-tab'){|link|content_tag 'a', link, :class => 'analytics-tab active-tab'} %></li>
-</ul>
-<ul class="company-logo-small fr"></ul>
+<div class="navbar navbar-inverse navbar-static-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	      <div class="nav-collapse collapse">
+	        <ul class="nav">
+						<li><%=  link_to_unless_current('Home', {:controller => 'access', :action => 'home'}){|link|content_tag 'a', link}  %></li>
+						<li><%=  link_to_unless_current('Ortho', {:controller => 'orthodontics'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Pedia', {:controller => 'pediatrics'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Inventories', {:controller => 'inventories'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Users', {:controller => 'admin_users'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Schedules', {:controller => 'schedules'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Pending', {:controller => 'pendings'}){|link|content_tag 'a', link} %></li>
+						<li><%=  link_to_unless_current('Analytics', {:controller => 'analytics'}){|link|content_tag 'a', link} %></li>
+					</ul>
+					<ul class="nav pull-right">
+						<% if !flash[:schedules].blank? %>
+		    			<li><%= link_to(flash[:schedules], {:controller => 'schedules', :action => 'show'}, raw("<i class=\"icon-align-left\"></i>") ) %></li>
+						<% end %>
+						<% if !flash[:pendings].blank? %>
+		    			<li><%= link_to(flash[:pendings], {:controller => 'pendings', :action => 'show'}, raw("<i class=\"icon-align-left\"></i>") ) %></li>
+						<% end %>
+						<li><%=  link_to('Logout', {:controller => 'admin', :action => 'logout'})  %></li>
+					</ul>
+	    </div><!--/.nav-collapse -->
+	  </div>
+	</div>
+</div>
+

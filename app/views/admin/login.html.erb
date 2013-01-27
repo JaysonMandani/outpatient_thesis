@@ -1,21 +1,24 @@
-<%= form_tag({:action => 'attempt_login'}, :id => 'login-form', :class => 'container_24')  do %>
-  <fieldset>
+<%= form_tag({:action => 'attempt_login'}, :class => 'form-signin ')  do %>
 
-    <p>
-      <%= label_tag(:username, "USERNAME") %>
-      <%= text_field_tag(:username) %>
-    </p>
-    <br />
+    <h3 class="form-signin-heading">Please sign in</h3>
 
-    <p>
-      <%= label_tag(:password, "PASSWORD") %>
-      <%= password_field_tag(:password) %>
-    </p>
-    <br />
+   
+    <%= text_field_tag :username, nil, :class => 'input-block-level', :placeholder=>'Username' %>
 
-    <p><%= link_to("Forgot your password?", {:action => 'forgot_password'}) %></p>
-    <br />
-    
-    <%= submit_tag("Log In", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
-  </fieldset>
+    <%= password_field_tag(:password, nil, :class=> 'input-block-level', :placeholder=>'Password') %>
+
+
+    <%= link_to("Forgot your password?", {:action => 'forgot_password'}) %>
+    <br><br>
+
+    <%= submit_tag("Sign In", {:class => 'btn btn-primary'}) %> 
+    <br><br>
+
+    <% if !flash[:notice].blank? %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong><%= flash[:notice] %></strong>
+        </div>
+    <% end %>
+
 <% end %>

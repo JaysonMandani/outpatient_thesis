@@ -12,14 +12,14 @@
       },
       yAxis: {
         title: {
-          text: "Outpatient"
+          text: "Outpatient Summary"
         }
       },
       series: [{
         name: "Summary",
         pointInterval: <%= 1.day * 1000 %>,
         pointStart: <%= 3.weeks.ago.to_i * 1000 %>,
-        data: [2, 6, 8, 5, 6, 9, 5, 6, 3, 4, 3]
+        data: <%= ortho_chart_series(3.weeks.ago) %>
       },
       {
         name: "Scheduled",
@@ -42,7 +42,7 @@
       },
       yAxis: {
         title: {
-          text: "Outpatient"
+          text: "Outpatient Summary"
         }
       },
       series: [{

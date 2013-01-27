@@ -17,4 +17,10 @@ class Orthodontic < ActiveRecord::Base
 				 :order => 'full_name'
 	end
 
+  # Summary of the outpatient
+
+  def self.total_on(date)
+    where("date(created_at) = ?", date).count(:full_name)
+  end
+
 end

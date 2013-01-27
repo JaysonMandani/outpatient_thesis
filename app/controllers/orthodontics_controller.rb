@@ -28,7 +28,8 @@ def create
 	if @orthodontic.save
 		redirect_to(:action => 'list')	
 	else
-		render('new')
+		@full_name = params[:full_name]
+		render :template => 'orthodontics/new'
 	end
 end
 

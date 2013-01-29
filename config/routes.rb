@@ -1,8 +1,8 @@
 OutpatientThesis::Application.routes.draw do
 
-  #resources :pediatrics
+  #resources :pediatrics`
+  resources :orthodontics
   match 'pediatrics' => 'pediatrics#list'
-  match 'orthodontics' => 'orthodontics#list'
   match 'schedules' => 'schedules#list'
   match 'admin_users' => 'admin_users#list'
   match 'immunizations' => 'immunizations#list'
@@ -13,7 +13,7 @@ OutpatientThesis::Application.routes.draw do
   
   match 'admin', :to => 'admin#login'
 
-  # The priority is based upon order of creation:
+  # T`he priority is based upon order of creation:
   # first created -> highest priority.
   # root :to => "public#index"
   # Sample of regular route:

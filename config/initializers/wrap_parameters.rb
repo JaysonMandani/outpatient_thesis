@@ -13,5 +13,5 @@ ActiveSupport.on_load(:active_record) do
   self.include_root_in_json = false
 end
 
-Date::DATE_FORMATS[:default]="%Y/%m/%d"
-Time::DATE_FORMATS[:default]="%Y/%m/%d %H:%M"
+# Date::DATE_FORMATS[:default]="%Y/%m/%d"
+# Time::DATE_FORMATS[:default]="%Y/%m/%d %H:%M"

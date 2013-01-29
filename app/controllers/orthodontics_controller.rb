@@ -8,11 +8,12 @@ before_filter :find_schedules
 before_filter :find_pendings
 
 def index
-	
+	@orthodontics = Orthodontic.search(params[:search], params[:page])
 end
 
 def list
-	@orthodontics = Orthodontic.search(params[:search], params[:page])
+	@orthodontics = Orthodontic.all
+	# @orthodontics = Orthodontic.search(params[:search], params[:page])
 end
 
 def show

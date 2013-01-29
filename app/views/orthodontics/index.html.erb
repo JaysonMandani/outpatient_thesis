@@ -31,12 +31,9 @@
 									<td><%= ortho.address %></td>
 									<td><%= ortho.sex %></td> 
 									<td>
-										<%= link_to("", {:action => 'show', :id => ortho.id }, :class => 'table-show-details ic-table-show', :title => "show") %>
-										<%= link_to("", {:action => 'edit', :id => ortho.id }, :class => 'table-edit-button ic-table-edit', :title => "edit") %>
-										<%= link_to("", {:action => 'delete', :id => ortho.id }, :class => 'table-delete-button ic-table-delete', :title => "delete") %>
-										
-										
-										<%= link_to raw('<i class="icon-eye-open"></i>'), edit_orthodontic_path(ortho)  %>
+										<%= link_to raw('<i class="icon-eye-open"></i>'), ortho, "data-toggle" => "modal", role: "button", :class => 'btn' %>
+										<%= link_to raw('<i class="icon-pencil"></i>'), edit_orthodontic_path(ortho), "data-toggle" => "modal", role: "button", :class => 'btn' %>
+										<%= link_to raw('<i class="icon-remove"></i>'), ortho, "data-toggle" => "modal", :confirm => 'Are you sure?', method: :delete, role: "button", :class => 'btn' %>
 									</td>
 								</tr>
 								<% end %>

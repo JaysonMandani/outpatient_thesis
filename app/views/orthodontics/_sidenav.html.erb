@@ -1,5 +1,5 @@
 <h3> Options </h3>
 <ul>
-	<li><%=  link_to_unless_current('Patients Record', {:action => 'list'}, :class=> 'inactive-tab'){|link|content_tag 'a', link, :class => 'active-tab'} %></li>
+	<li><%=  link_to_unless_current('Patients Record', {:controller => 'orthodontics'}, :class=> 'inactive-tab'){|link|content_tag 'a', link, :class => 'active-tab'} %></li>
 	<li><%=  link_to_unless_current('Add Record', {:action => 'new'}){|link|content_tag 'a', link, :class => 'active-tab'} %></li>
 </ul>

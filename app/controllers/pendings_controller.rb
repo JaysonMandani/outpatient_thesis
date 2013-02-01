@@ -3,10 +3,8 @@ class PendingsController < ApplicationController
 	layout 'admin'
 
 	before_filter :confirm_logged_in
-	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
-
 
 	def index
 		# @pendings = Pending.find(:all)

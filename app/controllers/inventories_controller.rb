@@ -3,7 +3,6 @@ class InventoriesController < ApplicationController
 	layout 'admin'
 
 	before_filter :confirm_logged_in
-	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
 

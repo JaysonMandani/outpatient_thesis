@@ -4,15 +4,11 @@ layout 'admin'
 
 before_filter :find_pediatric
 before_filter :confirm_logged_in
-before_filter :confirm_admin, :except => [:list, :new, :create, :show]
+before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 before_filter :find_schedules
 before_filter :find_pendings
 
 def index
-
-end
-
-def list
 	@pediatrics = Pediatric.search(params[:search], params[:page])
 end
 

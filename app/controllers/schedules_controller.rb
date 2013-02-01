@@ -3,28 +3,26 @@ class SchedulesController < ApplicationController
 	layout 'admin'
 
 	before_filter :confirm_logged_in
+	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
 
 
 	def index
-		@schedules = Schedule.find(:all)
-		@date = params[:month] ? Date.parse(params[:month]) : Date.today
-	end
-
-	def list
+		# @schedules = Schedule.find(:all)
+		# @date = params[:month] ? Date.parse(params[:month]) : Date.today
 		@schedules = Schedule.search(params[:search], params[:page])
 	end
 
 	def show
 		schedule = Date.today
-    @schedules = Schedule.scheduled_on(schedule)
-      if @schedules
-          flash[:notification] = 'Notification'
-          return true
-        else
-          return false
-      end
+		@schedules = Schedule.scheduled_on(schedule)
+		if @schedules
+			flash[:notification] = 'Notification'
+			return true
+		else
+			return false
+		end
 	end
 
 	def new

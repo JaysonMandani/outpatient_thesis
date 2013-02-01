@@ -3,14 +3,11 @@ class InventoriesController < ApplicationController
 	layout 'admin'
 
 	before_filter :confirm_logged_in
+	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
 
 	def index
-
-	end
-
-	def list
 		@inventories = Inventory.search(params[:search], params[:page])
 	end
 

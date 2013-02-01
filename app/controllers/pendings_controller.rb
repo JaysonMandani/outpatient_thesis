@@ -3,28 +3,26 @@ class PendingsController < ApplicationController
 	layout 'admin'
 
 	before_filter :confirm_logged_in
+	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
 
 
 	def index
-		@pendings = Pending.find(:all)
-		@date = params[:month] ? Date.parse(params[:month]) : Date.today
-	end
-
-	def list
+		# @pendings = Pending.find(:all)
+		# @date = params[:month] ? Date.parse(params[:month]) : Date.today
 		@pendings = Pending.search(params[:search], params[:page])
 	end
 
 	def show
-	pending = Date.today
-    @pendings = Pending.scheduled_on(pending)
-      if @pendings
-          flash[:notification] = 'Notification'
-          return true
-        else
-          return false
-      end
+		pending = Date.today
+		@pendings = Pending.scheduled_on(pending)
+		if @pendings
+		flash[:notification] = 'Notification'
+		return true
+		else
+		return false
+		end
 	end
 
 	def new

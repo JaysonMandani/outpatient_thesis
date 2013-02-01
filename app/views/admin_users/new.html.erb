@@ -2,11 +2,7 @@
 
 	<div class="side-menu grid_5">
 		<div class="side-menu-option">
-			<h3> Options </h3>
-			<ul>
-				<li><%=  link_to('Users Record', {:controller => 'admin_users', :action => 'list'}, :class=> 'active-tab') %></li>
-				<li><%=  link_to('Add Record', {:controller => 'admin_users', :action => 'new'}) %></li>
-			</ul>
+			<%= render(:partial => 'sidenav') %>
 		</div> <!-- end of side-menu-option -->
 	</div> <!-- end of side-menu -->
 	

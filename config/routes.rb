@@ -1,15 +1,12 @@
 OutpatientThesis::Application.routes.draw do
 
-  #resources :pediatrics`
   resources :orthodontics
-  match 'pediatrics' => 'pediatrics#list'
-  match 'schedules' => 'schedules#list'
-  match 'admin_users' => 'admin_users#list'
-  match 'immunizations' => 'immunizations#list'
-  match 'inventories' => 'inventories#list'
-  match 'pendings' => 'pendings#list'
-  match 'analytics' => 'analytics#index'
-  #resources :orthodontics
+  resources :pediatrics
+  resources :schedules
+  resources :admin_users
+  resources :inventories
+  resources :analytics
+  resources :immunizations
   
   match 'admin', :to => 'admin#login'
 

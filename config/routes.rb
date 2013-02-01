@@ -6,7 +6,7 @@ OutpatientThesis::Application.routes.draw do
   resources :admin_users
   resources :inventories
   resources :analytics
-  resources :immunizations
+  resources :immunizations 
   
   match 'admin', :to => 'admin#login'
 

@@ -10,6 +10,22 @@
     <%= javascript_include_tag "application", "highcharts.js", "jquery-1.6.1.min.js", "exporting.js" %>
     <%= stylesheet_link_tag('public', 'admin') %>
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
+  <script>
+    $(function(){
+      // ajax alert message
+      $('#OrthoNew form').submit(function(){
+            var self = $(this);
+            $.post(self.attr('action'), self.serializeArray(), function(data){
+                if (data.status) {
+                    window.location.reload();
+                } else {
+                    self.find('#error').html(data.message).show();
+                }
+            }, 'json');
+            return false;
+        });
+    });
+  </script>
   </head>
   <body>
 
@@ -47,7 +63,6 @@
       </center>
     </div>
   </div>
-
 </body>
 </html>
 

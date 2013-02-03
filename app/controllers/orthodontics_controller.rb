@@ -52,5 +52,4 @@ class OrthodonticsController < ApplicationController
 		flash[:notice] = "Orthopedic patient destroyed."
 		redirect_to(:action => 'list')
 	end
-
 end

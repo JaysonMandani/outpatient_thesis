@@ -1,4 +1,4 @@
-            
+
 /* =============================================================================
    Colors
    ========================================================================== */
@@ -73,11 +73,13 @@ header.login {
    ========================================================================== */
 
    div.admin-profile {
-
     .modal-body {
       padding: 30px;
     }
+   }
 
+   div#pedia-addrecord {
+    width: 650px;
    }
 
    .user-details {
@@ -101,15 +103,80 @@ header.login {
     .modal-body {
       padding: 20px 40px;
 
-      td:first-child { text-align: right; }
+      table {
+        width: 450px;
+      }
+
+      td:first-child { 
+        text-align: right; 
+        width: 100px;
+      }
+      td:nth-child(2) {
+        width: 150px
+      }
     }
    }
 
-   #ortho-addrecord {
+   .add-record {
     .modal-body {
-      table td label { 
-        font-size: 12px; 
-        margin-left: 5px;
+      .addrecord {
+        margin-top: 10px;
+        background-color: #FFF;
+        border-radius: 5px;
+        // border: 1px solid #e5e5e5;
+         -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+         -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+              box-shadow: 0 1px 2px rgba(0,0,0,.05);
+
+          table {
+            // background-color: blue;
+
+            tbody {
+              td { 
+                // border: 1px solid yellow;
+                span { font-size: 12px; }
+
+                label {
+                  margin: 0 10px 0 0;
+                  font-size: 12px;
+                  margin-left: 5px;
+                  // background-color: red;
+                } 
+                input[type="text"], select {
+                  margin-bottom: 5px;
+                }
+
+                input.address { width: 380px; }
+                textarea { width: auto; }
+                input[type="text"] { height: 25px; }
+
+                select { 
+                  font-size: 12px; 
+                  height: 35px;
+                  width: auto;
+                }
+
+                // placeholder
+                ::-webkit-input-placeholder { font-size: 12px; }
+                :-moz-placeholder { font-size: 12px; }
+                :-ms-input-placeholder { font-size: 12px; }
+              }
+
+              // td:first-child { 
+              //   width: 500px; 
+              //   background-color: red;
+              // }
+
+              td:nth-child(odd) { text-align: right; }
+              td.allergy {
+                text-align: center;
+                padding: 10px;
+              }
+
+            }
+          } 
+
+          h4 { text-align: left; }
       }
     }
    }
@@ -294,63 +361,7 @@ div.header {
    Form and table
    ========================================================================== */
 
-  .addrecord {
-    margin-top: 10px;
-    background-color: #FFF;
-    border-radius: 5px;
-    border: 1px solid #e5e5e5;
-     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
-
-    form {
-      padding: 10px 30px;
-
-      table {
-        // background-color: blue;
-
-        tbody {
-          td { 
-            // border: 1px solid yellow;
-
-            label {
-              margin: 0 10px 0 0;
-              font-size: 12px;
-              font-weight: bold;
-              margin-left: 5px;
-            } 
-            input[type="text"], select {
-              margin-bottom: 5px;
-            }
-
-            input.address { width: 380px; }
-            textarea { width: auto; }
-            input[type="text"] { height: 25px; }
-
-            select { 
-              font-size: 12px; 
-              height: 35px;
-              width: auto;
-            }
-
-            // placeholder
-            ::-webkit-input-placeholder { font-size: 12px; }
-            :-moz-placeholder { font-size: 12px; }
-            :-ms-input-placeholder { font-size: 12px; }
-          }
-
-          td:nth-child(odd) { text-align: right; }
-          td.allergy {
-            text-align: center;
-            padding: 10px;
-          }
-
-        }
-      } 
-
-      h4 { text-align: left; }
-    }
-  }
+ 
 
   .records {
     margin-top: 10px;
@@ -385,10 +396,10 @@ div.header {
     table.show-details {
       td:first-child { 
         font-weight: bold;
-        width: 180px; 
       }
       td:nth-child(2) { 
         text-align: left; 
+        width: 200px;
       }
     }
 

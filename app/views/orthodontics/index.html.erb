@@ -10,7 +10,7 @@
 
 		<%= link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#ortho-addrecord", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right' %>
 
-  	<div id="ortho-addrecord" class="modal hide fade admin-profile">
+  	<div id="ortho-addrecord" class="modal hide fade add-record">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3>Add Record</h3>
@@ -18,7 +18,7 @@
   
       <div class="modal-body">
         <%= form_for(:ortho, :url => {:action => 'create'}) do |f| %>
-			
+        				
 				<%= render(:partial => "form", :locals => {:f => f}) %>
       </div> <!-- end of modal-body -->
   
@@ -84,8 +84,6 @@
               <h3 id="viewDetailsLabel">View Details</h3>
             </div>
             <div class="modal-body">
-
-
 
               <table class="show-details table table-bordered">
                   <thead>

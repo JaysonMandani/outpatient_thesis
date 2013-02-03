@@ -11,7 +11,7 @@ gem "prawn"
 gem "prawnto"
 gem 'turbolinks'
 gem 'sass-rails'
-gem 'bootstrap-sass', '~> 2.2.2.0'
+# gem 'bootstrap-sass', '~> 2.2.2.0'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -11,7 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require turbolinks
-//= require bootstrap-modal
-//= require bootstrap-alert
-//= require bootstrap-carousel
+
 

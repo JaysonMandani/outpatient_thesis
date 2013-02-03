@@ -1,47 +1,169 @@
 <% @page_title = "List Orthodontics" %>
-	<div class="side-menu grid_5">
-		<div class="side-menu-option">
-			<%= render(:partial => 'sidenav') %>
-		</div> <!-- end of side-menu-option -->
-	</div> <!-- end of side-menu -->
-<div class="side-content grid_19">
-	<div class="content-module grid_19">
-		<div class="wrapper-heading">
-			<div class="content-module-heading cf">
-				<h3 class="grid_6">ORTHODONTICS LIST OF RECORDS</h3>
-				<%= render(:partial => 'shared/search') %>
-			</div> <!-- end of side-content-heading -->
-		</div>
-			<div class="content-module-main">
-						<table class="patients-record">
-							<thead>
-								<tr>
-									<th>id</th>
-									<th>name</th>
-									<th>address</th>
-									<th>sex</th>
-									<th>actions</th>
-								</tr>
-							</thead>
-								<% @orthodontics.each do |ortho| %>
-							<tbody>
-								<tr class="<%= cycle('odd', 'even')%>">
-									<td><%= ortho.id %></td>
-									<td><%= ortho.full_name %></td>
-									<td><%= ortho.address %></td>
-									<td><%= ortho.sex %></td> 
-									<td>
-										<%= link_to raw('<i class="icon-eye-open"></i>'), ortho, "data-toggle" => "modal", role: "button", :class => 'btn' %>
-										<%= link_to raw('<i class="icon-pencil"></i>'), edit_orthodontic_path(ortho), "data-toggle" => "modal", role: "button", :class => 'btn' %>
-										<%= link_to raw('<i class="icon-remove"></i>'), ortho, "data-toggle" => "modal", :confirm => 'Are you sure?', method: :delete, role: "button", :class => 'btn' %>
-									</td>
-								</tr>
-								<% end %>
-							</tbody>
-						</table>	
+
+<div class="container">
+
+	<div class="header">
+    <div class="left subtitle">
+    	<h1>Ortho</h1>
+    	<span><i class="icon-list icons-black"></i> List of Patient Records</span>
+    </div>
+
+		<%= link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#ortho-addrecord", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right' %>
+
+  	<div id="ortho-addrecord" class="modal hide fade admin-profile">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Add Record</h3>
+      </div>
+  
+      <div class="modal-body">
+        <%= form_for(:ortho, :url => {:action => 'create'}) do |f| %>
+			
+				<%= render(:partial => "form", :locals => {:f => f}) %>
+      </div> <!-- end of modal-body -->
+  
+      <div class="modal-footer">
+        <%= submit_tag("Submit", {:class => 'btn btn-primary'}) %>
+        <% end %>
+      </div>
+    </div> <!-- end of modal -->
+
+
+  </div>
+
+	<div class="content both">
+
+		<div class="row">
+
+			
+			<div class="span12">
+				<div class="records clearfix">
+
+					<h4 class="left">ORTHODONTICS LIST OF RECORDS</h4>
+					<%= render(:partial => 'shared/search') %>
+										
+
+					<table class="both table table-striped table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>id</th>
+								<th>name</th>
+								<th>address</th>
+								<th>sex</th>
+								<th>actions</th>
+							</tr>
+						</thead>
+							<% @orthodontics.each do |ortho| %>
+						<tbody>
+							<tr class="<%= cycle('odd', 'even')%>">
+								<td><%= ortho.id %></td>
+								<td><%= ortho.full_name %></td>
+								<td><%= ortho.address %></td>
+								<td><%= ortho.sex %></td> 
+								<td>
+									<div class="btn-group">
+										<%= link_to raw('<i class="icon-eye-open icons-black"></i>'), ortho, "data-toggle" => "modal", role: "button", :class => 'btn', :title => 'view' %>
+										<%= link_to raw('<i class="icon-pencil icons-black"></i>'), edit_orthodontic_path(ortho), "data-toggle" => "modal", role: "button", :class => 'btn', :title => 'edit' %>
+										<%= link_to raw('<i class="icon-trash icons-black"></i>'), ortho, "data-toggle" => "modal", :confirm => 'Are you sure?', method: :delete, role: "button", :class => 'btn', :title => 'delete' %>
+									</div>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+
 					<div class="pagination">	
 						<%= will_paginate @pediatrics, :container => true %>
-			</div>
-		</div> <!-- end of content-module-main -->
-	</div> <!-- end of content-module -->
-</div> <!-- end of side-content -->
+					</div>
+
+					<!-- Modal -->
+          <div id="viewDetails" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+              <h3 id="viewDetailsLabel">View Details</h3>
+            </div>
+            <div class="modal-body">
+
+
+
+              <table class="show-details table table-bordered">
+                  <thead>
+                      <tr>
+                          <th colspan="2">Personal Information</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Name: </td>
+                          <td>Michael Jhon Raagas</td>
+                      </tr>
+                      <tr>
+                          <td>Address: </td>
+                          <td>#88 1st St. Area5 Veterans Village, Pasong Tamo, Quezon City</td>
+                      </tr>
+                      <tr>
+                          <td>Age: </td>
+                          <td>22</td>
+                      </tr>
+                      <tr>
+                          <td>Sex: </td>
+                          <td>Male</td>
+                      </tr>
+                      <tr>
+                          <td>Status: </td>
+                          <td>Single</td>
+                      </tr>
+                      <tr>
+                          <td>Occupation: </td>
+                          <td>None</td>
+                      </tr>
+                      <tr>
+                          <td>Referred by: </td>
+                          <td>None</td>
+                      </tr>
+                      <tr>
+                          <td>Mobile: </td>
+                          <td>0909448532</td>
+                      </tr>
+                      <tr>
+                          <td>Res Tel: </td>
+                          <td>012345</td>
+                      </tr>
+                      <tr>
+                          <td>Birthdate: </td>
+                          <td>June 20, 1990</td>
+                      </tr>
+                  </tbody>
+              </table>
+
+              <table class="show-details table table-bordered">
+                  <thead>
+                      <tr>
+                          <th colspan="2">Examination</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Date: </td>
+                          <td>January 1, 2012</td>
+                      </tr>
+                      <tr>
+                          <td>Examination: </td>
+                          <td>Mild fever with dry cough and runny nose, need to take 3 medicines a day</td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+
+				</div> <!-- end of records -->
+			</div> <!-- end of span9 -->
+
+		</div> <!-- end of row -->
+
+	</div> <!-- end of content -->
+</div> <!-- end of container -->

@@ -1,5 +1,8 @@
-<%= form_tag('', :method => "get", :id=> 'search-form', :class=> 'grid_6 push_7') do %>
-	<%= label(:search, "Search") %>
-	<%= text_field_tag(:search, params[:search], :placeholder => "Search for name", :class=> 'button round dark image-right ic-search ')%>
-	<%= hidden_field_tag("Search", :name => nil) %>
+<%= form_tag('', :method => "get", :id=> 'search-form', :class=> 'form-search right') do %>
+
+	<div class="input-append">
+		<%= text_field_tag(:search, params[:search], :placeholder => "Search for name", :class=> 'span2 search-query')%>
+		<%= hidden_field_tag("Search", :name => nil) %>
+		<button type="submit" class="btn btn-success"><i class="icon-search icons-black"></i></button>
+	</div>
 <% end %>

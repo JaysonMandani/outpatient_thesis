@@ -9,6 +9,7 @@ class OrthodonticsController < ApplicationController
 
 	def index
 		@orthodontics = Orthodontic.search(params[:search], params[:page])
+		
 	end
 
 	def show

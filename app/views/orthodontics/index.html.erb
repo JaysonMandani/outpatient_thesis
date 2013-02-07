@@ -17,8 +17,13 @@
       </div>
   
       <div class="modal-body">
+<<<<<<< HEAD
         <%= form_for(:ortho, :url => {:action => 'create'}) do |f| %>
         				
+=======
+        <%= form_for Orthodontic.new, validate: true, remote: true, html: {"data-type" => :json} do |f| %>
+			
+>>>>>>> modifying-modal
 				<%= render(:partial => "form", :locals => {:f => f}) %>
       </div> <!-- end of modal-body -->
   
@@ -76,6 +81,7 @@
 						<%= will_paginate @pediatrics, :container => true %>
 					</div>
 
+<<<<<<< HEAD
 					<!-- Modal -->
           <div id="viewDetails" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             
@@ -158,6 +164,8 @@
             </div>
           </div>
 
+=======
+>>>>>>> modifying-modal
 				</div> <!-- end of records -->
 			</div> <!-- end of span9 -->
 

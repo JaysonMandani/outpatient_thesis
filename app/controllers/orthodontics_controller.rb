@@ -9,7 +9,6 @@ class OrthodonticsController < ApplicationController
 
 	def index
 		@orthodontics = Orthodontic.search(params[:search], params[:page])
-		
 	end
 
 	def show
@@ -21,13 +20,17 @@ class OrthodonticsController < ApplicationController
 	end
 
 	def create
-		@orthodontic = Orthodontic.new(params[:ortho])
-		if @orthodontic.save
-			redirect_to(:action => 'list')	
-		else
-			@full_name = params[:full_name]
-			render :template => 'orthodontics/new'
-		end
+	  @orthodontic = Orthodontic.new(params[:orthodontic])
+
+	  respond_to do |format|
+	    if @orthodontic.save
+	      format.html { redirect_to @orthodontic, notice: 'Post was successfully created.' }
+	      format.json { render json: @orthodontic, status: :created, location: @orthodontic }
+	    else
+	      format.html { render action: "new" }
+	      format.json { render json: @orthodontic.errors, status: :unprocessable_entity }
+	    end
+	  end
 	end
 
 	def edit
@@ -51,6 +54,6 @@ class OrthodonticsController < ApplicationController
 		orthodontic = Orthodontic.find(params[:id])
 		orthodontic.delete
 		flash[:notice] = "Orthopedic patient destroyed."
-		redirect_to(:action => 'list')
+		redirect_to orthodontics_url
 	end
 end

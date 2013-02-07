@@ -10,6 +10,11 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+<<<<<<< HEAD
+=======
+//= require jquery
+//= require jquery_ujs
+>>>>>>> 6d534479dfb608933d9988d88e5e6cbf5c374c56
 //= require turbolinks
 
 

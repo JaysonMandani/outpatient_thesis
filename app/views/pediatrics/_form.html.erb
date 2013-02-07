@@ -1,127 +1,142 @@
 <%= error_messages_for(@pediatric) %>
-<div class="sub-heading">
-	<h4>Personal Information</h4>
-</div>
-<div class="personal-information">
+
+<div class="addrecord">
 							
-<table cols="5" class="pedia-add">
-	<tr>
-		<td><%= f.label(:full_name, "Full Name") %></td>
-		<td>
-			<%= f.text_field(:full_name, :class=>'round full-size-input') %>
-		</td>
-	</tr>
+<table>
+	<thead>
+    <tr>
+      <td colspan="4"><h4>Personal Information</h4></td>
+    </tr>
+  </thead>
 
-	<tr>
-		<td><%= f.label(:address, "Address") %></td>
-		<td><%= f.text_field(:address, :class=>'round address-size-input') %></td>
-	</tr>
+	<tbody>
+		<tr>
+			<td><%= f.label(:full_name, "Full Name") %></td>
+      <td colspan="3"><%= f.text_field(:full_name, :class=>'input-xlarge') %></td>
+    </tr>
 
-	<tr>
-		<td><%= f.label(:contact_no) %></td>
-		<td><%= f.text_field(:contact_no, :class=>'round small-size-input') %></td>
-	</tr>
+    <tr>
+      <td><%= f.label(:address, "Address") %></td>
+      <td colspan="3"><%= f.text_field(:address, :class=>'input-xxlarge') %></td>
+    </tr>
 
-	<tr>
-		<td><%= f.label(:birth_date, "Birth Date") %></td>
-		<td><%= f.date_select(:birth_date, :order => [:month, :day, :year]) %></td>
-	</tr>
+    <tr>
+      <td><%= f.label(:mother_name, "Mother's") %></td>
+      <td colspan="3">
+        <%= f.text_field(:mother_name, :class=>'input-medium', :placeholder => "Name") %>
+        <%= f.text_field(:m_occupation, :class=>'input-medium', :placeholder => "Occupation") %>
+        &nbsp;<span>Age</span>&nbsp;
+        <%= f.select(:m_age, 15..90, { :include_blank => true }, :class=>'auto') %>
+      </td>
+    </tr>
 
-	<tr>
-		<td><%= f.label(:sex, "Gender") %></td>
-		<td>
-			<%= f.select(:sex, %w{Male Female}) %>
-			<%= f.label(:mother_name, "Mother's Name") %>
-			<%= f.text_field(:mother_name, :class=>'round medium-size-input') %>
-			<%= f.text_field(:m_occupation, :class=>'round medium-size-input', :placeholder => "Mother's Occupation") %>
-			<%= f.label(:age) %>
-			<%= f.select(:m_age, 15..90, { :include_blank => true }, :class=>'round dropdown') %>
-		</td>
-	</tr>
+    <tr>
+      <td><%= f.label(:father_name, "Father's", :class=> 'left-margin') %></td>
+      <td colspan="3">
+        <%= f.text_field(:father_name, :class=>'input-medium', :placeholder => 'Name') %>
+				<%= f.text_field(:f_occupation, :class=>'input-medium', :placeholder => "Occupation") %>
+				&nbsp;<span>Age</span>&nbsp;
+				<%= f.select(:m_age, 15..90, { :include_blank => true }, :class=>'auto') %>
+      </td>
+    </tr>
 
-	<tr>
-		<td><%= f.label(:age) %></td>
-		<td>
-			<%= f.select(:age, 1..15, { :include_blank => true }, :class=>'round dropdown') %>
+    <tr>
+      <td><%= f.label(:birth_date, "Birth Date") %></td>
+      <td colspan="2">
+        <%= f.text_field(:birth_date, :class => 'input-medium') %>
 
-			<%= f.label(:father_name, "Father's Name", :class=> 'left-margin') %>
-			<%= f.text_field(:father_name, :class=>'round medium-size-input') %>
-	
-			<%= f.text_field(:f_occupation, :class=>'round medium-size-input', :placeholder => "Father's Occupation") %>
-			<%= f.label(:age) %>
-			<%= f.select(:f_age, 15..90, { :include_blank => true }, :class=>'round dropdown') %>
-		</td>
-	</tr>
+        &nbsp;<span>Age</span>&nbsp;
+        <%= f.select(:age, 1..15, { :include_blank => true }, :class=>'round dropdown') %>
+      </td>
+      
+    </tr>
+
+    <tr>
+      <td><%= f.label(:contact_no) %></td>
+      <td><%= f.text_field(:contact_no, :class=>'input-medium') %>
+
+      	&nbsp;<span>Gender</span>&nbsp;	
+        <%= f.select(:sex, %w{Male Female}) %>
+      </td>
+    </tr>
+
+	</tbody>
 </table>
 
-</div> <!-- end of personal-information -->
+<table>
+  <tr>
+    <th colspan="5"><h4>Birth History and Development</h4></th>
+  </tr>
+  
+  <tr>
+    <td><%= f.label(:term) %></td>
+    <td><%= f.text_field(:term, :class=>'input-large') %></td>
+                      
+    <td><%= f.label(:head_circ) %></td>
+    <td><%= f.text_field(:head_circ, :class=>'input-large') %></td>                   
+  </tr>
+  
+  <tr>
+    <td><%= f.label(:delivery) %></td>
+    <td><%= f.text_field(:delivery, :class=>'round medium-size-input') %></td>
+                      
+    <td><%= f.label(:chest_circ, "Chest Circ.") %></td>
+    <td><%= f.text_field(:delivery, :class=>'input-large') %></td>
+  </tr>
+  
+  <tr>
+    <td><%= f.label(:birth_weight, "Birth Weight") %></td>
+    <td><%= f.text_field(:head_circ, :class=>'input-large') %></td>
+                      
+    <td><%= f.label(:abdominal) %></td>
+    <td><%= f.text_field(:abdominal, :class=>'input-large') %></td>
+  </tr>
+  
+  <tr>
+    <td><%= f.label(:birth_length, "Birt Length") %></td>
+    <td><%= f.text_field(:birth_length, :class=>'input-large') %></td>
+                      
+    <td><%= f.label(:obsterician) %></td>
+    <td><%= f.text_field(:obsterician, :class=>'input-large') %></td>
+  </tr>
 
-<div class="sub-heading">
-<h4>Birth History and Development</h4>
-</div>
+  <tr>
+    <td colspan="2" class="allergy"><label>Allergy</label></td>
+  </tr>
 
-<div class="birthHistory-andDevelopment">
+  <tr>
+    <td><%= f.label(:food, "1.Food") %></td>
+    <td><%= f.text_field(:food, :class=>'input-large') %></td>
+  </tr>
 
-<table cols="5" class="birth-history">
+  <tr>
+    <td><%= f.label(:medicine, "2.Medicine") %></td>
+    <td><%= f.text_field(:medicine, :class=>'input-large') %></td>
+  </tr>
 
-	<tr>
-		<td><%= f.label(:term) %></td>
-		<td><%= f.text_field(:term, :class=>'round medium-size-input') %></td>
+  <tr>
+    <td><%= f.label(:others, "3.Others") %></td>
+    <td><%= f.text_field(:others, :class=>'input-large') %></td>
+  </tr>
+</table>
 
-		<td><%= f.label(:head_circ) %></td>
-		<td><%= f.text_field(:head_circ, :class=>'round medium-size-input') %></td>
+<table>
+  <tr>
+    <td colspan="2">
+      <h4>Feeding History and Immunization</h4>
+    </td>
+  </tr>  
 
-		<td colspan="2"><span>Allergy</span></td>
-	</tr
+  <tr>
+    <td><%= f.label(:type_of_feeding, "Type of Feeding") %></td>
+    <td><%= f.text_field(:type_of_feeding, :class=>'input-xlarge') %></td>
+  </tr>
 
-	<tr>
-		<td><%= f.label(:delivery) %></td>
-		<td><%= f.text_field(:delivery, :class=>'round medium-size-input') %></td>
-		
-		<td><%= f.label(:chest_circ, "Chest Circ.") %></td>
-		<td><%= f.text_field(:chest_circ, :class=>'round medium-size-input') %></td>
-		
-		<td><%= f.label(:food, "1.Food") %></td>
-		<td><%= f.text_field(:food, :class=>'round small-size-input') %></td>
-	</tr>
+  <tr>
+    <td><%= f.label(:supplementary) %></td>
+    <td><%= f.text_field(:supplementary, :class=>'input-xlarge') %></td>
+  </tr>
+</table>
 
-	<tr>
-		<td><%= f.label(:birth_weight, "Birth Weight") %></td>
-		<td><%= f.text_field(:birth_weight, :class=>'round medium-size-input') %></td>
+</div> <!-- end of addrecord -->
 
-		<td><%= f.label(:abdominal) %></td>
-		<td><%= f.text_field(:abdominal, :class=>'round medium-size-input') %></td>
-
-		<td><%= f.label(:medicine, "2.Medicine") %></td>
-		<td><%= f.text_field(:medicine, :class=>'round small-size-input') %></td>
-	</tr>
-
-	<tr>
-		<td><%= f.label(:birth_length, "Birt Length") %></td>
-		<td><%= f.text_field(:birth_length, :class=>'round medium-size-input') %></td>
-
-		<td><%= f.label(:obsterician) %></td>
-		<td><%= f.text_field(:obsterician, :class=>'round medium-size-input') %></td>
-
-		<td><%= f.label(:others, "3.Others") %></td>
-		<td><%= f.text_field(:others, :class=>'round small-size-input') %></td>
-	</tr>
-	</table>
-</div>	
-
-<div class="sub-heading">
-	<h4>Feeding History and Immunization</h4>
-</div>
-
-<div class="feeding-history">
-	<table cols="5" class="birth-history">
-		<tr>
-			<td><%= f.label(:type_of_feeding, "Type of Feeding") %></td>
-			<td><%= f.text_field(:type_of_feeding, :class=>'round') %></td>
-		</tr>
-		<tr>
-			<td><%= f.label(:supplementary) %></td>
-			<td><%= f.text_field(:supplementary, :class=>'round') %></td>
-		</tr>
-	</table>
-</div>

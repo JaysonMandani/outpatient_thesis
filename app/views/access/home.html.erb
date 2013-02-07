@@ -32,39 +32,47 @@
 		                    </tr>
 		                  </table>
 		
-		                    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">View More</a>
+		                    <a href="#viewDetails" role="button" class="btn btn-primary" data-toggle="modal">View More</a>
 	              		 </div>
 	              	</div>
 
-	              	<div id="myModal" class="modal hide fade admin-profile">
+	              	<div id="viewDetails" class="modal hide fade admin-profile">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       <h3>User Profile</h3>
                     </div>
                 
                     <div class="modal-body">
-                      <h4>Personal Information</h4>
-                      <dl class="dl-horizontal">
-                        <dt>Name</dt>
-                        <dd><%= @user.first_name %>&nbsp;<%= @user.last_name %></dd>
-                        <dt>Address</dt>
-                        <dd><%= @user.address%></dd>
-                        <dt>Age</dt>
-                        <dd><%= @user.age %></dd>
-                        <dt>Sex</dt>
-                        <dd><%= @user.sex %></dd>
-                        <dt>Birthdate</dt>
-                        <dd><%= @user.birthdate.to_date.strftime("%B %d, %Y") %></dd>
-                      </dl>
-                      <h4>Contact Information</h4>
-                      <dl class="dl-horizontal">
-                        <dt>Mobile</dt>
-                        <dd>09094448532</dd>
-                        <dt>Phone</dt>
-                        <dd>123456</dd>
-                        <dt>Email</dt>
-                        <dd>michael.dpoint@gmail.com</dd>
-                      </dl>
+
+                    	<table class="table table-bordered table-striped">
+                    		<thead>
+                    			<tr>
+                    				<th colspan="2">Personal Information</th>
+                    			</tr>
+                    		</thead>
+                    		<tbody>
+                    			<tr>
+                    				<td>Name</td>
+                    				<td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td>
+                    			</tr>
+                    			<tr>
+                    				<td>Address</td>
+                    				<td><%= @user.address%></td>
+                    			</tr>
+                    			<tr>
+                    				<td>Age</td>
+                    				<td><%= @user.age %></td>
+                    			</tr>
+                    			<tr>
+                    				<td>Sex</td>
+                    				<td><%= @user.sex %></td>
+                    			</tr>
+                    			<tr>
+                    				<td>Birthdate</td>
+                    				<td><%= @user.birthdate.to_date.strftime("%B %d, %Y") %></td>
+                    			</tr>
+                    		</tbody>
+                    	</table>
                     </div>
                 
                     <div class="modal-footer">

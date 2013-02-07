@@ -10,27 +10,6 @@
     <%= javascript_include_tag "application", "bootstrap.js", "highcharts.js", "jquery-1.6.1.min.js", "exporting.js" %>
     <%= stylesheet_link_tag('bootstrap.css', 'public', 'admin') %>
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
-<<<<<<< HEAD
-  <script>
-    $(function(){
-      // ajax alert message
-      $('#OrthoNew form').submit(function(){
-            var self = $(this);
-            $.post(self.attr('action'), self.serializeArray(), function(data){
-                if (data.status) {
-                    window.location.reload();
-                } else {
-                    self.find('#error').html(data.message).show();
-                }
-            }, 'json');
-            return false;
-        });
-    });
-  </script>
-=======
-
-  
->>>>>>> ee7151e7035743abb27841af3224739de7db42d2
   </head>
   <body>
 
@@ -59,13 +38,13 @@
   </div> <!-- end of wrap -->
 
 
-	
   <div id="footer">
     <div class="container">
       <center>
         <p class="muted credit">&copy; Copyright 2013 <a href="#">St. Lukes Medical Center</a> All Rights Reserved.
           <br> Admin page by thesis group - <a href="#">Boys over Flowers</a></p>
       </center>
+        <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
 </body>

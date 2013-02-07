@@ -17,7 +17,7 @@
       </div>
   
       <div class="modal-body">
-        <%= form_for(:ortho, :url => {:action => 'create'}) do |f| %>
+        <%= form_for Orthodontic.new, validate: true, remote: true, html: {"data-type" => :json} do |f| %>
 			
 				<%= render(:partial => "form", :locals => {:f => f}) %>
       </div> <!-- end of modal-body -->
@@ -75,90 +75,6 @@
 					<div class="pagination">	
 						<%= will_paginate @pediatrics, :container => true %>
 					</div>
-
-					<!-- Modal -->
-          <div id="viewDetails" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-              <h3 id="viewDetailsLabel">View Details</h3>
-            </div>
-            <div class="modal-body">
-
-
-
-              <table class="show-details table table-bordered">
-                  <thead>
-                      <tr>
-                          <th colspan="2">Personal Information</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Name: </td>
-                          <td>Michael Jhon Raagas</td>
-                      </tr>
-                      <tr>
-                          <td>Address: </td>
-                          <td>#88 1st St. Area5 Veterans Village, Pasong Tamo, Quezon City</td>
-                      </tr>
-                      <tr>
-                          <td>Age: </td>
-                          <td>22</td>
-                      </tr>
-                      <tr>
-                          <td>Sex: </td>
-                          <td>Male</td>
-                      </tr>
-                      <tr>
-                          <td>Status: </td>
-                          <td>Single</td>
-                      </tr>
-                      <tr>
-                          <td>Occupation: </td>
-                          <td>None</td>
-                      </tr>
-                      <tr>
-                          <td>Referred by: </td>
-                          <td>None</td>
-                      </tr>
-                      <tr>
-                          <td>Mobile: </td>
-                          <td>0909448532</td>
-                      </tr>
-                      <tr>
-                          <td>Res Tel: </td>
-                          <td>012345</td>
-                      </tr>
-                      <tr>
-                          <td>Birthdate: </td>
-                          <td>June 20, 1990</td>
-                      </tr>
-                  </tbody>
-              </table>
-
-              <table class="show-details table table-bordered">
-                  <thead>
-                      <tr>
-                          <th colspan="2">Examination</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Date: </td>
-                          <td>January 1, 2012</td>
-                      </tr>
-                      <tr>
-                          <td>Examination: </td>
-                          <td>Mild fever with dry cough and runny nose, need to take 3 medicines a day</td>
-                      </tr>
-                  </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
-          </div>
 
 				</div> <!-- end of records -->
 			</div> <!-- end of span9 -->

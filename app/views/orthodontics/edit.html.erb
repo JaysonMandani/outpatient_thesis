@@ -1,22 +1,10 @@
+<div class="modal hide fade in" id="user-edit">
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">x</button>
+		<h2>Edit User</h2>
+	</div>
 <% @page_title = "Edit Ortho Details" %>
-
-	<div class="side-menu grid_5">
-		<div class="side-menu-option">
-			<%= render(:partial => 'sidenav') %>
-		</div> <!-- end of side-menu-option -->
-	</div> <!-- end of side-menu -->
-	
-	<div class="side-content grid_19">
-
-		<div class="content-module grid_19">
-
-			<div class="content-module-heading cf">
-				<h3> Patient's Form </h3>
-			</div> <!-- end of content-module-heading -->
-
-	<div class="content-module-main">
-
-		<div class="form">
+	<div class="form">
 		<%= form_for(:orthodontic, :url => {:action => 'update', :id => @orthodontic.id}) do |f| %>
 		
 			<%= render(:partial => "form", :locals => {:f => f}) %>
@@ -24,11 +12,10 @@
 			<%= submit_tag("SUBMIT", {:class => 'button round blue text-upper image-right ic-right-arrow'}) %>
 			</div>
 		<% end %>
-					</div> <!-- end of form -->
+	</div> <!-- end of form -->
 
-				</div> <!-- end of content-module-main -->
-
-			</div> <!-- end of content-module -->
-		
-		</div> <!-- end of side-content -->
+    <div class="modal-footer">
+      	<a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
 

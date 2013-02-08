@@ -4,15 +4,13 @@
   %table.both.table.table-striped.table-hover.table-bordered
     %thead
       %tr
-        %th id
-        %th name
-        %th address
-        %th sex
-        %th actions
+        %th Name
+        %th Address
+        %th Gender
+        %th Actions
     - @orthodontics.each do |ortho|
       %tbody
         %tr{:class => cycle('odd', 'even')}
-          %td= ortho.id
           %td= ortho.full_name
           %td= ortho.address
           %td= ortho.sex

@@ -71,9 +71,6 @@ header.login {
 /* =============================================================================
    Modal
    ========================================================================== */
-  .modal-body .modal-form {
-    margin-bottom: 0;
-  }
    div.admin-profile {
     .modal-body {
       padding: 30px;
@@ -120,7 +117,7 @@ header.login {
    }
 
    .record {
-    .modal-body {
+    .modal-body .modal-form {
       .addrecord {
         margin-top: 10px;
         background-color: #FFF;

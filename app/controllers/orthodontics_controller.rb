@@ -30,7 +30,6 @@ class OrthodonticsController < ApplicationController
 
 	def edit
 		@orthodontic = Orthodontic.find(params[:id])
-		@header = puts "Edit"
 	end
 
 	def update
@@ -42,8 +41,7 @@ class OrthodonticsController < ApplicationController
 	end
 
 	def destroy
-		@orthodontic = Orthodontic.find(params[:id])
-		@orthodontic.destroy
+		@orthodontic = Orthodontic.find(params[:id]).destroy
 		flash[:notice] = "Orthopedic patient destroyed."
 		@orthodontics = Orthodontic.search(params[:search], params[:page])
 	end

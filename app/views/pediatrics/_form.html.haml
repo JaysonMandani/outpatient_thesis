@@ -1,0 +1,102 @@
+= form_for @pediatric, remote: true, :class => 'modal-form'  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Pediatrics
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@pediatric)
+    .addrecord
+      %table
+        %thead
+          %tr
+            %td{:colspan => "4"}
+              %h4 Personal Information
+        %tbody
+          %tr
+            %td= f.label(:full_name, "Full Name")
+            %td{:colspan => "3"}= f.text_field(:full_name, :class=>'input-xlarge')
+          %tr
+            %td= f.label(:address, "Address")
+            %td{:colspan => "3"}= f.text_field(:address, :class=>'input-xxlarge')
+          %tr
+            %td= f.label(:mother_name, "Mother's")
+            %td{:colspan => "3"}
+              = f.text_field(:mother_name, :class=>'input-medium', :placeholder => "Name")
+              = f.text_field(:m_occupation, :class=>'input-medium', :placeholder => "Occupation")
+              \&nbsp;
+              %span> Age
+              \&nbsp;
+              \#{f.select(:m_age, 15..90, { :include_blank => true }, :class=>'auto')}
+          %tr
+            %td= f.label(:father_name, "Father's", :class=> 'left-margin')
+            %td{:colspan => "3"}
+              = f.text_field(:father_name, :class=>'input-medium', :placeholder => 'Name')
+              = f.text_field(:f_occupation, :class=>'input-medium', :placeholder => "Occupation")
+              \&nbsp;
+              %span> Age
+              \&nbsp;
+              \#{f.select(:m_age, 15..90, { :include_blank => true }, :class=>'auto')}
+          %tr
+            %td= f.label(:birth_date, "Birth Date")
+            %td{:colspan => "2"}
+              = f.text_field(:birth_date, :class => 'input-medium')
+              \&nbsp;
+              %span> Age
+              \&nbsp;
+              \#{f.select(:age, 1..15, { :include_blank => true }, :class=>'round dropdown')}
+          %tr
+            %td= f.label(:contact_no)
+            %td
+              = f.text_field(:contact_no, :class=>'input-medium')
+              \&nbsp;
+              %span> Gender
+              \&nbsp;
+              \#{f.select(:sex, %w{Male Female})}
+      %table
+        %tr
+          %th{:colspan => "5"}
+            %h4 Birth History and Development
+        %tr
+          %td= f.label(:term)
+          %td= f.text_field(:term, :class=>'input-large')
+          %td= f.label(:head_circ)
+          %td= f.text_field(:head_circ, :class=>'input-large')
+        %tr
+          %td= f.label(:delivery)
+          %td= f.text_field(:delivery, :class=>'round medium-size-input')
+          %td= f.label(:chest_circ, "Chest Circ.")
+          %td= f.text_field(:delivery, :class=>'input-large')
+        %tr
+          %td= f.label(:birth_weight, "Birth Weight")
+          %td= f.text_field(:head_circ, :class=>'input-large')
+          %td= f.label(:abdominal)
+          %td= f.text_field(:abdominal, :class=>'input-large')
+        %tr
+          %td= f.label(:birth_length, "Birt Length")
+          %td= f.text_field(:birth_length, :class=>'input-large')
+          %td= f.label(:obsterician)
+          %td= f.text_field(:obsterician, :class=>'input-large')
+        %tr
+          %td.allergy{:colspan => "2"}
+            %label Allergy
+        %tr
+          %td= f.label(:food, "1.Food")
+          %td= f.text_field(:food, :class=>'input-large')
+        %tr
+          %td= f.label(:medicine, "2.Medicine")
+          %td= f.text_field(:medicine, :class=>'input-large')
+        %tr
+          %td= f.label(:others, "3.Others")
+          %td= f.text_field(:others, :class=>'input-large')
+      %table
+        %tr
+          %td{:colspan => "2"}
+            %h4 Feeding History and Immunization
+        %tr
+          %td= f.label(:type_of_feeding, "Type of Feeding")
+          %td= f.text_field(:type_of_feeding, :class=>'input-xlarge')
+        %tr
+          %td= f.label(:supplementary)
+          %td= f.text_field(:supplementary, :class=>'input-xlarge')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

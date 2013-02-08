@@ -6,54 +6,46 @@ class OrthodonticsController < ApplicationController
 	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
+	before_filter :load
+
+  	def load
+    	@orthodontics = Orthodontic.search(params[:search], params[:page])
+    	@orthodontic = Orthodontic.new
+  	end
 
 	def index
-		@orthodontics = Orthodontic.search(params[:search], params[:page])
 	end
 
 	def show
 		@orthodontic = Orthodontic.find(params[:id])
 	end
 
-	def new
-		@orthodontic = Orthodontic.new
-	end
-
 	def create
-	  @orthodontic = Orthodontic.new(params[:orthodontic])
-
-	  respond_to do |format|
-	    if @orthodontic.save
-	      format.html { redirect_to @orthodontic, notice: 'Post was successfully created.' }
-	      format.json { render json: @orthodontic, status: :created, location: @orthodontic }
-	    else
-	      format.html { render action: "new" }
-	      format.json { render json: @orthodontic.errors, status: :unprocessable_entity }
-	    end
-	  end
+		@orthodontic = Orthodontic.new(params[:orthodontic])
+		if @orthodontic.save
+		  flash[:notice] = "Successfully created record."
+		  @orthodontics = Orthodontic.search(params[:search], params[:page])
+		end
 	end
 
 	def edit
 		@orthodontic = Orthodontic.find(params[:id])
+		@header = puts "Edit"
 	end
 
 	def update
 		@orthodontic = Orthodontic.find(params[:id])
 		if @orthodontic.update_attributes(params[:orthodontic])
-			redirect_to(:action => 'show', :id => @orthodontic.id)	
-		else
-			render('edit')
+			flash[:notice] = "Successfully updated record."
+			@orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
 	end
 
-	def delete
-		@orthodontic = Orthodontic.find(params[:id])
-	end
-
 	def destroy
-		orthodontic = Orthodontic.find(params[:id])
-		orthodontic.delete
+		@orthodontic = Orthodontic.find(params[:id])
+		@orthodontic.destroy
 		flash[:notice] = "Orthopedic patient destroyed."
-		redirect_to orthodontics_url
+		@orthodontics = Orthodontic.search(params[:search], params[:page])
 	end
 end
+

@@ -1,0 +1,57 @@
+= form_for @orthodontic, remote: true, :class => 'modal-form'  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Orthodontics
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@orthodontic)
+    .addrecord
+      %table
+        %thead
+          %tr
+            %td{:colspan => "4"}
+              %h4 Basic Information
+        %tbody
+          %tr
+            %td= f.label(:full_name)
+            %td{:colspan => "3"}= f.text_field(:full_name, :class=>'input-xlarge')
+          %tr
+            %td= f.label(:address)
+            %td{:colspan => "3"}= f.text_field(:address, :class=> 'input-xlarge addres')
+          %tr
+            %td= f.label(:occupation)
+            %td= f.text_field(:occupation, :class=> 'input-medium')
+            %td= f.label(:resident_no)
+            %td= f.text_field(:resident_no, :class=> 'input-medium')
+          %tr
+            %td= f.label(:reffered_by)
+            %td= f.text_field(:reffered_by, :class=> 'input-medium')
+            %td= f.label(:birth_date)
+            %td= f.text_field(:birth_date, :class=> 'input-medium')
+          %tr
+            %td= f.label(:mobile_no)
+            %td= f.text_field(:mobile_no, :class=> 'input-medium')
+            %td= f.label(:age)
+            %td
+              = f.select(:age, 1..90, { :include_blank => true }, :class=>'auto')
+          %tr
+            %td= f.label(:sex)
+            %td
+              = f.select(:sex, %w{Male Female},:class=>'auto' )
+            %td= f.label(:status)
+            %td
+              = f.select(:status, %w{Single Married})
+      %table
+        %tr
+          %td{:colspan => "8"}
+            %h4 Examination
+        %tr
+          %td= f.label(:examination_date)
+          %td= f.text_field(:examination_date, :class => 'input-medium')
+        %tr
+          %td= f.label(:examination_result)
+          %td{:colspan => "8"}
+            = f.text_area(:examination_result, :size => '40x5')
+    / end of add-record
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

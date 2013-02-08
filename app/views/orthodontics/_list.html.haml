@@ -1,0 +1,25 @@
+.records.clearfix
+  %h4.left ORTHODONTICS LIST OF RECORDS
+  = render(:partial => 'shared/search')
+  %table.both.table.table-striped.table-hover.table-bordered
+    %thead
+      %tr
+        %th id
+        %th name
+        %th address
+        %th sex
+        %th actions
+    - @orthodontics.each do |ortho|
+      %tbody
+        %tr{:class => cycle('odd', 'even')}
+          %td= ortho.id
+          %td= ortho.full_name
+          %td= ortho.address
+          %td= ortho.sex
+          %td
+            .btn-group
+              = link_to raw('<i class="icon-eye-open icons-black"></i>'), ortho, remote: true, role: "button", :class => 'btn', :title => 'view'
+              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_orthodontic_path(ortho), remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), ortho, :confirm => 'Are you sure?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'
+  .pagination
+    = will_paginate @pediatrics, :container => true

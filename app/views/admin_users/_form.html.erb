@@ -44,7 +44,7 @@
 	<tr>
 		<td><%= f.label(:birthdate) %></td>
 		<td>
-			<%= f.date_select(:birthdate, :order => [:month, :day, :year]) %>
+			<%= f.text_field(:birthdate, :class=> 'input-large datepicker', placeholder: 'YYYY-MM-DD') %>
 		</td>
 	</tr>
 	<tr>	

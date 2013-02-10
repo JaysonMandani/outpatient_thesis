@@ -15,8 +15,9 @@
           %td= pedia.address
           %td= pedia.sex
           %td
-            = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
-            = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_pediatric_path(pedia), remote: true, role: "button", :class => 'btn', :title => 'edit'
-            = link_to raw('<i class="icon-trash icons-black"></i>'), pedia, :confirm => 'Are you sure?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'
+            .btn-group
+              = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
+              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_pediatric_path(pedia), remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), pedia, :confirm => 'Are you sure?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'
   .pagination
     = will_paginate(@pediatrics, :container => true)

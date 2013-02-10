@@ -6,12 +6,12 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-#gem "highcharts-rails", "~> 2.3.0" 
 gem "prawn"
 gem "prawnto"
 gem 'turbolinks'
 gem 'sass-rails'
-# gem 'bootstrap-sass', '~> 2.2.2.0'
+gem 'haml-rails'
+
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,0 +1,50 @@
+- @page_title = "Delete Ortho Record"
+.side-menu.grid_5
+  .side-menu-option
+    = render(:partial => 'orthodontics/sidenav')
+  / end of side-menu-option
+/ end of side-menu
+.side-content.grid_19
+  .content-module
+    .content-module-heading.cf
+      %h3 DELETE PATIENT RECORD
+    / end of content-module-heading
+    .content-module-main.cf
+      .form
+        .sub-heading
+          %h4 Personal Information
+        = form_for(:ortho, :url => {:action => 'destroy', :id => @orthodontic.id}) do |f|
+          .personal-information-delete
+            %p
+              = label(:full_name, "Full Name: ")
+              = @orthodontic.full_name
+              %br/
+              = label(:age, "Age: ")
+              = @orthodontic.age
+              %br/
+              = label(:sex, "Sex: ")
+              = @orthodontic.sex
+              %br/
+              = label(:status, "Status: ")
+              = @orthodontic.status
+              %br/
+              = label(:address, "Address: ")
+              = @orthodontic.address
+              %br/
+              = label(:occupation, "Occupation: ")
+              = @orthodontic.occupation
+              %br/
+              = label(:mobile_no, "Mobile no.: ")
+              = @orthodontic.mobile_no
+              %br/
+              = label(:resident_tel, "Resident Tel.: ")
+              = @orthodontic.resident_no
+              %br/
+              = label(:reffered_by, "Reffered By: ")
+              = @orthodontic.reffered_by
+              %br/
+              = label(:birth_date, "Birth Date: ")
+              = @orthodontic.birth_date
+              %br/
+          / end of personal-information
+          = submit_tag("DELETE", {:class => 'button round blue text-upper image-right ic-delete', :onclick=> "return confirm('Are you sure?')"})

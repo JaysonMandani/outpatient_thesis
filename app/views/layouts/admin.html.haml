@@ -1,0 +1,31 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title
+        Outpatient Thesis #{"| #{@page_title}" if @page_title}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %meta{:content => "JsonManz", :name => "author"}
+          = csrf_meta_tags
+          = javascript_include_tag "application", "bootstrap.js"
+          = stylesheet_link_tag('bootstrap', 'public', 'admin')
+          %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
+  %body
+    #wrap
+      = render(:partial => 'layouts/navigation')
+      / Navigation
+      .container
+        #flash_notice{:style => "display:none"}
+        = yield
+      / end of container
+    / end of wrap
+  #footer
+    .container
+      %center
+        %p.muted.credit
+          \&copy; Copyright 2013
+          %a{:href => "#"} St. Lukes Medical Center
+          All Rights Reserved.
+          %br
+            Admin page by thesis group -
+            %a{:href => "#"} Boys over Flowers

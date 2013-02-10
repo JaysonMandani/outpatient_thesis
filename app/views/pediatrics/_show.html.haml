@@ -1,0 +1,28 @@
+.modal-header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+  %h3 Show Record
+.modal-body
+  / %table.table.table-bordered.table-striped
+  /   %thead
+  /     %tr
+  /       %th{:colspan => "2"} Personal Information
+  /   %tbody
+  /     %tr
+  /       %td Name
+  /       %td
+  /         = @user.first_name
+  /         \&nbsp;#{@user.last_name}
+  /     %tr
+  /       %td Address
+  /       %td= @user.address
+  /     %tr
+  /       %td Age
+  /       %td= @user.age
+  /     %tr
+  /       %td Sex
+  /       %td= @user.sex
+  /     %tr
+  /       %td Birthdate
+  /       %td= @user.birthdate.to_date.strftime("%B %d, %Y")
+.modal-footer
+  %a.btn{"data-dismiss" => "modal", :href => "#"} Close

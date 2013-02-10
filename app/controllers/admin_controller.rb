@@ -25,7 +25,8 @@ class AdminController < ApplicationController
   		redirect_to(:controller => 'access', :action => 'home')
       else
         flash[:notice] = "You are now logged in."
-        redirect_to(:controller => 'access', :action => 'home')
+        # redirect_to(:controller => 'access', :action => 'home')
+        render :js => "window.location = '/access/home'"
       end
   	else 
   		flash[:notice] = "Incorrect username/password."

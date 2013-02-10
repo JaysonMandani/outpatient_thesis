@@ -1,0 +1,22 @@
+- @page_title = "List Pediatrics"
+.container
+  .header
+    .left.subtitle
+      %h1 Pedia
+      %span
+        %i.icon-list.icons-black
+        List of Patient Records
+    = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#PediaAddRecord", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
+  .content.both
+    .row
+      .span12
+        #posts_list
+          = render(:partial => "list")
+#PediaAddRecord{'class' => 'modal hide fade record'}
+  = render(:partial => "form")
+
+#PediaEditRecord{'class' => 'modal hide fade record'}
+  = render(:partial => "form")
+
+#PediaShowRecord{'class' => 'modal hide fade record'}
+  = render(:partial => "show")

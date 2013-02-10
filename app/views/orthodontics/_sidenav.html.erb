@@ -1,4 +1,0 @@
-<ul class="nav nav-list sidenav">
-	<li class="active"><%=  link_to_unless_current('Patients Record', {:action => 'index'}, :class=> 'inactive-tab'){|link|content_tag 'a', link, :class => 'active-tab'} %></li>
-	<li><%=  link_to_unless_current('Add Record', {:action => 'new'}){|link|content_tag 'a', link, :class => 'active-tab'} %></li>
-</ul>

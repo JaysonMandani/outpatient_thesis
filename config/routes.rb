@@ -9,8 +9,10 @@ OutpatientThesis::Application.routes.draw do
   resources :immunizations 
   resources :pendings
   
-  match 'admin', :to => 'admin#login'
+  match 'admin', to: 'admin#login'
   match 'orthodontics', to: 'orthodontics#create'
+  match '/examination', to: 'pediatrics#examination'
+  match '/immunization' => 'immunizations#index'
 
   # T`he priority is based upon order of creation:
   # first created -> highest priority.

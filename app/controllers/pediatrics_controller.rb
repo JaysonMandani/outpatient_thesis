@@ -10,6 +10,7 @@ class PediatricsController < ApplicationController
 	before_filter :load
 
 	def load
+		@orthodontic = Orthodontic.new
 		@pediatrics = Pediatric.search(params[:search], params[:page])
 		@pediatric = Pediatric.new
 	end
@@ -31,7 +32,7 @@ class PediatricsController < ApplicationController
 
 	def examination
 		#show the examination content
-		@pediatric = Pediatric.find(params[:id])
+		@examination = Pediatric.find(params[:id])
 	end
 
 	def create_examination
@@ -43,6 +44,7 @@ class PediatricsController < ApplicationController
 	end
 
 	def edit
+		@orthodontic = Orthodontic.find(params[:id])
 		@pediatric = Pediatric.find(params[:id])
 	end
 

@@ -1,0 +1,26 @@
+= form_for @pediatric, remote: true, :class => 'modal-form'  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Pediatrics
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@pediatric)
+  .addrecord
+    %table
+      %tr
+        %td= f.label(:examination_date, "Examination Date")
+        %td= f.date_select(:examination_date, :order => [:month, :day, :year])
+      %tr
+        %td= f.label(:weight)
+        %td= f.text_field(:weight, :class=>'round half-size-input')
+      %tr
+        %td= f.label(:height)
+        %td= f.text_field(:height, :class=>'round half-size-input')
+      %tr
+        %td= f.label(:history_physical_exams, "History and Physical Exams")
+        %td= f.text_area(:history_physical_exams, :size => '40x5')
+      %tr
+        %td= f.label(:physicians_instructions, "Physician's Insructions")
+        %td= f.text_area(:physicians_instructions, :size => '40x5')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

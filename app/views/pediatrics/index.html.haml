@@ -12,6 +12,7 @@
       .span12
         #posts_list
           = render(:partial => "list")
+          
 #PediaAddRecord{'class' => 'modal hide fade record modal-pedia-add'}
   = render(:partial => "form")
 
@@ -20,3 +21,8 @@
 
 #PediaShowRecord{'class' => 'modal hide fade modal-show modal-pedia-show'}
   = render(:partial => "show")
+
+#PediaExamRecord{'class' => 'modal hide fade record'}
+  = render(:partial => "examination")
+  
+

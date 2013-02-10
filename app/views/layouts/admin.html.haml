@@ -9,27 +9,16 @@
           = csrf_meta_tags
           = javascript_include_tag "application", "bootstrap.js", "jquery-ui-1.10.0.custom.min.js"
           = stylesheet_link_tag('bootstrap', 'jquery-ui-1.10.0.custom.min.css', 'public', 'admin')
+          = render 'shared/shim'
           %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
   %body
     #wrap
       = render(:partial => 'layouts/navigation')
-      / Navigation
       .container
         #flash_notice{:style => "display:none"}
         = yield
-      / end of container
-    / end of wrap
-  #footer
-    .container
-      %center
-        %p.muted.credit
-          \&copy; Copyright 2013
-          %a{:href => "#"} St. Lukes Medical Center
-          All Rights Reserved.
-          %br
-            Admin page by thesis group -
-            %a{:href => "#"} Boys over Flowers
 
+  = render "layouts/footer"
   :javascript
     $(function() {
       $( ".datepicker" ).datepicker({
@@ -38,3 +27,4 @@
         changeYear: true
       });
     });
+

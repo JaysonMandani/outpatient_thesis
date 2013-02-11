@@ -2,27 +2,59 @@
   %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
   %h3 Show Record
 .modal-body
-  / %table.table.table-bordered.table-striped
-  /   %thead
-  /     %tr
-  /       %th{:colspan => "2"} Personal Information
-  /   %tbody
-  /     %tr
-  /       %td Name
-  /       %td
-  /         = @user.first_name
-  /         \&nbsp;#{@user.last_name}
-  /     %tr
-  /       %td Address
-  /       %td= @user.address
-  /     %tr
-  /       %td Age
-  /       %td= @user.age
-  /     %tr
-  /       %td Sex
-  /       %td= @user.sex
-  /     %tr
-  /       %td Birthdate
-  /       %td= @user.birthdate.to_date.strftime("%B %d, %Y")
+
+  %table.show-details.table.table-bordered
+    %thead
+      %tr
+        %th{:colspan=> '2'} Personal Information
+    %tbody
+      %tr
+        %td Name: 
+        %td Michael Jhon Raagas
+      %tr
+        %td Address: 
+        %td #88 1st St. Area5 Veterans Village, Pasong Tamo, Quezon City
+      %tr
+        %td Age: 
+        %td 22
+      %tr
+        %td Sex: 
+        %td Male
+      %tr
+        %td Status: 
+        %td Single
+      %tr
+        %td Occupation: 
+        %td None
+      %tr
+        %td Referred by: 
+        %td None
+      %tr
+        %td Mobile: 
+        %td 0909448532
+      %tr
+        %td Res Tel: 
+        %td 012345
+      %tr
+        %td Birthdate: 
+        %td June 20, 1990
+  %table.show-details.table.table-bordered
+    %thead
+      %tr
+        %th{:colspan=> '2'} Examination
+    %tbody
+      %tr
+        %td Date: 
+        %td January 1, 2012
+      %tr
+        %td Examination: 
+        %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+      %tr
+        %td Created At:
+        %td
+      %tr
+        %td Updated At:
+        %td
+
 .modal-footer
   %a.btn{"data-dismiss" => "modal", :href => "#"} Close

@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td><%= f.label(:scheduled_on) %></td>
-			<td><%= f.date_select(:scheduled_on, :order => [:month, :day, :year]) %></td>
+			<td><%= f.text_field(:scheduled_on, :class=> 'input-medium datepicker', placeholder: 'YYYY-MM-DD') %></td>
 		</tr>
 		<tr>
 			<td><%= f.label(:time) %></td>

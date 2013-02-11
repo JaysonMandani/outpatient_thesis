@@ -9,7 +9,7 @@
 .content.both.home
   .row
     .span12
-      %p.typehead Admin Profile
+      %h5.typehead Admin Profile
       .row
         .user-image.span4
           = image_tag("fb-dp.jpg", :alt => "user")
@@ -26,7 +26,7 @@
                   %td Position:
                   %td Administrator
               %a.btn.btn-primary{"data-toggle" => "modal", :href => "#viewDetails", :role => "button"} View More
-          #viewDetails.modal.hide.fade.admin-profile
+          #viewDetails.modal.hide.fade.admin-profile.modal-show
             .modal-header
               %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
               %h3 User Profile

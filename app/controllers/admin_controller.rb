@@ -22,11 +22,10 @@ class AdminController < ApplicationController
       admin = authorized_user.admin == true
       if admin
   		flash[:notice] = "Hello! administrator you are now logged in."
-  		redirect_to(:controller => 'access', :action => 'home')
+  		redirect_to home_path
       else
         flash[:notice] = "You are now logged in."
-        redirect_to(:controller => 'access', :action => 'home')
-        # render :js => "window.location = '/access/home'"
+        redirect_to home_path
       end
   	else 
   		flash[:notice] = "Incorrect username/password."

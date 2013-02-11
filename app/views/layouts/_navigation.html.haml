@@ -7,14 +7,14 @@
         %span.icon-bar
       .nav-collapse.collapse
         %ul.nav
-          %li= link_to_unless_current('Home', {:controller => 'access', :action => 'home'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Ortho', {:controller => 'orthodontics'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Pedia', {:controller => 'pediatrics'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Inventories', {:controller => 'inventories'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Users', {:controller => 'admin_users'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Schedules', {:controller => 'schedules'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Pending', {:controller => 'pendings'}){|link|content_tag 'a', link}
-          %li= link_to_unless_current('Analytics', {:controller => 'analytics'}){|link|content_tag 'a', link}
+          %li{:class => ('active' if current_page?(home_path))}= link_to "Home", home_path
+          %li{:class => ('active' if current_page?(orthodontics_path))}= link_to "Ortho", orthodontics_path
+          %li{:class => ('active' if current_page?(pediatrics_path))}= link_to "Pedia", pediatrics_path
+          %li{:class => ('active' if current_page?(inventories_path))}= link_to "Inventories", inventories_path
+          %li{:class => ('active' if current_page?(admin_users_path))}= link_to "Users", admin_users_path
+          %li{:class => ('active' if current_page?(schedules_path))}= link_to "Schedules", schedules_path
+          %li{:class => ('active' if current_page?(pendings_path))}= link_to "Pending", pendings_path
+          %li{:class => ('active' if current_page?(analytics_path))}= link_to "Analytics", analytics_path
         %ul.nav.pull-right
           - if !flash[:schedules].blank?
             %li= link_to(flash[:schedules], {:controller => 'schedules', :action => 'show'}, raw("<i class=\"icon-align-left\"></i>") )

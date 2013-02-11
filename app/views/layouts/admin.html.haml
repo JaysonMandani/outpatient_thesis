@@ -7,9 +7,9 @@
       %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
         %meta{:content => "JsonManz", :name => "author"}
           = csrf_meta_tags
+          = javascript_include_tag "application", "bootstrap.js", "jquery-ui-1.10.0.custom.min.js"
+          = stylesheet_link_tag('bootstrap', 'jquery-ui-1.10.0.custom.min.css', 'public', 'admin')
           = render 'shared/shim'
-          = javascript_include_tag "application", "bootstrap.js"
-          = stylesheet_link_tag('bootstrap', 'public', 'admin')
           %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
   %body
     #wrap
@@ -17,4 +17,14 @@
       .container
         #flash_notice{:style => "display:none"}
         = yield
+
   = render "layouts/footer"
+  :javascript
+    $(function() {
+      $( ".datepicker" ).datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true
+      });
+    });
+

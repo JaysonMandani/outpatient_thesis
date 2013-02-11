@@ -1,0 +1,6 @@
+= form_tag('', :method => "get", :id=> 'search-form', :class=> 'form-search right') do
+  .input-append
+    = text_field_tag(:search, params[:search], :placeholder => "Search for name", :class=> 'span2 search-query')
+    = hidden_field_tag("Search", :name => nil)
+    %button.btn.btn-success{:type => "submit"}
+      %i.icon-search.icons-black

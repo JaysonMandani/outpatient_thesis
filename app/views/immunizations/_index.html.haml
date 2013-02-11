@@ -1,0 +1,24 @@
+- @page_title = "Immunization List"
+.container
+  .header
+    .left.subtitle
+      %h1 Immunization
+      %span
+        %i.icon-list.icons-black
+        List of Immunization Records
+    = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#OrthoAddRecord", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
+  .content.both
+    .row
+      .span12
+        #posts_list
+          = render(:partial => "list")
+#ImmuneAddRecord{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+#ImmuneEditRecord{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+#ImmuneShowRecord{'class' => 'modal hide fade modal-show'}
+  = render(:partial => "show")
+          
+

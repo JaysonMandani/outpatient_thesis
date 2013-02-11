@@ -36,7 +36,8 @@ body {
    Login
    ========================================================================== */
 
-.form-signin {
+form .form-signin {
+  height: 235px;
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;

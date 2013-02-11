@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   layout 'public'
 
   before_filter :confirm_logged_in, :except => [:login, :attempt_login, :logout, :forgot_password, :retrieve_password, :authentication, :find_email]
-  
+
   def index
   	login
   	render ('login')

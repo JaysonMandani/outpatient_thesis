@@ -53,4 +53,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Find user
+  def find_user
+    user_id = session[:user_id]
+    @user = AdminUser.find(user_id)
+  end
+
 end

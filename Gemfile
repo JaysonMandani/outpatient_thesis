@@ -11,6 +11,8 @@ gem "prawnto"
 gem 'turbolinks'
 gem 'sass-rails'
 gem 'haml-rails'
+# gem 'pdfkit'
+# gem 'wkhtmltopdf-binary'
 
 
 group :development, :test do

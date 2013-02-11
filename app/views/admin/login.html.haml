@@ -1,0 +1,12 @@
+= form_tag({:action => 'attempt_login'}, :class => "form-signin")  do
+  %h3.form-signin-heading Admin Login
+  = text_field_tag :username, nil, :class => 'input-block-level', :placeholder=>'Username'
+  = password_field_tag(:password, nil, :class=> 'input-block-level', :placeholder=>'Password')
+  = link_to("Forgot your password?", {:action => 'forgot_password'})
+  %br
+    %br
+      = submit_tag("Sign In", {:class => 'btn btn-primary'})
+  - if !flash[:notice].blank?
+    .alert.alert-error
+      %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+      %strong= flash[:notice]

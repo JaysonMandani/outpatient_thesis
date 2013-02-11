@@ -6,6 +6,7 @@ class AdminUsersController < ApplicationController
   before_filter :confirm_admin, :except => [:index, :edit, :update]
   before_filter :find_schedules
   before_filter :find_pendings
+  before_filter :find_user
   
   def index
     adminuser = session[:user_id]

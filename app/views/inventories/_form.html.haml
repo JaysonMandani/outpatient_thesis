@@ -1,0 +1,29 @@
+= form_for @inventory, remote: true  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Inventories
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@inventory)
+    .addrecord
+      %table
+        %tr
+          %td{:colspan => "2"}
+            %h4 Inventory Form
+        %tr
+          %td= f.label(:brand_name, "Name")
+          %td= f.text_field(:brand_name, :class=> 'input-large')
+        %tr
+          %td= f.label(:medical_name, "Medical Name")
+          %td= f.text_field(:medical_name, :class=> 'input-large')
+        %tr
+          %td= f.label(:type, "Dose")
+          %td= f.text_field(:type, :class=> 'input-large')
+        %tr
+          %td= f.label(:quantity)
+          %td= f.select(:quantity, 1..100, { :include_blank => true })
+        %tr
+          %td= f.label(:price)
+          %td= f.text_field(:price, :class=> 'input-small')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

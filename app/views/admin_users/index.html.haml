@@ -1,0 +1,20 @@
+- @page_title = "Users List"
+.container
+  .header
+    .left.subtitle
+      %h1 User
+      %span
+        %i.icon-list.icons-black
+        List of Admin Records
+    = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#AddUser", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
+  .content
+    .row
+      .span12
+        #posts_list
+          = render(:partial => "list")
+#AddUser{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+#EditUser{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+        

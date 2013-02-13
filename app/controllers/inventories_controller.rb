@@ -6,25 +6,25 @@ class InventoriesController < ApplicationController
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :find_user
+	before_filter :load
+
+	def load
+    	@inventories = Inventory.search(params[:search], params[:page])
+    	@inventory = Inventory.new
+  	end
 
 	def index
-		@inventories = Inventory.search(params[:search], params[:page])
 	end
 
 	def show
 		@inventory = Inventory.find(params[:id])
 	end
 
-	def new
-		@inventory = Inventory.new
-	end
-
 	def create
 		@inventory = Inventory.new(params[:inventory])
 		if @inventory.save
-			redirect_to(:action => 'list')	
-		else
-			render('new')
+			flash[:success] = "Successfully created record."
+			@inventories = Inventory.search(params[:search], params[:page])
 		end
 	end
 
@@ -35,21 +35,15 @@ class InventoriesController < ApplicationController
 	def update
 		@inventory = Inventory.find(params[:id])
 		if @inventory.update_attributes(params[:inventory])
-			redirect_to(:action => 'list')	
-		else
-			render('edit')
+			flash[:success] = "Successfully updated record."
+			@inventories = Inventory.search(params[:search], params[:page])
 		end
 	end
 
-	def delete
-		@inventory = Inventory.find(params[:id])
-	end
-
 	def destroy
-		inventory = Inventory.find(params[:id])
-		inventory.destroy
-		flash[:notice] = "Schedule destroyed."
-		redirect_to(:action => 'list')
+		@inventory = Inventory.find(params[:id]).destroy
+		flash[:success] = "Inventory destroyed."
+		@inventories = Inventory.search(params[:search], params[:page])
 	end
 
 end

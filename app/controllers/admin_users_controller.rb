@@ -7,6 +7,12 @@ class AdminUsersController < ApplicationController
   before_filter :find_schedules
   before_filter :find_pendings
   before_filter :find_user
+  before_filter :load
+
+  def load
+    @admin_users = AdminUser.search(params[:search], params[:page])
+    @admin_user = AdminUser.new
+  end
   
   def index
     adminuser = session[:user_id]
@@ -19,17 +25,11 @@ class AdminUsersController < ApplicationController
     end
   end
 
-  def new
-    @admin_user = AdminUser.new
-  end
-  
   def create
     @admin_user = AdminUser.new(params[:admin_user])
     if @admin_user.save
-      flash[:notice] = 'Admin user has been created.'
-      redirect_to(:action => 'list')
-    else
-      render("new")
+      flash[:success] = 'Admin user has been created.'
+      @admin_users = AdminUser.search(params[:search], params[:page])
     end
   end
 
@@ -40,21 +40,15 @@ class AdminUsersController < ApplicationController
   def update
     @admin_user = AdminUser.find(params[:id])
     if @admin_user.update_attributes(params[:admin_user])
-      flash[:notice] = 'Admin user has been updated.'
-      redirect_to(:action => 'list')
-    else
-      render("edit")
+      flash[:success] = 'Admin user has been updated.'
+      @admin_users = AdminUser.search(params[:search], params[:page])
     end
   end
   
-  def delete
-    @admin_user = AdminUser.find(params[:id])
-  end
-  
   def destroy
-    AdminUser.find(params[:id]).destroy
-    flash[:notice] = "Admin user destroyed."
-    redirect_to(:action => 'list')
+    @admin_user = AdminUser.find(params[:id]).destroy
+    flash[:success] = "Admin user destroyed."
+    @admin_users = AdminUser.search(params[:search], params[:page])
   end
   
 end

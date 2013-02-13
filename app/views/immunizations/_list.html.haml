@@ -1,5 +1,9 @@
 .records.clearfix
-  %h4.left IMMUNIZATION LIST OF RECORDS 
+  %strong.left
+    Name: 
+    = @pediatric.full_name
+  %br/
+  %h4.left
   = render(:partial => 'shared/search')
   %table.both.table.table-striped.table-hover.table-bordered
     %thead
@@ -20,8 +24,6 @@
           %td= immune.vaccination_type
           %td
             .btn-group
-              = link_to raw('<i class="icon-eye-open icons-black"></i>'), ortho, remote: true, role: "button", :class => 'btn', :title => 'view'
-              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_orthodontic_path(ortho), remote: true, role: "button", :class => 'btn', :title => 'edit'
-              = link_to raw('<i class="icon-trash icons-black"></i>'), ortho, :confirm => 'Are you sure?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'
-  .pagination
-    = will_paginate @pediatrics, :container => true
+              = link_to raw('<i class="icon-eye-open icons-black"></i>'), immune, remote: true, role: "button", :class => 'btn', :title => 'view'
+              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_immunization_path(immune), remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), immune, role: "button", remote: true, :class => 'btn', :title => 'delete'

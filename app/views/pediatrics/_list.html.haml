@@ -1,5 +1,5 @@
 .records
-  %h4.left Pediatrics List of Records
+  %h4.left
   = render(:partial => 'shared/search')
   %table.both.table.table-striped.table-hover.table-bordered
     %thead
@@ -16,7 +16,7 @@
           %td= pedia.sex
           %td
             .btn-group
-              = link_to raw('<i class="icon-tag icons-black"></i>'), {controller: 'immunization', pediatric_id: pedia.id}, remote: true, role: "button", :class => 'btn', :title => 'immunization'
+              = link_to raw('<i class="icon-tag icons-black"></i>'), {controller: 'immunizations', pediatric_id: pedia.id}, role: "button", :class => 'btn', :title => 'immunization'
               = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
               = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_pediatric_path(pedia), remote: true, role: "button", :class => 'btn', :title => 'edit'
               = link_to raw('<i class="icon-trash icons-black"></i>'), pedia, :confirm => 'Are you sure?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'

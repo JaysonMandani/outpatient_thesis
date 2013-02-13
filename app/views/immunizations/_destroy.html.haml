@@ -1,0 +1,26 @@
+= form_for(:immune, :url => {:action => 'destroy', :id => @immunization.id, :pediatric_id => @pediatric.id}, remote: true) do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Immunization
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@immunization)
+    .addrecord
+      %table
+        %tr
+          %td= f.label(:pediatric_id, "Pedia")
+          %td= f.select(:pediatric_id, [@pediatric.id])
+        %tr
+          %td= f.label(:vaccination_name, "Vaccine Name")
+          %td= f.select(:vaccination_name, %w{Bcg DPT OPV Measles MMR Typhoid Hib Hepatitis_A Hepatitis_B Chickenpox Meningococcal Pneumomcoccal})
+        %tr
+          %td= f.label(:vaccination_session, "Vaccination Session")
+          %td= f.select(:vaccination_session, %w{none 1st 2nd 3rd})
+        %tr
+          %td= f.label(:booster_session, "Booster Session")
+          %td= f.select(:booster_session, %w{none 1st 2nd})
+        %tr
+          %td= f.label(:vaccination_type, "Type of Vaccination")
+          %td= f.text_field(:vaccination_type, :class=>'round half-size-input')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

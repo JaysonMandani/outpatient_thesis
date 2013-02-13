@@ -6,11 +6,16 @@ class SchedulesController < ApplicationController
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :find_user
+	before_filter :load
+
+	def load
+		@schedules = Schedule.search(params[:search], params[:page])
+		@schedule = Schedule.new
+	end
 
 	def index
 		# @schedules = Schedule.find(:all)
 		# @date = params[:month] ? Date.parse(params[:month]) : Date.today
-		@schedules = Schedule.search(params[:search], params[:page])
 	end
 
 	def show
@@ -24,16 +29,11 @@ class SchedulesController < ApplicationController
 		end
 	end
 
-	def new
-		@schedule = Schedule.new
-	end
-
 	def create
 		@schedule = Schedule.new(params[:schedule])
 		if @schedule.save
-			redirect_to(:action => 'list')	
-		else
-			render('new')
+		  flash[:success] = "Schedule has been created."
+		  @schedules = Schedule.search(params[:search], params[:page])
 		end
 	end
 
@@ -44,21 +44,15 @@ class SchedulesController < ApplicationController
 	def update
 		@schedule = Schedule.find(params[:id])
 		if @schedule.update_attributes(params[:schedule])
-			redirect_to(:action => 'list')	
-		else
-			render('edit')
+			flash[:success] = "Schedule has been updated."
+			@schedules = Schedule.search(params[:search], params[:page])
 		end
 	end
 
-	def delete
-		@schedule = Schedule.find(params[:id])
-	end
-
 	def destroy
-		schedule = Schedule.find(params[:id])
-		schedule.destroy
-		flash[:notice] = "Schedule destroyed."
-		redirect_to(:action => 'list')
+		@schedule = Schedule.find(params[:id]).destroy
+		flash[:success] = "Schedule destroyed."
+		@schedules = Schedule.search(params[:search], params[:page])
 	end
 
 end

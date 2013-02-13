@@ -1,0 +1,21 @@
+- @page_title = "List of Inventories"
+.container
+  .header
+    .left.subtitle
+      %h1 Inventory
+      %span
+        %i.icon-list.icons-black
+        List of Inventory Records
+    = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#AddInventory", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
+  .content.both
+    .row
+      .span12
+        #posts_list
+          = render(:partial => "list")
+#AddInventory{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+#EditInventory{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+        

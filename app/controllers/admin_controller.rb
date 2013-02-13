@@ -21,10 +21,10 @@ class AdminController < ApplicationController
       session[:username] = authorized_user.username
       admin = authorized_user.admin == true
       if admin
-  		flash[:notice] = "Hello! administrator you are now logged in."
+  		flash[:success] = "Hello! administrator you are now logged in."
   		redirect_to home_path
       else
-        flash[:notice] = "You are now logged in."
+        flash[:success] = "You are now logged in."
         redirect_to home_path
       end
   	else 

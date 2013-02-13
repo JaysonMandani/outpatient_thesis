@@ -16,4 +16,8 @@ class Pediatric < ActiveRecord::Base
 				 :order => 'full_name'
 	end
  	#scope :search, lambda {|query| where(["name LIKE ?", "%#{query}%"])}
+
+  def self.total_on(date)
+    where("date(created_at) = ?", date).count(:full_name)
+  end
 end

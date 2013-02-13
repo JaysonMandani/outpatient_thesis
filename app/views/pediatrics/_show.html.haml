@@ -10,33 +10,33 @@
     %tbody
       %tr
         %td Full Name: 
-        %td{:colspan=> '5'} Michael Jhon Raagas
+        %td{:colspan=> '5'}= @pediatric.full_name
       %tr
         %td Address: 
-        %td{:colspan=> '5'} #88 1st St. Area5 Veterans Village, Pasong Tamo, Quezon City
+        %td{:colspan=> '5'}= @pediatric.address
       %tr
         %td Mother's Name: 
-        %td Ma. Elena Raagas
+        %td= @pediatric.mother_name
         %td Occupation:
-        %td House Wife
+        %td= @pediatric.m_occupation
         %td Age: 
-        %td 52
+        %td= @pediatric.m_age
       %tr
         %td Fathers's Name: 
-        %td Nestor Raagas
+        %td= @pediatric.father_name
         %td Occupation:
-        %td Driver
+        %td= @pediatric.f_occupation
         %td Age: 
-        %td 53 
+        %td= @pediatric.f_age 
       %tr
         %td Birthdate: 
-        %td{:colspan=> '5'} June 20, 1990
+        %td{:colspan=> '5'}= @pediatric.birth_date
       %tr
         %td Age:
-        %td{:colspan=> '5'} 22
+        %td{:colspan=> '5'}= @pediatric.f_age
       %tr
         %td Contact No: 
-        %td{:colspan=> '5'} 0909448532
+        %td{:colspan=> '5'}= @pediatric.contact_no
 
     %table.show-details.table.table-bordered
       %thead   
@@ -45,36 +45,36 @@
       %tbody    
         %tr
           %td Term:
-          %td asdfasdf
+          %td= @pediatric.term
           %td Head Circ
-          %td asdasd
+          %td= @pediatric.head_circ
         %tr
           %td Delivery
-          %td ashgasdf
+          %td= @pediatric.delivery
           %td Chest Circ
-          %td adsfg a
+          %td= @pediatric.chest_circ
         %tr
           %td Birth Weight
-          %td asrhf gjk
+          %td= @pediatric.birth_weight
           %td Abdominal
-          %td gjkhj
+          %td= @pediatric.abdominal
         %tr
           %td Birth Length
-          %td gfkfgh 
+          %td= @pediatric.birth_length
           %td Obstetrician
-          %td gfhjetgh
+          %td= @pediatric.obsterician
         %tr
           %td.allergy{:colspan => "4"}
             %label Allergy
         %tr
           %td Food
-          %td{:colspan => "3"}
+          %td{:colspan => "3"}= @pediatric.food
         %tr
           %td Medicine
-          %td{:colspan => "3"}
+          %td{:colspan => "3"}= @pediatric.medicine 
         %tr
           %td Others
-          %td{:colspan => "3"}
+          %td{:colspan => "3"}= @pediatric.others
         %tr 
           %th{:colspan => "4"} Feeding History and Immunization
         %tr
@@ -82,7 +82,7 @@
           %td Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         %tr
           %td{:colspan => "3"} Supplementary
-          %td
+          %td= @pediatric.supplementary
       
   %table.show-details.table.table-bordered
     %thead
@@ -94,10 +94,10 @@
         %td January 1, 2012
       %tr
         %td Weight:
-        %td
+        %td= @pediatric.weight
       %tr
         %td Height: 
-        %td
+        %td= @pediatric.height
       %tr
         %td History and Physical Examination:
         %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
@@ -106,10 +106,10 @@
         %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
       %tr
         %td Created At:
-        %td
+        %td= @pediatric.created_at
       %tr
         %td Updated At:
-        %td
+        %td= @pediatric.updated_at
 
 
 .modal-footer

@@ -6,11 +6,16 @@ class PendingsController < ApplicationController
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :find_user
+	before_filter :load
+
+	def load
+		@pendings = Pending.search(params[:search], params[:page])
+		@pending = Pending.new
+	end
 
 	def index
 		# @pendings = Pending.find(:all)
 		# @date = params[:month] ? Date.parse(params[:month]) : Date.today
-		@pendings = Pending.search(params[:search], params[:page])
 	end
 
 	def show
@@ -24,16 +29,11 @@ class PendingsController < ApplicationController
 		end
 	end
 
-	def new
-		@pending = Pending.new
-	end
-
 	def create
 		@pending = Pending.new(params[:pending])
 		if @pending.save
-			redirect_to(:action => 'list')	
-		else
-			render('new')
+			flash[:success] = 'Pending has been crated.'
+		  @pendings = Pending.search(params[:search], params[:page])
 		end
 	end
 
@@ -44,21 +44,15 @@ class PendingsController < ApplicationController
 	def update
 		@pending = Pending.find(params[:id])
 		if @pending.update_attributes(params[:pending])
-			redirect_to(:action => 'list')	
-		else
-			render('edit')
+			flash[:success] = 'Pending has been updated.'
+			@pendings = Pending.search(params[:search], params[:page])
 		end
 	end
 
-	def delete
-		@pending = Pending.find(params[:id])
-	end
-
 	def destroy
-		pending = Pending.find(params[:id])
-		pending.destroy
-		flash[:notice] = "Pending destroyed."
-		redirect_to(:action => 'list')
+		@pending = Pending.find(params[:id]).destroy
+		flash[:success] = "Pending destroyed."
+		@pendings = Pending.search(params[:search], params[:page])
 	end
 
 end

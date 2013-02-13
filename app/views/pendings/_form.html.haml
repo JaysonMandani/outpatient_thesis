@@ -1,0 +1,20 @@
+= form_for @pending, remote: true  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Pending
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@pending)
+    .addrecord
+      %table
+        %tr
+          %td= f.label(:full_name)
+          %td= f.text_field(:full_name, :class=> 'round')
+        %tr
+          %td= f.label(:patient_status)
+          %td= f.select(:patient_status, %w(HMO private))
+        %tr
+          %td= f.label(:pending_for)
+          %td= f.select(:pending_for, %w(pediatric orthopedic))
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

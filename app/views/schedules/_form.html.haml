@@ -1,0 +1,26 @@
+= form_for @schedule, remote: true  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Schedule
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@schedule)
+    .addrecord
+      %table
+        %tr
+          %td= f.label(:name)
+          %td= f.text_field(:name, :class=> 'round')
+        %tr
+          %td= f.label(:contact_no, "Contact No.")
+          %td= f.text_field(:contact_no, :class=> 'round')
+        %tr
+          %td= f.label(:schedule_for, "Schedule For")
+          %td= f.select(:schedule_for, %w(pediatrics orthodontics))
+        %tr
+          %td= f.label(:scheduled_on)
+          %td= f.text_field(:scheduled_on, :class=> 'input-medium datepicker', placeholder: 'YYYY-MM-DD')
+        %tr
+          %td= f.label(:time)
+          %td= f.time_select(:time)
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

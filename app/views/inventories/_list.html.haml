@@ -1,0 +1,27 @@
+.records
+  %h4.left
+  = render(:partial => 'shared/search')
+  %table.both.table.table-striped.table-hover.table-bordered
+    %thead
+      %tr
+        %th Name
+        %th Medical Name
+        %th Dose
+        %th Quantity
+        %th Price
+        %th Actions
+    - @inventories.each do |inventory|
+      %tbody
+        %tr{:class => cycle('odd', 'even')}
+          %td= inventory.brand_name
+          %td= inventory.medical_name
+          %td= inventory.type
+          %td= inventory.quantity
+          %td
+            %center= inventory.price
+          %td
+            .btn-group
+              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_inventory_path(inventory), remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), inventory, :confirm => 'Are you sure?', remote: true, method: :delete, role: "button", :class => 'btn', :title => 'delete'
+  .pagination
+    = will_paginate @inventories, :container => true

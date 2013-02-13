@@ -1,6 +1,6 @@
 class OrthodonticsController < ApplicationController
 
-	layout 'admin'
+	layout 'admin', :except => [:print_records]
 
 	before_filter :confirm_logged_in
 	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
@@ -21,10 +21,15 @@ class OrthodonticsController < ApplicationController
 		@orthodontic = Orthodontic.find(params[:id])
 	end
 
+	def print_records
+		@orthodontic = Orthodontic.where(:orthodontic_id => @orthodontic.id)
+		@ortho = Orthodontic.find(params[:orthodontic_id])
+	end
+
 	def create
 		@orthodontic = Orthodontic.new(params[:orthodontic])
 		if @orthodontic.save
-		  flash[:notice] = "Successfully created record."
+		  flash[:success] = "Successfully created record."
 		  @orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
 	end
@@ -36,14 +41,14 @@ class OrthodonticsController < ApplicationController
 	def update
 		@orthodontic = Orthodontic.find(params[:id])
 		if @orthodontic.update_attributes(params[:orthodontic])
-			flash[:notice] = "Successfully updated record."
+			flash[:success] = "Successfully updated record."
 			@orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
 	end
 
 	def destroy
 		@orthodontic = Orthodontic.find(params[:id]).destroy
-		flash[:notice] = "Orthopedic patient destroyed."
+		flash[:success] = "Orthopedic patient destroyed."
 		@orthodontics = Orthodontic.search(params[:search], params[:page])
 	end
 end

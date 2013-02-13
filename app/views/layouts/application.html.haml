@@ -1,0 +1,16 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title
+        Outpatient Thesis #{"| #{@page_title}" if @page_title}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %meta{:content => "JsonManz", :name => "author"}
+          = csrf_meta_tags
+          = javascript_include_tag "application", "bootstrap.js", "jquery-ui-1.10.0.custom.min.js"
+          = stylesheet_link_tag('bootstrap', 'jquery-ui-1.10.0.custom.min.css', 'public', 'admin', :media => "all")
+          = render 'shared/shim'
+          %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
+  %body
+    #wrap
+      = yield

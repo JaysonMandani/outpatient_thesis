@@ -26,7 +26,7 @@ class PediatricsController < ApplicationController
 	def create
 		@pediatric = Pediatric.new(params[:pediatric])
 		if @pediatric.save
-			flash[:notice] = "Successfully created record."	
+			flash[:success] = "Successfully created record."	
 			@pediatrics = Pediatric.search(params[:search], params[:page])
 		end
 	end
@@ -39,7 +39,7 @@ class PediatricsController < ApplicationController
 	def create_examination
 		@pediatric = Pediatric.find(params[:id])
 		if @pediatric.update_attributes(params[:pedia])
-			flash[:notice] = "Successfully created record."
+			flash[:success] = "Successfully created record."
 			@pediatrics = Pediatric.search(params[:search], params[:page])
 		end
 	end
@@ -52,14 +52,14 @@ class PediatricsController < ApplicationController
 	def update
 		@pediatrics = Pediatric.find(params[:id])
 		if @pediatrics.update_attributes(params[:pediatric])
-			flash[:notice] = "Successfully created record."
+			flash[:success] = "Successfully created record."
 			@pediatrics = Pediatric.search(params[:search], params[:page])
 		end
 	end
 
 	def destroy
 		@pediatric = Pediatric.find(params[:id]).destroy
-		flash[:notice] = "Pediatric patient destroyed."
+		flash[:success] = "Pediatric patient destroyed."
 		@pediatrics = Pediatric.search(params[:search], params[:page])
 	end
 

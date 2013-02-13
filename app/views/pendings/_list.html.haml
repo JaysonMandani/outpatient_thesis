@@ -1,0 +1,22 @@
+.records
+  %h4.left LIST OF PENDINGS
+  = render(:partial => 'shared/search')
+  %table.both.table.table-striped.table-hover.table-bordered
+    %thead
+      %tr
+        %th name
+        %th patient status
+        %th pending for
+        %th actions
+    - @pendings.each do |pending|
+      %tbody
+        %tr{:class => cycle('odd', 'even')}
+          %td= pending.full_name
+          %td= pending.patient_status
+          %td= pending.pending_for
+          %td
+            .btn-group
+              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_pending_path(pending), remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), pending, remote: true, :confirm => 'Are you sure?', method: :delete, role: "button", :class => 'btn', :title => 'delete'
+  .pagination
+    = will_paginate @pendings, :container => true

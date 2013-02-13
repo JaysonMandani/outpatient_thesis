@@ -1,0 +1,50 @@
+= form_for @admin_user, remote: true  do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Inventories
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@admin_user)
+    .addrecord
+      %table
+        %tr
+          %td{:colspan => "2"}
+          %h4 User Form
+        %tr
+          %td= f.label(:first_name)
+          %td= f.text_field(:first_name, :class=> 'input-large')
+        %tr
+          %td= f.label(:last_name)
+          %td= f.text_field(:last_name, :class=> 'input-large')
+        %tr
+          %td= f.label(:address)
+          %td= f.text_field(:address, :class=> 'round address-size-input')
+        %tr
+          %td= f.label(:sex)
+          %td= f.select(:sex, %w{Male Female})
+        %tr
+          %td= f.label(:age)
+          %td= f.text_field(:age, :class=> 'input-large')
+        %tr
+          %td= f.label(:mobile, "Contact no.")
+          %td= f.text_field(:mobile, :class=> 'input-large')
+        %tr
+          %td= f.label(:birthdate)
+          %td= f.text_field(:birthdate, :class=> 'input-large datepicker', placeholder: 'YYYY-MM-DD')
+        %tr
+          %td= f.label(:email)
+          %td= f.text_field(:email, :class=> 'input-large')
+        %tr
+          %td= f.label(:username)
+          %td= f.text_field(:username, :class=> 'input-large')
+        %tr
+          %td= f.label(:password, "Password")
+          %td= f.password_field(:password, :class=> 'input-large')
+        %tr
+          %td= f.label(:secret_q, "Secret Question")
+          %td= f.select(:secret_q, ['What is your mothers maiden name?', 'What is your pets name?', 'What was your first school?'])
+        %tr
+          %td= f.label(:secret_a, "Secret Answer")
+          %td= f.password_field(:secret_a, :class=> 'input-large')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

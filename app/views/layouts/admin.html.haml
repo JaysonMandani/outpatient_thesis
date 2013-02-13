@@ -7,7 +7,7 @@
       %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
         %meta{:content => "JsonManz", :name => "author"}
           = csrf_meta_tags
-          = javascript_include_tag "application", "bootstrap.js", "jquery-ui-1.10.0.custom.min.js"
+          = javascript_include_tag "application", "bootstrap.js", "highcharts.js", "jquery-ui-1.10.0.custom.min.js", "exporting.js"
           = stylesheet_link_tag('bootstrap', 'jquery-ui-1.10.0.custom.min.css', 'public', 'admin', :media => "all")
           = render 'shared/shim'
           %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
@@ -15,7 +15,10 @@
     #wrap
       = render(:partial => 'layouts/navigation')
       .container
-        #flash_notice{:style => "display:none"}
+        - flash_display
+        #flash_notice
+          - flash.each do |key, value|
+            = content_tag(:div, value, id: "flash_notice", class: "alert alert-#{key}")
         = yield
   = render "layouts/footer"
 #viewDetails.modal.hide.fade.admin-profile.modal-show
@@ -49,7 +52,7 @@
     %a.btn{"data-dismiss" => "modal", :href => "#"} Close
   :javascript
     $(function() {
-      $( ".datepicker" ).datepicker({
+      $(".datepicker").datepicker({
         dateFormat: 'yy-mm-dd',
         changeMonth: true,
         changeYear: true

@@ -1,0 +1,52 @@
+%table.show-details.table.table-bordered
+  %thead
+    %tr
+      %th{:colspan=> '2'} Personal Information
+  %tbody
+    %tr
+      %td Name: 
+      %td= @ortho.full_name
+    %tr
+      %td Address: 
+      %td= @ortho.address
+    %tr
+      %td Age: 
+      %td= @ortho.age
+    %tr
+      %td Gender: 
+      %td= @ortho.sex
+    %tr
+      %td Status: 
+      %td= @ortho.status
+    %tr
+      %td Occupation: 
+      %td= @ortho.occupation
+    %tr
+      %td Referred by: 
+      %td= @ortho.reffered_by
+    %tr
+      %td Mobile: 
+      %td= @ortho.mobile_no
+    %tr
+      %td Res Tel: 
+      %td= @ortho.resident_no
+    %tr
+      %td Birthdate: 
+      %td= @ortho.birth_date
+%table.show-details.table.table-bordered
+  %thead
+    %tr
+      %th{:colspan=> '2'} Examination
+  %tbody
+    %tr
+      %td Date: 
+      %td= @ortho.examination_date 
+    %tr
+      %td Examination: 
+      %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    %tr
+      %td Created At:
+      %td= @ortho.created_at
+    %tr
+      %td Updated At:
+      %td= @ortho.updated_at

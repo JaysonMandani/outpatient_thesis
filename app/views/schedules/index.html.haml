@@ -1,0 +1,19 @@
+- @page_title = "List of Schedules"
+.container
+  .header
+    .left.subtitle
+      %h1 Schedule
+      %span
+        %i.icon-list.icons-black
+        List of Schedules
+    = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#AddSched", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
+  .content.both
+    .row
+      .span12
+        #posts_list
+          = render(:partial => "list")
+#AddSched{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")
+
+#EditSched{'class' => 'modal hide fade record modal-ortho-add'}
+  = render(:partial => "form")

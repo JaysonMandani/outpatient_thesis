@@ -34,7 +34,7 @@ class AdminUser < ActiveRecord::Base
   
   def self.search(search, page) 
   paginate :per_page => 10, :page => page,
-           :conditions => ['first_name || lower(full_name) LIKE ?', "%#{search}%"],
+           :conditions => ['first_name || lower(first_name) LIKE ?', "%#{search}%"],
            :order => 'first_name'
   end
 

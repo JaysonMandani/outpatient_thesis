@@ -13,7 +13,7 @@ class Orthodontic < ActiveRecord::Base
   
 	def self.search(search, page)	
 		paginate :per_page => 10, :page => page,
-				 :conditions => ['full_name LIKE ?', "%#{search}%"],
+				 :conditions => ['full_name || lower(full_name) LIKE ?', "%#{search}%"],
 				 :order => 'full_name'
 	end
 

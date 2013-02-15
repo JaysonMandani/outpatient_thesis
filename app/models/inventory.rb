@@ -9,7 +9,7 @@ class Inventory < ActiveRecord::Base
 
 	def self.search(search, page)	
 	paginate :per_page => 10, :page => page,
-			 :conditions => ['brand_name LIKE ?', "%#{search}%"],
+			 :conditions => ['brand_name || lower(brand_name) LIKE ?', "%#{search}%"],
 			 :order => 'brand_name'
 	end
 

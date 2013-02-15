@@ -21,7 +21,7 @@ class ImmunizationsController < ApplicationController
   end
 
   def create
-    @immunization = Immunization.new(params[:immune])
+    @immunization = Immunization.new(params[:immunization])
     if @immunization.save
       flash[:success] = "Immunization has been created."
       @immunizations = Immunization.where(:pediatric_id => @pediatric.id)

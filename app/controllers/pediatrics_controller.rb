@@ -52,7 +52,7 @@ class PediatricsController < ApplicationController
 	def update
 		@pediatrics = Pediatric.find(params[:id])
 		if @pediatrics.update_attributes(params[:pediatric])
-			flash[:success] = "Successfully created record."
+			flash[:success] = "Successfully updated record."
 			@pediatrics = Pediatric.search(params[:search], params[:page])
 		end
 	end

@@ -6,14 +6,14 @@
       %tr
         %th Name
         %th Address
-        %th Gender
+        %th Contact no.
         %th Actions
     - @orthodontics.each do |ortho|
       %tbody
         %tr{:class => cycle('odd', 'even')}
           %td= ortho.full_name
           %td= ortho.address
-          %td= ortho.sex
+          %td= ortho.mobile_no
           %td
             .btn-group
               = link_to raw('<i class="icon-eye-open icons-black"></i>'), ortho, remote: true, role: "button", :class => 'btn', :title => 'view'

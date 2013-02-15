@@ -27,20 +27,17 @@
             %td= f.label(:reffered_by)
             %td= f.text_field(:reffered_by, :class=> 'input-medium')
             %td= f.label(:birth_date)
-            %td= f.text_field(:birth_date, :class=> 'input-medium datepicker', placeholder: 'YYYY-MM-DD')
+            %td= f.text_field(:birth_date, :class=> 'input-medium datepicker', placeholder: 'YYYY-MM-DD', "data-date-format" => "yyyy-mm-dd")
           %tr
             %td= f.label(:mobile_no)
             %td= f.text_field(:mobile_no, :class=> 'input-medium')
             %td= f.label(:age)
-            %td
-              = f.select(:age, 1..90, { :include_blank => true }, :class=>'auto')
+            %td= f.select(:age, 1..90, { :include_blank => true }, :class=>'auto')
           %tr
             %td= f.label(:sex)
-            %td
-              = f.select(:sex, %w{Male Female},:class=>'auto' )
+            %td= f.select(:sex, %w{Male Female},:class=>'auto' )
             %td= f.label(:status)
-            %td
-              = f.select(:status, %w{Single Married})
+            %td= f.select(:status, %w{Single Married})
           %tr
             %th{:colspan => "8"}
               %h4 Examination
@@ -49,7 +46,6 @@
             %td= f.text_field(:examination_date, :class => 'input-medium')
           %tr
             %td= f.label(:examination_result)
-            %td{:colspan => "8"}
-              = f.text_area(:examination_result, :size => '40x5')
+            %td{:colspan => "8"}= f.text_area(:examination_result, :size => '40x5')
   .modal-footer
     = submit_tag("Submit", {:class => 'btn btn-primary'})

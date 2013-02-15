@@ -15,6 +15,7 @@ class Pediatric < ActiveRecord::Base
 				 :conditions => ['full_name LIKE ?', "%#{search}%"],
 				 :order => 'full_name'
 	end
+  
  	#scope :search, lambda {|query| where(["name LIKE ?", "%#{query}%"])}
 
   def self.total_on(date)

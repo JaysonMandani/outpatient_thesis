@@ -84,6 +84,26 @@
           %td{:colspan => "3"} Supplementary
           %td= @pediatric.supplementary
       
+  %table.both.table.table-striped.table-hover.table-bordered
+    %thead
+      %tr
+        %th{:colspan=> '5'} Immunization
+    %tbody
+      %tr
+        %th Date
+        %th Vaccine Name
+        %th Vaccination Session
+        %th Booster
+        %th Vaccination Type
+    - @immunizations.each do |immune|
+      %tbody
+        %tr{:class => cycle('odd', 'even')}
+          %td= immune.created_at.strftime("%B %e, %Y")
+          %td= immune.vaccination_name
+          %td= immune.vaccination_session
+          %td= immune.booster_session
+          %td= immune.vaccination_type
+
   %table.show-details.table.table-bordered
     %thead
       %tr
@@ -109,7 +129,8 @@
         %td= @pediatric.created_at
       %tr
         %td Updated At:
-        %td= @pediatric.updated_at
+        %td
+
 
 
 .modal-footer

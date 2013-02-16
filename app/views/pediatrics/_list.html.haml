@@ -6,14 +6,14 @@
       %tr
         %th Name
         %th Address
-        %th Gender
+        %th Contact no.
         %th Actions
     - @pediatrics.each do |pedia|
       %tbody
         %tr{:class => cycle('odd', 'even')}
           %td= pedia.full_name
           %td= pedia.address
-          %td= pedia.sex
+          %td= pedia.contact_no
           %td
             .btn-group
               = link_to raw('<i class="icon-tag icons-black"></i>'), {controller: 'immunizations', pediatric_id: pedia.id}, role: "button", :class => 'btn', :title => 'immunization'

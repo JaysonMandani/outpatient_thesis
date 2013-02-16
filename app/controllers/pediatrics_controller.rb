@@ -9,11 +9,12 @@ class PediatricsController < ApplicationController
 	before_filter :find_pendings
 	before_filter :load
 	before_filter :find_user
+	# before_filter :find_immune
 
 	def load
-		@orthodontic = Orthodontic.new
 		@pediatrics = Pediatric.search(params[:search], params[:page])
 		@pediatric = Pediatric.new
+		@immunizations = Immunization.where(:pediatric_id => params[:id])
 	end
 
 	def index
@@ -70,5 +71,6 @@ class PediatricsController < ApplicationController
 	    @pediatric = Pediatric.find_by_id(params[:id])
 	  end
 	end
+
 end
 

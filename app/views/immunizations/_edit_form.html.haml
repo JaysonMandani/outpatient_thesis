@@ -1,4 +1,4 @@
-= form_for(:immunization, :url => {:action => 'update', :id => @immunization.id, :pediatric_id => @pediatric.id}, remote: true) do |f|
+= form_for(:immunization, :url => {:action => 'change', :id => @immunization.id, :pediatric_id => @pediatric.id}, remote: true) do |f|
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
     %h3 Immunization

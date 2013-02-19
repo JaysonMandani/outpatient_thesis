@@ -21,12 +21,12 @@ class PendingsController < ApplicationController
 	def show
 		pending = Date.today
 		@pendings = Pending.scheduled_on(pending)
-		if @pendings
-		flash[:notification] = 'Notification'
-		return true
-		else
-		return false
-		end
+		# if @pendings
+		# flash[:notification] = 'Notification'
+		# return true
+		# else
+		# return false
+		# end
 	end
 
 	def create

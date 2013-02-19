@@ -1,7 +1,9 @@
 class Pending < ActiveRecord::Base
     attr_accessible :full_name, :patient_status, :pending_for
 
-    validates :full_name, :presence => true, :length => {:maximum => 50}
+    REGEX = /^([^\d\W]|[-\s])*$/
+
+    validates :full_name, :presence => true, :format => { :with => REGEX }, :uniqueness => true, :length => {:maximum => 50}
     
   	def self.search(search, page)	
 	paginate :per_page => 10, :page => page,

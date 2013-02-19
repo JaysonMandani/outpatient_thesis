@@ -1,4 +1,5 @@
 $("#post_errors").hide(300);
-$("#flash_notice").html("#{escape_javascript(flash[:notice])}");
-$("#flash_notice").show(300);
+$("#flash_notice").html("#{escape_javascript raw(flash_display)}");
+$("#flash_notice").show();
 $("#posts_list").html("#{escape_javascript( render(:partial => 'list'))}");
+$("#sched_calendar").html("#{escape_javascript( render(:partial => 'calendar'))}");

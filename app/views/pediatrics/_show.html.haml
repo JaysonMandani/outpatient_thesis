@@ -2,8 +2,7 @@
   %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
   %h3 Show Record
 .modal-body
-  
-  %table.show-details.table.table-bordered
+  %table.table.table-bordered.table-striped
     %thead
       %tr
         %th{:colspan=> '6'} Personal Information
@@ -87,7 +86,9 @@
   %table.both.table.table-striped.table-hover.table-bordered
     %thead
       %tr
-        %th{:colspan=> '5'} Immunization
+        %td{:colspan=> '5'} 
+          %h4
+            Immunization
     %tbody
       %tr
         %th Date
@@ -130,8 +131,6 @@
       %tr
         %td Updated At:
         %td
-
-
-
 .modal-footer
+  = link_to raw('<i class="icon-print icons-black"></i>'), show_path(pediatric_id: @pediatric.id), id: 'my-link', title: 'print'
   %a.btn{"data-dismiss" => "modal", :href => "#"} Close

@@ -1,26 +1,25 @@
-.records
-  %h4.left
-  = render(:partial => 'shared/search')
-  %table.both.table.table-striped.table-hover.table-bordered
-    %thead
-      %tr
-        %th Name
-        %th Contact no.
-        %th Schedule for
-        %th Date
-        %th Time
-        %th Actions
-    - @schedules.each do |sched|
-      %tbody
-        %tr{:class => cycle('odd', 'even')}
-          %td= sched.name
-          %td= sched.contact_no
-          %td= sched.schedule_for
-          %td= sched.scheduled_on.to_date.strftime("%B %e, %Y")
-          %td= sched.time.to_date.strftime("%I:%M %p")
-          %td
-            .btn-group
-              = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_schedule_path(sched), remote: true, role: "button", :class => 'btn', :title => 'edit'
-              = link_to raw('<i class="icon-trash icons-black"></i>'), sched, remote: true, :confirm => 'Are you sure?', method: :delete, role: "button", :class => 'btn', :title => 'delete'
-  .pagination
-    = will_paginate @schedules, :container => true
+%h4.left
+= render(:partial => 'shared/search')
+%table.both.table.table-striped.table-hover.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Contact no.
+      %th Schedule for
+      %th Date
+      %th Time
+      %th Actions
+  - @schedules.each do |sched|
+    %tbody
+      %tr{:class => cycle('odd', 'even')}
+        %td= sched.name
+        %td= sched.contact_no
+        %td= sched.schedule_for
+        %td= sched.scheduled_on.to_date.strftime("%B %e, %Y")
+        %td= sched.time ? sched.time.strftime("%I:%M %p") : nil
+        %td
+          .btn-group
+            = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_schedule_path(sched), remote: true, role: "button", :class => 'btn', :title => 'edit'
+            = link_to raw('<i class="icon-trash icons-black"></i>'), sched, remote: true, :confirm => 'Are you sure do you want to delete this record?', method: :delete, role: "button", :class => 'btn', :title => 'delete'
+.pagination
+  = will_paginate @schedules, :container => true

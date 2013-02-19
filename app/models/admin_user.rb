@@ -9,11 +9,12 @@ class AdminUser < ActiveRecord::Base
   attr_accessor :password
   attr_accessor :secret_a
 
+  REGEX = /^([^\d\W]|[-\s])*$/
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
   # "sexy" validations
-  validates :first_name, :presence => true, :length => {:maximum => 25}
-  validates :last_name, :presence => true, :length => {:maximum => 50}
+  validates :first_name, :presence => true, :format => { :with => REGEX }, :uniqueness => true, :length => {:maximum => 25}
+  validates :last_name, :presence => true, :uniqueness => true, :length => {:maximum => 50}
   validates :email, :presence => true, :length => {:maximum => 100},
     :format => EMAIL_REGEX, :confirmation => true
     

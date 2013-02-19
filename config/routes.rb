@@ -12,7 +12,8 @@ OutpatientThesis::Application.routes.draw do
   match 'admin', to: 'admin#login'
   match 'orthodontics', to: 'orthodontics#create'
   match '/home', to: 'access#home'
-  match '/show', to: 'orthodontics#print_records'
+  # match '/show', to: 'orthodontics#print_records'
+  match '/show', to: 'pediatrics#print_records'
 
   # T`he priority is based upon order of creation:
   # first created -> highest priority.

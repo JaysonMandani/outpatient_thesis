@@ -10,10 +10,16 @@
   .content.both
     .row
       .span12
-        #posts_list
-          = render(:partial => "list")
-#AddSched{'class' => 'modal hide fade record modal-ortho-add'}
+        .records
+          = render(:partial => "calendar")
+          %br 
+          #posts_list
+            = render(:partial => "list")
+#AddSched{'class' => 'modal hide fade record'}
   = render(:partial => "form")
 
-#EditSched{'class' => 'modal hide fade record modal-ortho-add'}
+#EditSched{'class' => 'modal hide fade record'}
   = render(:partial => "form")
+
+#ShowSched{'class' => 'modal hide fade record'}
+  = render(:partial => "show")

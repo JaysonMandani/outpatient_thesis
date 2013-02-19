@@ -9,24 +9,18 @@ class SchedulesController < ApplicationController
 	before_filter :load
 
 	def load
+		@date = params[:month] ? Date.parse(params[:month]) : Date.today
 		@schedules = Schedule.search(params[:search], params[:page])
 		@schedule = Schedule.new
 	end
 
 	def index
-		# @schedules = Schedule.find(:all)
-		# @date = params[:month] ? Date.parse(params[:month]) : Date.today
 	end
 
 	def show
+		@schedule = Schedule.find(params[:id])
 		schedule = Date.today
 		@schedules = Schedule.scheduled_on(schedule)
-		if @schedules
-			flash[:notification] = 'Notification'
-			return true
-		else
-			return false
-		end
 	end
 
 	def create

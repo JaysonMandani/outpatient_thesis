@@ -4,8 +4,9 @@
   $("#post_errors").show(300);
 - else
   $("#post_errors").hide(300);
-  $("#flash_notice").html("#{escape_javascript(flash[:notice])}");
-  $("#flash_notice").show(300);
+  $("#flash_notice").html("#{escape_javascript raw(flash_display)}");
+  $("#flash_notice").show();
   $(":input:not(input[type=submit])").val("");
   $('#AddSched').modal('hide');
   $("#posts_list").html("#{escape_javascript( render(:partial => 'list'))}");
+  $("#calendar").html("#{escape_javascript( render(:partial => 'calendar'))}");

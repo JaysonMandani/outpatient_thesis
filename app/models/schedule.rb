@@ -3,8 +3,10 @@ class Schedule < ActiveRecord::Base
 
 	#has_and_belongs_to_many :editors, :class_name => "AdminUser"
 
+	REGEX = /^([^\d\W]|[-\s])*$/
+
 	# "sexy" validations
-	validates :name, :presence => true, :length => {:maximum => 50}
+	validates :name, :presence => true, :length => {:maximum => 50}, :format => { :with => REGEX }
 	validates :contact_no, :presence => true, :length => {:maximum => 15}
 	validates :schedule_for, :presence => true
 	validates :scheduled_on, :presence => true

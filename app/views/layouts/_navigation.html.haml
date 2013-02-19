@@ -17,8 +17,6 @@
           %li{:class => ('active' if current_page?(pendings_path))}= link_to "Pending", pendings_path
           %li{:class => ('active' if current_page?(analytics_path))}= link_to "Analytics", analytics_path
         %ul.nav.pull-right
-          - if !flash[:schedules].blank?
-            %li= link_to(flash[:schedules], {:controller => 'schedules', :action => 'show'}, raw("<i class=\"icon-align-left\"></i>") )
           - if !flash[:pendings].blank?
             %li= link_to(flash[:pendings], {:controller => 'pendings', :action => 'show'}, raw("<i class=\"icon-align-left\"></i>") )
           %li#fat-menu.dropdown

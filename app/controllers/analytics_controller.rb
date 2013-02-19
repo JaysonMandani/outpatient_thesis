@@ -6,6 +6,7 @@ class AnalyticsController < ApplicationController
 	before_filter :find_user
 
 	layout 'admin'
+	
 	def index
 		
 	end

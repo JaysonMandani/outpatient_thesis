@@ -3,7 +3,7 @@ class OrthodonticsController < ApplicationController
 	layout 'admin', :except => [:print_records]
 
 	before_filter :confirm_logged_in
-	before_filter :confirm_admin, :except => [:index, :new, :create, :show]
+	# before_filter :confirm_admin, :except => [:index, :new, :create, :show]
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :load

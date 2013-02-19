@@ -4,9 +4,9 @@ class Orthodontic < ActiveRecord::Base
   	#has_and_belongs_to_many :editors, :class_name => "AdminUser"
 
   	# "sexy" validations
-    regex = /^([^\d\W]|[-\s])*$/
+    REGEX = /^([^\d\W]|[-\s])*$/
 
-  	validates :full_name, :presence => true, :format => { :with => regex }, :uniqueness => true, :length => {:maximum => 50}
+  	validates :full_name, :presence => true, :format => { :with => REGEX }, :uniqueness => true, :length => {:maximum => 50}
   	validates :address, :presence => true, :length => {:maximum => 80}
   	validates :age, :presence => true
   	validates :mobile_no, :presence => true, :length => {:maximum => 15}

@@ -1,0 +1,26 @@
+.modal-header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+  %h3 Outpatient Scheduled
+.modal-body
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th{:colspan => "2"} Personal Information
+    %tbody
+      %tr
+        %td Name
+        %td= @schedule.name
+      %tr
+        %td Contact No.
+        %td= @schedule.contact_no
+      %tr
+        %td Schedule For
+        %td= @schedule.schedule_for
+      %tr
+        %td Scheduled On
+        %td= @schedule.scheduled_on
+      %tr
+        %td Time
+        %td= @schedule.time ? @schedule.time.strftime("%I:%M %p") : nil
+.modal-footer
+  %a.btn{"data-dismiss" => "modal", :href => "#"} Close

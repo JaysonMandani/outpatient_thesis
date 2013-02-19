@@ -4,9 +4,11 @@ class Pediatric < ActiveRecord::Base
   
   	#has_many :immunizations
   	#has_and_belongs_to_many :editors, :class_name => "AdminUser"
- 
+    
+    REGEX = /^([^\d\W]|[-\s])*$/
+
   	# "sexy" validations
-  	validates :full_name, :presence => true, :length => {:maximum => 50}, :uniqueness => {:case_sensitive => false}
+  	validates :full_name, :presence => true, :format => { :with => REGEX }, :length => {:maximum => 50}, :uniqueness => true
   	validates :address, :presence => true, :length => {:maximum => 80}
   	validates :contact_no, :presence => true, :length => {:maximum => 15}
 

@@ -1,0 +1,138 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th{:colspan=> '6'} Pediatrics Patient Information
+  %tbody
+    %tr
+      %td Full Name: 
+      %td{:colspan=> '5'}= @pedia.full_name
+    %tr
+      %td Address: 
+      %td{:colspan=> '5'}= @pedia.address
+    %tr
+      %td Mother's Name: 
+      %td= @pedia.mother_name
+      %td Occupation:
+      %td= @pedia.m_occupation
+      %td Age: 
+      %td= @pedia.m_age
+    %tr
+      %td Fathers's Name: 
+      %td= @pedia.father_name
+      %td Occupation:
+      %td= @pedia.f_occupation
+      %td Age: 
+      %td= @pedia.f_age 
+    %tr
+      %td Birthdate: 
+      %td{:colspan=> '5'}= @pedia.birth_date
+    %tr
+      %td Age:
+      %td{:colspan=> '5'}= @pedia.f_age
+    %tr
+      %td Contact No: 
+      %td{:colspan=> '5'}= @pedia.contact_no
+
+  %table.show-details.table.table-bordered
+    %thead   
+      %tr
+        %th{:colspan => "4"} Birth History and Development
+    %tbody    
+      %tr
+        %td Term:
+        %td= @pedia.term
+        %td Head Circ
+        %td= @pedia.head_circ
+      %tr
+        %td Delivery
+        %td= @pedia.delivery
+        %td Chest Circ
+        %td= @pedia.chest_circ
+      %tr
+        %td Birth Weight
+        %td= @pedia.birth_weight
+        %td Abdominal
+        %td= @pedia.abdominal
+      %tr
+        %td Birth Length
+        %td= @pedia.birth_length
+        %td Obstetrician
+        %td= @pedia.obsterician
+      %tr
+        %td.allergy{:colspan => "4"}
+          %label Allergy
+      %tr
+        %td Food
+        %td{:colspan => "3"}= @pedia.food
+      %tr
+        %td Medicine
+        %td{:colspan => "3"}= @pedia.medicine 
+      %tr
+        %td Others
+        %td{:colspan => "3"}= @pedia.others
+      %tr 
+        %th{:colspan => "4"} Feeding History and Immunization
+      %tr
+        %td{:colspan => "3"} Type of Feeding
+        %td Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      %tr
+        %td{:colspan => "3"} Supplementary
+        %td= @pedia.supplementary
+%br
+  %br
+  %br
+  %br 
+  %br
+  %br 
+  %br
+  %br 
+  %br
+  %br     
+    %table.both.table.table-striped.table-hover.table-bordered
+      %thead
+        %tr
+          %td{:colspan=> '5'} 
+            %h4
+              Immunization
+      %tbody
+        %tr
+          %th Date
+          %th Vaccine Name
+          %th Vaccination Session
+          %th Booster
+          %th Vaccination Type
+      - @immunizations.each do |immune|
+        %tbody
+          %tr{:class => cycle('odd', 'even')}
+            %td= immune.created_at.strftime("%B %e, %Y")
+            %td= immune.vaccination_name
+            %td= immune.vaccination_session
+            %td= immune.booster_session
+            %td= immune.vaccination_type
+
+    %table.show-details.table.table-bordered
+      %thead
+        %tr
+          %th{:colspan=> '2'} Examination
+      %tbody
+        %tr
+          %td Examination Date: 
+          %td January 1, 2012
+        %tr
+          %td Weight:
+          %td= @pedia.weight
+        %tr
+          %td Height: 
+          %td= @pedia.height
+        %tr
+          %td History and Physical Examination:
+          %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        %tr
+          %td Physician's Instructions
+          %td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        %tr
+          %td Created At:
+          %td= @pedia.created_at
+        %tr
+          %td Updated At:
+          %td

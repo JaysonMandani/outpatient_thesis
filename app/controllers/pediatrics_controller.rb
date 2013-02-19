@@ -1,6 +1,6 @@
 class PediatricsController < ApplicationController
 
-	layout 'admin'
+	layout 'admin', :except => [:print_records]
 
 	before_filter :find_pediatric
 	before_filter :confirm_logged_in
@@ -22,6 +22,11 @@ class PediatricsController < ApplicationController
 
 	def show
 		@pediatric = Pediatric.find(params[:id])
+	end
+
+	def print_records
+		@pediatric = Pediatric.where(:pediatric_id => @pediatric.id)
+		@pedia = Pediatric.find(params[:pediatric_id])
 	end
 
 	def create

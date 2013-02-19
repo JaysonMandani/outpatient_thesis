@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
       #   redirect_to(:action => 'index', :pediatric_id => @pediatric.id)
       #   return false
       # end
-      redirect_to(:action => 'index')
+      # render root_path
     else
       return true
     end

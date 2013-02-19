@@ -5,7 +5,8 @@
 - else
   $("#post_errors").hide(300);
   $("#flash_notice").html("#{escape_javascript raw(flash_display)}");
-  $("#flash_notice").show()
+  $("#flash_notice").show();
   $(":input:not(input[type=submit])").val("");
   $("#EditSched").modal("hide");
   $("#posts_list").html("#{escape_javascript( render(:partial => 'list'))}");
+  $("#sched_calendar").html("#{escape_javascript( render(:partial => 'calendar'))}");

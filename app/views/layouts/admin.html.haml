@@ -20,7 +20,6 @@
           - flash.each do |key, value|
             = content_tag(:div, value, id: "flash_notice", class: "alert alert-#{key}")
         = yield
-  = render "layouts/footer"
 #viewDetails.modal.hide.fade.admin-profile.modal-show
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;

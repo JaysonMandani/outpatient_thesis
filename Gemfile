@@ -13,6 +13,7 @@ gem 'sass-rails'
 gem 'haml-rails'
 # gem 'pdfkit'
 # gem 'wkhtmltopdf-binary'
+gem "watu_table_builder", :require => "table_builder"
 
 
 group :development, :test do

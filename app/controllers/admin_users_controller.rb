@@ -3,7 +3,7 @@ class AdminUsersController < ApplicationController
   layout 'admin'
   
   before_filter :confirm_logged_in
-  before_filter :confirm_admin, :except => [:index, :edit, :update]
+  # before_filter :confirm_admin, :except => [:index, :edit, :update]
   before_filter :find_schedules
   before_filter :find_pendings
   before_filter :find_user

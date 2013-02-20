@@ -26,11 +26,6 @@ class CreatePediatrics < ActiveRecord::Migration
       t.string "others"
       t.string "type_of_feeding"
       t.string "supplementary"
-      t.string "weight"
-      t.string "height"
-      t.date "examination_date"
-      t.text "history_physical_exams"
-      t.text "physicians_instructions"
       t.timestamps
     end
   end

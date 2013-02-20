@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217042449) do
+ActiveRecord::Schema.define(:version => 20130220055459) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(:version => 20121217042449) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "ortho_examinations", :force => true do |t|
+    t.integer  "orthodontic_id"
+    t.date     "examination_date"
+    t.text     "examination_result"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "ortho_examinations", ["orthodontic_id"], :name => "index_ortho_examinations_on_orthodontic_id"
+
   create_table "orthodontics", :force => true do |t|
     t.string   "full_name"
     t.string   "address"
@@ -77,6 +87,19 @@ ActiveRecord::Schema.define(:version => 20121217042449) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
+
+  create_table "pedia_examinations", :force => true do |t|
+    t.integer  "pediatric_id"
+    t.string   "weight"
+    t.string   "height"
+    t.date     "examination_date"
+    t.text     "history_physical_exams"
+    t.text     "physicians_instructions"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "pedia_examinations", ["pediatric_id"], :name => "index_pedia_examinations_on_pediatric_id"
 
   create_table "pediatrics", :force => true do |t|
     t.string   "full_name"

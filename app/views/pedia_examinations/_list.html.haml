@@ -1,0 +1,27 @@
+.records.clearfix
+  %strong.left
+    Name:
+    = link_to @pediatric.full_name, pediatrics_path 
+  %br/
+  %h4.left
+  %table.both.table.table-striped.table-hover.table-bordered
+    %thead
+      %tr
+        %th Examination Date
+        %th Weight
+        %th Height
+        %th History Examinations
+        %th Physician's Instructions
+        %th Actions
+    - @pedia_exams.each do |exam|
+      %tbody
+        %tr{:class => cycle('odd', 'even')}
+          %td= exam.examination_date.to_date.strftime("%B %e, %Y")
+          %td= exam.weight
+          %td= exam.height
+          %td= exam.history_physical_exams
+          %td= exam.physicians_instructions
+          %td
+            .btn-group
+              = link_to raw('<i class="icon-pencil icons-black"></i>'),  {:action => 'edit', :id => exam.id, :pediatric_id => @pediatric.id }, remote: true, role: "button", :class => 'btn', :title => 'edit'
+              = link_to raw('<i class="icon-trash icons-black"></i>'), {:action => 'destroy', :id => exam.id, :pediatric_id => @pediatric.id }, role: "button", remote: true, method: :delete, :class => 'btn', :title => 'delete', :confirm => 'Are you sure do you want to delete this record?'

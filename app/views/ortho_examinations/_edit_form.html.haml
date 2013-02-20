@@ -1,0 +1,17 @@
+= form_for(:ortho_exam, :url => {:action => 'change', :id => @ortho_exam.id, :orthodontic_id => @orthodontic.id}, remote: true) do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Ortho Examination
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@ortho_exam)
+    .addrecord
+      %table
+        %tr
+          %td= f.label(:examination_date)
+          %td= f.text_field(:examination_date, :class => 'input-medium datepicker', placeholder: 'YYYY-MM-DD', "data-date-format" => "yyyy-mm-dd")
+        %tr
+          %td= f.label(:examination_result)
+          %td{:colspan => "8"}= f.text_area(:examination_result, :size => '40x5')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

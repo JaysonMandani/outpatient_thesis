@@ -1,0 +1,31 @@
+= form_for(:pedia_exam, :url => {:action => 'change', :id => @pedia_exam.id, :pediatric_id => @pediatric.id}, remote: true) do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+    %h3 Pedia Examination
+  .modal-body
+    #post_errors.alert.alert-error{:style => "display:none"}
+      - error_messages_for(@pedia_exam)
+    .addrecord
+      %table
+        %tr
+          %td= f.label(:pediatric_id, "Pedia")
+          %td= f.select(:pediatric_id, [@pediatric.id])
+        %tr
+          %td= f.label(:examination_date)
+          %td= f.text_field(:examination_date, :class => 'input-medium datepicker', placeholder: 'YYYY-MM-DD', "data-date-format" => "yyyy-mm-dd")
+        %tr
+          %td= f.label(:weight)
+          %td= f.text_field(:weight, :class => 'input-medium')
+        %tr
+          %td= f.label(:height)
+          %td= f.text_field(:height, :class => 'input-medium')
+        %tr
+          %td= f.label(:history_physical_exams)
+          %td{:colspan => "8"}
+            = f.text_area(:history_physical_exams, :size => '40x5')
+        %tr
+          %td= f.label(:physicians_instructions)
+          %td{:colspan => "8"}
+            = f.text_area(:physicians_instructions, :size => '40x5')
+  .modal-footer
+    = submit_tag("Submit", {:class => 'btn btn-primary'})

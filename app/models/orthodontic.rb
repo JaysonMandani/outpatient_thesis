@@ -1,7 +1,5 @@
 class Orthodontic < ActiveRecord::Base
   	attr_accessible :full_name, :address, :age, :occupation, :mobile_no, :resident_no, :status, :birth_date, :sex, :reffered_by, :birthplace, :examination_date, :examination_result
-  
-  	#has_and_belongs_to_many :editors, :class_name => "AdminUser"
 
   	# "sexy" validations
     REGEX = /^([^\d\W]|[-\s])*$/

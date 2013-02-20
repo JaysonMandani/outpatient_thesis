@@ -8,6 +8,8 @@ OutpatientThesis::Application.routes.draw do
   resources :analytics
   resources :immunizations 
   resources :pendings
+  resources :ortho_examinations
+  resources :pedia_examinations
   
   match 'admin', to: 'admin#login'
   match 'orthodontics', to: 'orthodontics#create'

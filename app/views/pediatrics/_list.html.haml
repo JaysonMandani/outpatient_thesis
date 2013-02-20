@@ -16,10 +16,14 @@
           %td= pedia.contact_no
           %td
             .btn-group
-              = link_to raw('<i class="icon-tasks icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
-              = link_to raw('<i class="icon-tag icons-black"></i>'), {controller: 'immunizations', pediatric_id: pedia.id}, role: "button", :class => 'btn', :title => 'immunization'
+            - if @user.admin == true
+              = link_to raw('<i class="icon-tasks icons-black"></i>'), pedia_examinations_path(pediatric_id: pedia.id), role: "button", :class => 'btn', :title => 'examination'
+              = link_to raw('<i class="icon-tag icons-black"></i>'), immunizations_path(pediatric_id: pedia.id), role: "button", :class => 'btn', :title => 'immunization'
               = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
               = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_pediatric_path(pedia), remote: true, role: "button", :class => 'btn', :title => 'edit'
               = link_to raw('<i class="icon-trash icons-black"></i>'), pedia, :confirm => 'Are you sure do you want to delete this record?', method: :delete, role: "button", remote: true, :class => 'btn', :title => 'delete'
+            - else
+              = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'
+
   .pagination
     = will_paginate(@pediatrics, :container => true)

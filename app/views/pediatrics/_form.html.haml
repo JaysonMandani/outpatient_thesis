@@ -100,27 +100,5 @@
           %tr
             %td= f.label(:supplementary)
             %td= f.text_field(:supplementary, :class=>'input-xlarge')
-
-          / Examination
-          %tr
-            %th{:colspan => "8"}
-              %h4 Examination
-          %tr
-            %td= f.label(:examination_date)
-            %td= f.text_field(:examination_date, :class => 'input-medium')
-          %tr
-            %td= f.label(:weight)
-            %td= f.text_field(:weight, :class => 'input-medium')
-          %tr
-            %td= f.label(:height)
-            %td= f.text_field(:height, :class => 'input-medium')
-          %tr
-            %td= f.label(:history_physical_exams)
-            %td{:colspan => "8"}
-              = f.text_area(:history_physical_exams, :size => '40x5')
-          %tr
-            %td= f.label(:physicians_instructions)
-            %td{:colspan => "8"}
-              = f.text_area(:physicians_instructions, :size => '40x5')
   .modal-footer
     = submit_tag("Submit", {:class => 'btn btn-primary'})

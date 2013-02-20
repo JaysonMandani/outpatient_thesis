@@ -37,21 +37,21 @@ class ApplicationController < ActionController::Base
       end
    end
 
-  # admin restrictions
-  def confirm_admin
-    adminuser = session[:user_id]
-    user = AdminUser.find(adminuser)
-    unless user.admin == true
-      flash[:error] = "You don't have permission to use this action"
-      # if params[:controller] == "immunizations"
-      #   redirect_to(:action => 'index', :pediatric_id => @pediatric.id)
-      #   return false
-      # end
-      # render root_path
-    else
-      return true
-    end
-  end
+  # # admin restrictions
+  # def confirm_admin
+  #   adminuser = session[:user_id]
+  #   user = AdminUser.find(adminuser)
+  #   unless user.admin == true
+  #     flash[:error] = "You don't have permission to use this action"
+  #     if params[:controller] == "immunizations"
+  #       redirect_to immunizations_path(:pediatric_id => @pediatric.id)
+  #       return false
+  #     end
+  #     redirect_to root_path
+  #   else
+  #     return true
+  #   end
+  # end
 
   # Find user
   def find_user

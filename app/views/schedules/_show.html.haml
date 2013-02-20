@@ -18,7 +18,7 @@
         %td= @schedule.schedule_for
       %tr
         %td Scheduled On
-        %td= @schedule.scheduled_on
+        %td= @schedule.scheduled_on ? @schedule.scheduled_on.strftime("%B %e, %Y") : nil
       %tr
         %td Time
         %td= @schedule.time ? @schedule.time.strftime("%I:%M %p") : nil

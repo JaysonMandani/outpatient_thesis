@@ -1,11 +1,6 @@
 class AdminUser < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :address, :age, :sex, :birthdate, :mobile, :email, :username, :secret_q
   
-  # has_and_belongs_to_many :pediatrics
-  # has_and_belongs_to_many :orthodontics
-  # has_and_belongs_to_many :inventories
-  # has_and_belongs_to_many :schedules
-
   attr_accessor :password
   attr_accessor :secret_a
 

@@ -4,17 +4,13 @@ class ImmunizationsController < ApplicationController
 
   before_filter :find_pediatric
   before_filter :confirm_logged_in
-  before_filter :confirm_admin, :except => [:list, :new, :create, :create_new, :add_new, :show]
+  # before_filter :confirm_admin, :except => [:list, :new, :create, :add_new, :show]
   before_filter :find_user
   before_filter :load
 
   def load
     @immunizations = Immunization.where(:pediatric_id => @pediatric.id)
     @immunization = Immunization.new(:pediatric_id => @pediatric.id)
-  end
-
-  def show
-    @immunization = Immunization.find(params[:id])
   end
 
   def create

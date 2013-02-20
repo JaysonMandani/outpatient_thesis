@@ -12,8 +12,6 @@ class CreateOrthodontics < ActiveRecord::Migration
       t.string "sex"
       t.string "reffered_by"
       t.string "birthplace"
-      t.date "examination_date"
-      t.text "examination_result"
       t.timestamps
     end
   end

@@ -1,7 +1,7 @@
 class Orthodontic < ActiveRecord::Base
   audited
-  Audited.current_user_method = :authenticated_user
-	attr_accessible :full_name, :address, :age, :occupation, :mobile_no, :resident_no, :status, :birth_date, :sex, :reffered_by, :birthplace, :examination_date, :examination_result
+  Audited.current_user_method = :username
+  attr_accessible :full_name, :address, :age, :occupation, :mobile_no, :resident_no, :status, :birth_date, :sex, :reffered_by, :birthplace, :examination_date, :examination_result
 
 	# "sexy" validations
   REGEX = /^([^\d\W]|[-\s])*$/

@@ -13,11 +13,11 @@ class AccessController < ApplicationController
 
   def home
     user_id = session[:user_id]
-    @current_user = User.find(user_id)
-    birthdate = @current_user.birthdate
+    @user = User.find(user_id)
+    birthdate = @user.birthdate
     birthday_today = Date.today
     if birthdate.to_date.strftime("%B %d") == birthday_today.to_date.strftime("%B %d")
-      update_age =  @current_user.age + 1
+      update_age =  @user.age + 1
       flash[:greetings] = 'Notification'
     end
 

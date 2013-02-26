@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   audited
 
-  attr_accessible :first_name, :last_name, :address, :age, :sex, :birthdate, :mobile, :email, :username, :secret_q
+  attr_accessible :first_name, :last_name, :address, :age, :sex, :birthdate, :mobile, :email, :username, :secret_q, :admin
   
   attr_accessor :password
   attr_accessor :secret_a
@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   after_save :clear_password
 
   before_save :create_hashed_answer
+  before_save :create_remember_token
   after_save :clear_answer
   
   attr_protected :hashed_password, :salt, :audit_ids
@@ -41,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(username="", password="")
-    user = AdminUser.find_by_username(username)
+    user = User.find_by_username(username)
     if user && user.password_match?(password)
       return user
     else
@@ -51,7 +52,7 @@ class User < ActiveRecord::Base
 
   # find email address
   def self.email_address(email="")
-    address = AdminUser.find_by_email(email)
+    address = User.find_by_email(email)
     if address
       return address
     else
@@ -61,7 +62,7 @@ class User < ActiveRecord::Base
 
   # authenticate secret question and answers
   def self.authenticate_secret(secret_q="", secret_a="")
-    question = AdminUser.find_by_secret_q(secret_q)
+    question = User.find_by_secret_q(secret_q)
     if question && question.secret_a?(secret_a)
       return question
     else
@@ -70,13 +71,13 @@ class User < ActiveRecord::Base
   end
 
   def secret_a?(secret_a="")
-    hashed_secret_a == AdminUser.hash_secret_with_salt(secret_a, salt)
+    hashed_secret_a == User.hash_secret_with_salt(secret_a, salt)
   end
 
   # The same password string with the same hash method and salt
   # should always generate the same hashed_password.
   def password_match?(password="")
-    hashed_password == AdminUser.hash_with_salt(password, salt)
+    hashed_password == User.hash_with_salt(password, salt)
   end
   
 
@@ -97,8 +98,8 @@ class User < ActiveRecord::Base
 
   def create_hashed_password
     unless password.blank?
-      self.salt = AdminUser.make_salt(username) if salt.blank?
-      self.hashed_password = AdminUser.hash_with_salt(password, salt)
+      self.salt = User.make_salt(username) if salt.blank?
+      self.hashed_password = User.hash_with_salt(password, salt)
     end
   end
 
@@ -108,13 +109,17 @@ class User < ActiveRecord::Base
 
   def create_hashed_answer
     unless secret_a.blank?
-      self.salt = AdminUser.make_salt(username) if salt.blank?
-      self.hashed_secret_a = AdminUser.hash_secret_with_salt(secret_a, salt)
+      self.salt = User.make_salt(username) if salt.blank?
+      self.hashed_secret_a = User.hash_secret_with_salt(secret_a, salt)
     end
   end
 
   def clear_answer
     self.secret_a = nil
+  end
+
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
   end
 
 end

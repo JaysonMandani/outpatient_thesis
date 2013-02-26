@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class SessionsController < ApplicationController
   
   layout 'public'
 
@@ -21,11 +21,15 @@ class AdminController < ApplicationController
       session[:username] = authorized_user.username
       admin = authorized_user.admin == true
       if admin
-  		flash[:success] = "Hello! administrator you are now logged in."
-  		redirect_to home_path
+    		flash[:success] = "Hello! administrator you are now logged in."
+    		session[:remember_token] = authorized_user.remember_token
+        log_in authorized_user
+        redirect_back_or home_path
       else
         flash[:success] = "You are now logged in."
-        redirect_to home_path
+        session[:remember_token] = authorized_user.remember_token
+        log_in authorized_user
+        redirect_back_or home_path
       end
   	else 
   		flash[:notice] = "Incorrect username/password."
@@ -34,6 +38,7 @@ class AdminController < ApplicationController
   end
 
   def logout
+    log_out
   	session[:user_id] = nil
     session[:username] = nil
   	redirect_to(:action => "login")

@@ -29,6 +29,7 @@ class OrthodonticsController < ApplicationController
 		@orthodontic = Orthodontic.new(params[:orthodontic])
 		if @orthodontic.save
 		  flash[:success] = "Successfully created record."
+		  current_user
 		  @orthodontic.audits.last.user
 		  @orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
@@ -42,6 +43,7 @@ class OrthodonticsController < ApplicationController
 		@orthodontic = Orthodontic.find(params[:id])
 		if @orthodontic.update_attributes(params[:orthodontic])
 			flash[:success] = "Successfully updated record."
+			@orthodontic.audits.last.user
 			@orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
 	end

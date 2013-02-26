@@ -16,7 +16,7 @@
           %td= ortho.mobile_no
           %td
             .btn-group
-            - if current_user.admin?
+            - if current_user
               = link_to raw('<i class="icon-tasks icons-black"></i>'), ortho_examinations_path(orthodontic_id: ortho.id), role: "button", :class => 'btn', :title => 'examination'
               = link_to raw('<i class="icon-eye-open icons-black"></i>'), ortho, remote: true, role: "button", :class => 'btn', :title => 'view'
               = link_to raw('<i class="icon-pencil icons-black"></i>'), edit_orthodontic_path(ortho), remote: true, role: "button", :class => 'btn', :title => 'edit'

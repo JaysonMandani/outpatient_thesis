@@ -10,12 +10,13 @@ OutpatientThesis::Application.routes.draw do
   resources :pendings
   resources :ortho_examinations
   resources :pedia_examinations
+  resources :sessions
   
-  match 'admin', to: 'admin#login'
   match 'orthodontics', to: 'orthodontics#create'
   match '/home', to: 'access#home'
   # match '/show', to: 'orthodontics#print_records'
   match '/show', to: 'pediatrics#print_records'
+  match '/logout', to: 'sessions#logout', via: :delete
 
   # T`he priority is based upon order of creation:
   # first created -> highest priority.
@@ -66,7 +67,7 @@ OutpatientThesis::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'admin#login'
+  root :to => 'sessions#login'
 
   # See how all your routes lay out with "rake routes"
 

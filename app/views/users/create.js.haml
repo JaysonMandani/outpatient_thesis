@@ -1,11 +1,11 @@
 - if @user.errors.any?
   $("#flash_notice").hide(300);
-  $("#post_errors").html("#{escape_javascript(error_messages_for(@admin_user))}");
+  $("#post_errors").html("#{escape_javascript(error_messages_for(@user))}");
   $("#post_errors").show(300);
 - else
   $("#post_errors").hide(300);
-  $("#flash_notice").html("#{escape_javascript(flash[:notice])}");
-  $("#flash_notice").show(300);
+  $("#flash_notice").html("#{escape_javascript raw(flash_display)}");
+  $("#flash_notice").show()
   $(":input:not(input[type=submit])").val("");
   $('#AddUser').modal('hide');
   $("#posts_list").html("#{escape_javascript( render(:partial => 'list'))}");

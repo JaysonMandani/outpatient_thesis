@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   
-  helper :all
+  # helper :all
+  include SessionsHelper
 
   protect_from_forgery 
 
@@ -36,6 +37,11 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
+  # def current_user
+  #   add_to_audit('login', 'sessions', "John Smith")
+  #   super
+  # end
 
   # # admin restrictions
   # def confirm_admin

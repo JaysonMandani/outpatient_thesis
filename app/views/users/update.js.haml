@@ -1,6 +1,6 @@
 - if @user.errors.any?
   $("#flash_notice").hide(300);
-  $("#post_errors").html("#{escape_javascript(error_messages_for(@admin_user))}");
+  $("#post_errors").html("#{escape_javascript(error_messages_for(@user))}");
   $("#post_errors").show(300);
 - else
   $("#post_errors").hide(300);

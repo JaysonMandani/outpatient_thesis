@@ -4,8 +4,13 @@
     %h3 Users
   .modal-body
     #post_errors.alert.alert-error{:style => "display:none"}
-      - error_messages_for(@admin_user)
+      - error_messages_for(@user)
     .addrecord
+      %span
+        Click the check box below if you want create administrator.
+        %br
+        = f.check_box(:admin)
+    %br
       %table
         %tr
           %td= f.label(:first_name)

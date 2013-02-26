@@ -21,15 +21,17 @@ module SessionsHelper
 		user == current_user
 	end
 
-	def log_in_user
+	def confirm_logged_in
 		unless log_in?
 			store_location
 			flash[:notice] = "Unable to proceed please log in first."
-  			redirect_to(:controller => 'admin', :action => 'login')
+  			redirect_to root_path
 		end
 	end
 
 	def log_out
+		session[:user_id] = nil
+    session[:username] = nil
 		self.current_user = nil
 		cookies.delete(:remember_token)
 	end

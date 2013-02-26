@@ -11,7 +11,7 @@
           %li{:class => ('active' if current_page?(orthodontics_path))}= link_to "Ortho", orthodontics_path
           %li{:class => ('active' if current_page?(pediatrics_path))}= link_to "Pedia", pediatrics_path
           %li{:class => ('active' if current_page?(inventories_path))}= link_to "Inventories", inventories_path
-          - if current_user.admin? && !current_user?
+          - if current_user.admin? && current_user?(current_user)
             %li{:class => ('active' if current_page?(users_path))}= link_to "Users", users_path
           %li{:class => ('active' if current_page?(schedules_path))}= link_to "Schedules", schedules_path
           %li{:class => ('active' if current_page?(pendings_path))}= link_to "Pending", pendings_path

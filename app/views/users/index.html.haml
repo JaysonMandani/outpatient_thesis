@@ -6,6 +6,8 @@
       %span
         %i.icon-list.icons-black
         List of Admin Records
+  %br
+  - if current_user.admin?
     = link_to raw('<i class="icon-plus-sign icons-black"></i>&nbsp;&nbsp;Add Record'), "#AddUser", "role" => "button", "data-toggle" => "modal", :class => 'btn btn-success right'
   .content
     .row

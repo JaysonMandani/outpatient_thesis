@@ -16,7 +16,7 @@
           %td= pedia.contact_no
           %td
             .btn-group
-            - if current_user.admin?
+            - if current_user.admin? && !current_user?(pedia)
               = link_to raw('<i class="icon-tasks icons-black"></i>'), pedia_examinations_path(pediatric_id: pedia.id), role: "button", :class => 'btn', :title => 'examination'
               = link_to raw('<i class="icon-tag icons-black"></i>'), immunizations_path(pediatric_id: pedia.id), role: "button", :class => 'btn', :title => 'immunization'
               = link_to raw('<i class="icon-eye-open icons-black"></i>'), pedia, remote: true, role: "button", :class => 'btn', :title => 'view'

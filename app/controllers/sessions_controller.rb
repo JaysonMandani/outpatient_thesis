@@ -37,11 +37,9 @@ class SessionsController < ApplicationController
  	  end
   end
 
-  def logout
+  def destroy
     log_out
-  	session[:user_id] = nil
-    session[:username] = nil
-  	redirect_to(:action => "login")
+    redirect_to root_path
   end
 
   def forgot_password

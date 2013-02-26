@@ -1,4 +1,6 @@
-class AdminUser < ActiveRecord::Base
+class User < ActiveRecord::Base
+  audited
+
   attr_accessible :first_name, :last_name, :address, :age, :sex, :birthdate, :mobile, :email, :username, :secret_q
   
   attr_accessor :password
@@ -22,7 +24,7 @@ class AdminUser < ActiveRecord::Base
   before_save :create_hashed_answer
   after_save :clear_answer
   
-  attr_protected :hashed_password, :salt
+  attr_protected :hashed_password, :salt, :audit_ids
   attr_protected :hashed_secret_a, :salt
   
   scope :named, lambda {|first,last| where(:first_name => first, :last_name => last)}

@@ -3,7 +3,7 @@ OutpatientThesis::Application.routes.draw do
   resources :orthodontics
   resources :pediatrics
   resources :schedules
-  resources :admin_users
+  resources :users
   resources :inventories
   resources :analytics
   resources :immunizations 

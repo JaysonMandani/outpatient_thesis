@@ -8,7 +8,6 @@ class PediatricsController < ApplicationController
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :load
-	before_filter :find_user
 	# before_filter :find_immune
 
 	def load

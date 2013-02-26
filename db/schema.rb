@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220055459) do
+ActiveRecord::Schema.define(:version => 20130226065519) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(:version => 20130220055459) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "audits", :force => true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         :default => 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
+  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
+  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
+  add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "immunizations", :force => true do |t|
     t.integer  "pediatric_id"
@@ -152,6 +173,26 @@ ActiveRecord::Schema.define(:version => 20130220055459) do
     t.time     "time"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name",      :limit => 25
+    t.string   "last_name",       :limit => 50
+    t.string   "email",                         :default => "",    :null => false
+    t.string   "hashed_password", :limit => 40
+    t.string   "username",        :limit => 20
+    t.string   "salt",            :limit => 40
+    t.string   "hashed_secret_a", :limit => 40
+    t.string   "secret_q"
+    t.boolean  "admin",                         :default => false
+    t.string   "remember_token"
+    t.string   "mobile"
+    t.date     "birthdate"
+    t.string   "sex"
+    t.string   "address"
+    t.integer  "age"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
   end
 
   create_table "users_inventories", :id => false, :force => true do |t|

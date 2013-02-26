@@ -33,20 +33,20 @@
         %tr
           %td Name
           %td
-            = @user.first_name
-            \&nbsp;#{@user.last_name}
+            = current_user.first_name
+            \&nbsp;#{current_user.last_name}
         %tr
           %td Address
-          %td= @user.address
+          %td= current_user.address
         %tr
           %td Age
-          %td= @user.age
+          %td= current_user.age
         %tr
           %td Sex
-          %td= @user.sex
+          %td= current_user.sex
         %tr
           %td Birthdate
-          %td= @user.birthdate.to_date.strftime("%B %d, %Y")
+          %td= current_user.birthdate.to_date.strftime("%B %d, %Y")
   .modal-footer
     %a.btn{"data-dismiss" => "modal", :href => "#"} Close
   :javascript

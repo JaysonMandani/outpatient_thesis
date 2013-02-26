@@ -7,7 +7,6 @@ class OrthodonticsController < ApplicationController
 	before_filter :find_schedules
 	before_filter :find_pendings
 	before_filter :load
-	before_filter :find_user
 
   	def load
     	@orthodontics = Orthodontic.search(params[:search], params[:page])
@@ -30,6 +29,7 @@ class OrthodonticsController < ApplicationController
 		@orthodontic = Orthodontic.new(params[:orthodontic])
 		if @orthodontic.save
 		  flash[:success] = "Successfully created record."
+		  @orthodontic.audits.last.user
 		  @orthodontics = Orthodontic.search(params[:search], params[:page])
 		end
 	end

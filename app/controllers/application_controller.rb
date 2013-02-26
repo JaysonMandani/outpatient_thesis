@@ -29,13 +29,13 @@ class ApplicationController < ActionController::Base
 
   def find_pendings
     @pendings = Pending.where(:created_at => (Time.now.midnight)..Time.now.midnight + 1.day)
-      if @pendings == []
-          return false
-        else
-          flash[:pendings]
-          return true
-      end
-   end
+    if @pendings == []
+      return false
+    else
+      flash[:pendings]
+      return true
+    end
+  end
 
   # # admin restrictions
   # def confirm_admin
@@ -52,11 +52,5 @@ class ApplicationController < ActionController::Base
   #     return true
   #   end
   # end
-
-  # Find user
-  def find_user
-    user_id = session[:user_id]
-    @user = AdminUser.find(user_id)
-  end
 
 end

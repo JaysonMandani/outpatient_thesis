@@ -1,7 +1,7 @@
-class CreateAdminUsers < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :admin_users do |t|
-      t.string "first_name", :limit => 25
+    create_table :users do |t|
+    	t.string "first_name", :limit => 25
       t.string "last_name", :limit => 50
       t.string "email", :default => "", :null => false
       t.string "hashed_password", :limit => 40

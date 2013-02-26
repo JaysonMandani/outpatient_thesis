@@ -14,6 +14,7 @@ gem 'haml-rails'
 # gem 'pdfkit'
 # gem 'wkhtmltopdf-binary'
 gem "watu_table_builder", :require => "table_builder"
+gem "audited-activerecord", "~> 3.0"
 
 
 group :development, :test do

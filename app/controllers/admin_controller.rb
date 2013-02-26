@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   end
   
   def attempt_login
-  	authorized_user = AdminUser.authenticate(params[:username], params[:password])
+  	authorized_user = User.authenticate(params[:username], params[:password])
   	if authorized_user
   		session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
@@ -44,7 +44,7 @@ class AdminController < ApplicationController
   end
 
   def find_email
-    email = AdminUser.email_address(params[:email])
+    email = User.email_address(params[:email])
     if email
       @users = email.id
       redirect_to(:action => 'authentication', :id => @users)
@@ -55,12 +55,12 @@ class AdminController < ApplicationController
   end
 
   def authentication
-    @secrets = AdminUser.find(params[:id])
+    @secrets = User.find(params[:id])
   end
 
   def retrieve_password
-    @secrets = AdminUser.find(params[:id])
-    authorized_secret = AdminUser.authenticate_secret(params[:secret_q], params[:secret_a])
+    @secrets = User.find(params[:id])
+    authorized_secret = User.authenticate_secret(params[:secret_q], params[:secret_a])
     if authorized_secret
       session[:user_id] = authorized_secret.id
       session[:username] = authorized_secret.username
@@ -72,11 +72,11 @@ class AdminController < ApplicationController
   end
 
   def change_password
-    @change = AdminUser.find(params[:id])
+    @change = User.find(params[:id])
   end
 
   def update_password
-    @change = AdminUser.find(params[:id])
+    @change = User.find(params[:id])
     if @change.update_attributes(params[:change])
       flash[:notice] = 'Password Updated'
       redirect_to(:action => 'login')

@@ -1,10 +1,9 @@
 class PediaExaminationsController < ApplicationController
- layout 'admin'
+  layout 'admin'
 
   before_filter :find_pediatric
   before_filter :confirm_logged_in
   # before_filter :confirm_admin, :except => [:list, :new, :create, :add_new, :show]
-  before_filter :find_user
   before_filter :load
 
   def load

@@ -1,15 +1,12 @@
 = form_for @user, remote: true  do |f|
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-    %h3 Inventories
+    %h3 Users
   .modal-body
     #post_errors.alert.alert-error{:style => "display:none"}
       - error_messages_for(@admin_user)
     .addrecord
       %table
-        %tr
-          %td{:colspan => "2"}
-          %h4 User Form
         %tr
           %td= f.label(:first_name)
           %td= f.text_field(:first_name, :class=> 'input-large')

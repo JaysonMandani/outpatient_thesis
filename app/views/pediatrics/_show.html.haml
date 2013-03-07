@@ -132,5 +132,5 @@
         %td Updated At:
         %td
 .modal-footer
-  = link_to raw('<i class="icon-print icons-black"></i>'), show_path(pediatric_id: @pediatric.id), id: 'my-link', title: 'print'
+  = link_to raw('<i class="icon-print icons-black"></i>'), print_pedia_path(pediatric_id: @pediatric.id), id: 'my-link', title: 'print'
   %a.btn{"data-dismiss" => "modal", :href => "#"} Close

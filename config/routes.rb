@@ -14,8 +14,8 @@ OutpatientThesis::Application.routes.draw do
   
   match 'orthodontics', to: 'orthodontics#create'
   match '/home', to: 'access#home'
-  # match '/show', to: 'orthodontics#print_records'
-  match '/show', to: 'pediatrics#print_records'
+  match '/print_ortho', to: 'orthodontics#print_records'
+  match '/print_pedia', to: 'pediatrics#print_records'
   match '/logout', to: 'sessions#destroy', via: :delete
 
   # T`he priority is based upon order of creation:

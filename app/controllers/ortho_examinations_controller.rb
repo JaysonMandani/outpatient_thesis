@@ -3,12 +3,12 @@ class OrthoExaminationsController < ApplicationController
 
   before_filter :find_orthodontic
   before_filter :confirm_logged_in
+  before_filter :load
   # before_filter :confirm_admin, :except => [:list, :new, :create, :add_new, :show]
 
   def load
     @ortho_exams = OrthoExamination.where(:orthodontic_id => @orthodontic.id)
-    @ortho_exam = OrthoExamination
-  before_filter :load.new(:orthodontic_id => @orthodontic.id)
+    @ortho_exam = OrthoExamination.new(:orthodontic_id => @orthodontic.id)
   end
 
   def create
@@ -22,6 +22,7 @@ class OrthoExaminationsController < ApplicationController
   def edit
     @ortho_exam = OrthoExamination.find(params[:id])
   end
+  
   def change
     @ortho_exams = OrthoExamination.find(params[:id])
     if @ortho_exams.update_attributes(params[:ortho_exam])

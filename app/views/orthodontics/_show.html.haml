@@ -57,5 +57,5 @@
         %td= @orthodontic.updated_at
 
 .modal-footer
-  = link_to raw('<i class="icon-print icons-black"></i>'), show_path(orthodontic_id: @orthodontic.id), id: 'my-link', title: 'print'
+  = link_to raw('<i class="icon-print icons-black"></i>'), print_ortho_path(orthodontic_id: @orthodontic.id), id: 'my-link', title: 'print'
   %a.btn{"data-dismiss" => "modal", :href => "#"} Close

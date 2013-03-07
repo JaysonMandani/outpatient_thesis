@@ -1,12 +1,10 @@
-#calendar
-  = title = "Scheduled Calendar"
-  %h2#month
-    = link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d")
-    = h @date.strftime("%B %Y")
-    = link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d")
-  = calendar_for(@schedules, :year => @date.year, :month => @date.month) do |t|
-    = t.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
-    - t.day(:day_method => :scheduled_on) do |date, schedules|
-      = date.day
-      - for schedule in schedules
-        %li= link_to h(schedule.name), schedule, remote: true
+%h2#month
+  = link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d")
+  = h @date.strftime("%B %Y")
+  = link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d")
+= calendar_for(@schedules, :year => @date.year, :month => @date.month) do |t|
+  = t.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
+  - t.day(:day_method => :scheduled_on) do |date, schedules|
+    = date.day
+    - for schedule in schedules
+      %li= link_to h(schedule.name), schedule, remote: true

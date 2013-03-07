@@ -7,7 +7,7 @@
       %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
         %meta{:content => "JsonManz", :name => "author"}
           = csrf_meta_tags
-          = javascript_include_tag "application", "bootstrap.js", "highcharts.js", "bootstrap-datepicker", "exporting.js"
+          = javascript_include_tag "application", "highcharts.js", "exporting.js", "bootstrap.js", "bootstrap-datepicker"
           = stylesheet_link_tag('bootstrap', 'datepicker', 'public', 'admin', :media => "all")
           = render 'shared/shim'
           %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
@@ -49,10 +49,3 @@
           %td= current_user.birthdate.to_date.strftime("%B %d, %Y")
   .modal-footer
     %a.btn{"data-dismiss" => "modal", :href => "#"} Close
-  :javascript
-    $(function() {
-      $(".datepicker").datepicker({
-        format: "yyyy-mm-dd"
-      });
-    });
-

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   audited
+  # attr_protected :username, :audit_ids
+  # Audited.current_user_method = :authenticated_user
 
   attr_accessible :first_name, :last_name, :address, :age, :sex, :birthdate, :mobile, :email, :username, :secret_q, :admin
   
@@ -25,7 +27,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
   after_save :clear_answer
   
-  attr_protected :hashed_password, :salt, :audit_ids
+  attr_protected :hashed_password, :salt
   attr_protected :hashed_secret_a, :salt
   
   scope :named, lambda {|first,last| where(:first_name => first, :last_name => last)}

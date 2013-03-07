@@ -11,10 +11,18 @@
     .row
       .span12
         .records
-          = render(:partial => "calendar")
-          %br 
-          #posts_list
-            = render(:partial => "list")
+          .tabble
+            %ul.nav.nav-tabs
+              %li.active= link_to "Scheduled List", "#calendar_scheduled", "data-toggle" => "tab"
+              %li= link_to "Scheduled Calendar", "#scheduled_list", "data-toggle" => "tab"
+            .tab-content
+              #calendar_scheduled{'class' => 'tab-pane active'}
+                #posts_list
+                  = render(:partial => "list")
+              #scheduled_list{'class' => 'tab-pane tabbable-with-border'}
+                #calendar
+                  = render(:partial => "calendar")
+                
 #AddSched{'class' => 'modal hide fade record'}
   = render(:partial => "form")
 

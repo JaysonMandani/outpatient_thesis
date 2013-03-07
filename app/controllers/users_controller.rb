@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   layout 'admin'
   
   before_filter :confirm_logged_in
-  # before_filter :confirm_admin, :except => [:index, :edit, :update]
   before_filter :find_schedules
   before_filter :find_pendings
   before_filter :load
@@ -28,6 +27,8 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Admin user has been created.'
       @users = User.search(params[:search], params[:page])
+      username = @user.audits.find(:last)
+      username.update_attributes!(:username => current_user.username.to_s)
     end
   end
 
@@ -40,6 +41,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       flash[:success] = 'Admin user has been updated.'
       @users = User.search(params[:search], params[:page])
+      username = @user.audits.find(:last)
+      username.update_attributes!(:username => current_user.username.to_s)
     end
   end
   
@@ -47,5 +50,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]).destroy
     flash[:success] = "Admin user destroyed."
     @users = User.search(params[:search], params[:page])
+    username = @user.audits.find(:last)
+    username.update_attributes!(:username => current_user.username.to_s)
   end
 end
